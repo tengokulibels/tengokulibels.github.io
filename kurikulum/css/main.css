@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: "montserrat-medium", sans-serif;
     color: #000000;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     text-rendering: optimizeLegibility;
 }
 
@@ -1483,7 +1483,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: inline-block;
     height: 1px;
     width: 550px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -1988,7 +1988,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .home-content__buttons {
-    padding-top: 6rem;
+    padding-top: 0rem;
     text-align: left;
 }
 
@@ -2372,7 +2372,8 @@ html.no-csstransitions .home-content__main {
  .s-about {
     padding-top: 16.2rem;
     padding-bottom: 9rem;
-    background: linear-gradient(to top right, #59110b 0%, #bb002c 100%);
+    background-image: url("../images/bg.png");
+    background-size: cover;
     color: #c1c1c1;
     position: relative;
 }
@@ -2604,15 +2605,15 @@ html.no-csstransitions .home-content__main {
 .s-services {
     padding-top: 16.2rem;
     padding-bottom: 13.2rem;
-    background-color: #f5f5f5;
-    color: #717171;
+    background-color: #FFFFFF;
+    color: #757575;
     position: relative;
 }
 
 .s-services-dept {
     padding-top: 16.2rem;
     padding-bottom: 13.2rem;
-    background-color: #151a1a;
+    background-color: #59110b;
     color: #d7d7d7;
     position: relative;
 }
@@ -3002,7 +3003,7 @@ html.no-csstransitions .home-content__main {
 .clients__slide {
     display: block;
     opacity: .55;
-    padding: 1.5rem 2.8rem;
+    padding: 1.5rem 1rem;
     -webkit-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
     
@@ -3185,7 +3186,7 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 .s-contact {
     background-color: #151515;
-    background-image: url("../images/contact-bg.png");
+    background-image: url("../images/555.jpg");
     background-repeat: no-repeat;
     background-position: center, center;
     padding-top: 15rem;
@@ -3646,7 +3647,7 @@ footer .row {
     padding: 0;
     outline: 0;
     border: none;
-    width: 85px;
+    width: 205px;
     height: 28px;
     background: url("../images/logo-footer.png") no-repeat center;
     background-size: 85px 28px;

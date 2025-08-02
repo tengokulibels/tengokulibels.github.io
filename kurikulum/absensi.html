@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Absensi Tengoku</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body class="bg-white-100 p-6">
+  <div class="max-w-2xl mx-auto bg-white shadow p-6 rounded-xl">
+    <h1 class="text-2xl font-bold mb-4">Absensi Murid Tengoku</h1>
+
+    <div class="flex gap-2 mb-4">
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Masukkan Nama Murid"
+        class="border p-2 flex-1 rounded"
+      />
+    </div>
+    
+    <div class="flex gap-2 mb-4">
+    <button
+        onclick="markAttendance('Hadir')"
+        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        Hadir
+      </button>
+      <button
+        onclick="markAttendance('Izin')"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Izin
+      </button>
+      <button
+        onclick="markAttendance('Alpha')"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+        Alpha
+      </button></div>
+
+    <table class="w-full table-auto border text-sm" id="attendanceTable">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-2 py-1">No</th>
+          <th class="border px-2 py-1">Nama</th>
+          <th class="border px-2 py-1">Status</th>
+          <th class="border px-2 py-1">Waktu</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button
+      onclick="exportToExcel()"
+      class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      Export ke Excel
+    </button>
+  </div>
+
+  <script>
+    let count = 1;
+
+    function markAttendance(status) {
+      const name = document.getElementById('nameInput').value.trim();
+      if (!name) {
+        alert('Please enter a name.');
+        return;
+      }
+
+      const table = document.getElementById('attendanceTable').querySelector('tbody');
+      const row = table.insertRow();
+      row.insertCell(0).innerText = count++;
+      row.insertCell(1).innerText = name;
+      row.insertCell(2).innerText = status;
+      row.insertCell(3).innerText = new Date().toLocaleString();
+
+      document.getElementById('nameInput').value = '';
+    }
+
+    function exportToExcel() {
+      const table = document.getElementById('attendanceTable');
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.table_to_sheet(table);
+
+      // Make header row (first row) bold
+      const range = XLSX.utils.decode_range(ws['!ref']);
+      for (let C = range.s.c; C <= range.e.c; ++C) {
+        const cellAddress = XLSX.utils.encode_cell({ r: 0, c: C });
+        if (!ws[cellAddress]) continue;
+        ws[cellAddress].s = {
+          font: { bold: true }
+        };
+      }
+
+      wb.Sheets['Attendance'] = ws;
+      XLSX.utils.book_append_sheet(wb, ws, 'Attendance');
+
+      XLSX.writeFile(wb, 'Attendance.xlsx', { cellStyles: true });
+    }
+  </script>
+</body>
+</html>

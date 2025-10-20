@@ -488,27 +488,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script>
-    function updateTimer() {
-        // yyyy-MM-dd HH:mm:ss
-      past  = Date.parse("2020-09-15 00:00:00");
-      now     = new Date();
-      diff    = now - past;
-    
-      years  = Math.floor( diff / (1000*60*60*24*30*12) );
-      months = Math.floor( diff / (1000*60*60*24*30) );
-      days   = Math.floor( diff / (1000*60*60*24) );
-    
-      y = years;
-      M = months - years  * 12;
-      d = days   - months * 30;
-      document.getElementById("timer")
-        .innerHTML =
-          '<div>' + y + '<span> Years,  </span>'
-           + M + '<span> Months,  </span></div>' +
-        '<div>and ' + d + '<span> Days.</span></div>';
-    }
-    setInterval('updateTimer()', 1000 );</script>
+     
     <script>
         // Selecting the iframe element
         var frame = document.getElementById("Iframe");

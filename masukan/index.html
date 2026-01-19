@@ -35,6 +35,104 @@
     ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+      --bg: #0b0d12;
+      --card: #111111;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #331f1f;
+      --accent: #d61212;
+      --radius: 0px 16px;
+    }
+
+    *{box-sizing:border-box}
+    .app{max-width:1200px;margin:18px auto;padding:46px;background: var(--card);border-radius: var(--radius);box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px var(--border);margin-top: 12rem;margin-bottom: 18rem;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .list-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+    /* Floating Field */
+    .field {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 16px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-size: 2rem;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field label {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 2.5rem;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      background: var(--card);
+      padding: 0 6px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 124, 124, 0.15);
+    }
+
+    .field input:focus + label,
+    .field textarea:focus + label,
+    .field input:not(:placeholder-shown) + label,
+    .field textarea:not(:placeholder-shown) + label {
+      top: -6px;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 0px 12px;
+      border: none;
+      background: linear-gradient(135deg, #d62727, #f32727);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(230, 71, 71, 0.35);
+    }
+
+    .success {
+      margin-top: 14px;
+      font-size: 2rem;
+      color: #9effc3;
+      display: none;
+    }
+
+</style>
 
 </head>
 
@@ -79,7 +177,7 @@
 
     <!-- home
     ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.jpg" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.png" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
 
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
@@ -91,15 +189,15 @@
                 <h3>「天国クラブ」ウェブサイト</h3>
 
                 <h1>
-                    私たちについて</br>
+                    意見を入力する</br>
                 </h1>
                 <p class="p">
-                    Tentang Kami</u>
+                    Kirim Masukan</u>
                 </p>
                 
 
                 <div class="home-content__buttons">
-                    <a href="#tentang" class="smoothscroll btn btn--stroke">
+                    <a href="#masukan" class="smoothscroll btn btn--stroke">
                         Lebih Lanjut
                     </a>
                 </div>
@@ -107,7 +205,7 @@
             </div>
 
             <div class="home-content__scroll">
-                <a href="#tentang" class="scroll-link smoothscroll">
+                <a href="#masukan" class="scroll-link smoothscroll">
                     <span>Scroll Down</span>
                 </a>
             </div>
@@ -126,102 +224,50 @@
 
     </section> <!-- end s-home -->
 
-    <section id='tentang' class="s-services-dept">
-
+<section id='masukan' class="s-services-dept">
 <div class="row about-desc" data-aos="fade-up">
     <div class="col-full">
         <img src="images/logo-1.png" alt="---" width="50%" style="filter: drop-shadow(0px 0px 5px #012220)">
-        <p>
-            Sebuah Klub Bahasa Jepang SMAN 15 Surabaya yang hingga kini masih menjalani Kegiatan Belajar Mengajar di SMAN 15 Surabaya.</p>
-    </div>
+       </div>
 </div> <!-- end about-desc -->
+
 <div class="about__line2"></div>
-<div class="home-content__line"></div>
-</section>
+</section class="s-services-dept">
+      
+       <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <form
+    class="app"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSevA3OtSMQNcGWzSpUnIRYc7gKH5o4ZTYPCskZMzDf4dy1ntw/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="handleSubmit()"
+  >
+    <h1 style="margin-top: 1rem; margin-bottom: 0.5rem;">Kirim Masukanmu!</h1>
+    <p>Kirim pesan apapun mulai dari kekurangan, kelebihan, saran, pendapat dan lain lain yang berkaitan dengan TENGOKU.</p>
 
-    <!-- clients
-    ================================================== -->
-    <section id="materi" class="s-works">
+    <div class="field">
+      <input
+        type="number"
+        name="entry.160629884"
+        required
+        placeholder=" "
+      />
+      <label>Kelas 10/11 (Angka)</label>
+    </div>
 
-        <div class="intro-wrap">
+    <div class="field">
+      <textarea
+        name="entry.766235656"
+        required
+        placeholder=" "
+        oninput="autoGrow(this)"
+      ></textarea>
+      <label>Masukan atau Pendapat</label>
+    </div>
 
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Projek Pengembangan Kurikulum Orisinil</h3>
-                <h1 class="display-2">Kurikulum Mirai</h1>
-            </div>
-        </div> <!-- end section-header -->
-        </div> 
-
-        <div class="row works-content about-desc" data-aos="fade-up">
-        <div class="col-full">
-        <img src="images/cll2.png" alt="---" width="50%">
-            <p>
-            Kurikulum Mirai - Adalah sebuah kurikulum orisinil Klub Jepang SMAN 15 Surabaya yang dikembangkan melalui "Projek Mirai 2025". Kurikulum
-        ini di design untuk menciptakan Sumber Daya Manusia yang siap bertanding dalam perlombaan atau bahkan dalam ujian yang berhubungan dengan lingkungan
-        Bahasa ataupun Budaya Jepang.</p>
-        </div>
-        </div> <!-- end about-desc -->
-
-        <div class="row works-content about-desc" data-aos="fade-up">
-        <div class="col-full">
-        <img src="images/serap.png" alt="---" width="50%">
-            <p>
-            Kurikulum Mirai - Adalah sebuah kurikulum orisinil Klub Jepang SMAN 15 Surabaya yang dikembangkan dengan dasar serapan dari metode Ujian JLPT dan juga dari Kurikulum
-        Japan Foundation, yaitu Irodori.</p>
-        </div>
-        </div>
-
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full about-desc">
-                <p><br><br>Materi Kurikulum Mirai & Tengoku masih akan terus dikembangkan hingga 6 bulan kedepan. Maka dari itu, materi yang ada disini akan terus bertambah seiring berjalannya waktu. (7/31/2025)</p>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row clients-testimonials" data-aos="fade-up">
-            <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h1 class="display-2">Disini Kalian Akan...</h1>
-            </div>
-        </div> <!-- end section-header -->
-            <div class="col-full">
-                <div class="testimonials">
-
-                    <div class="testimonials__slide">
-                        <img src="images/444.png" />
-
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Belajar Kana & Kanji</span>
-                        </div>
-
-                    </div>
-
-                    <div class="testimonials__slide">
-                        <img src="images/555.jpg" />
-
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Belajar Kaiwa (Percakapan)</span>
-                        </div>
-
-                    </div>
-
-                    <div class="testimonials__slide">
-                        <img src="images/333.png" />
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Dapet Komunitas Jepang</span>
-                        </div>
-
-                    </div>
-
-                </div><!-- end testimonials -->
-                
-            </div> <!-- end col-full -->
-        </div> <!-- end client-testimonials -->
-
-       
+    <button type="submit">Kirim!</button>
+    <div class="success" id="successMsg">✔ Pesanmu tersampaikan</div>
+  </form>
 
     </section> <!-- end s-clients -->
 
@@ -370,6 +416,17 @@
             frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
         }
     </script>
+ <script>
+  function handleSubmit() {
+    setTimeout(() => {
+      document.getElementById("success").style.display = "block";
+    }, 400);
+  }
+  function autoGrow(el) {
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  }
+</script>
 
 </body>
 

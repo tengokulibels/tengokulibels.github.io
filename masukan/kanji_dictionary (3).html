@@ -1,41 +1,10 @@
-    <!DOCTYPE html>
-<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
+<!doctype html>
+<html lang="id">
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Website Materi Tengoku</title>
-    <meta name="Website Materi Tengoku" content="Website Materi Tengoku">
-    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fonts.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://unpkg.com/feather-icons"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kamus Kanji — JLPT (Indonesia)</title>
+  <script src="https://unpkg.com/feather-icons"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
   :root {
@@ -45,8 +14,11 @@
     font-family:'Noto Sans JP',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
   }
   *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#eef2f6;-webkit-font-smoothing:antialiased}
   .app{max-width:1180px;margin:18px auto;padding:18px}
+  header{display:flex;gap:12px;align-items:center;justify-content:space-between}
   .brand{display:flex;gap:12px;align-items:center}
+  h1{margin:0;font-size:18px}
   .controls{display:flex;gap:8px;align-items:center}
   input[type="search"], select, button{
     background:#0f1113;border:1px solid #301b1b;padding:10px 12px;border-radius:0px 10px;
@@ -86,7 +58,7 @@
   .list-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
   .kanji-grid{
     display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
-    height:123vh;overflow:auto;padding-right:6px;
+    height:80vh;overflow:auto;padding-right:6px;
   }
   .kanji-card{
     border-radius:0px 10px;padding:10px;
@@ -122,6 +94,7 @@
   .words{margin-top:8px}
   .word{padding:10px;border-radius:8px;background:#181818;margin-bottom:8px}
   .loading{opacity:.85;font-style:italic}
+  footer{margin-top:14px;color:var(--muted);font-size:13px}
   
   /* --- RESPONSIVE --- */
   @media (max-width:980px){
@@ -159,111 +132,14 @@
 
 </style>
 
+
 </head>
-
-<body id="top">
-
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo-1.png" alt="Homepage">
-            </a>
-        </div>
-        <nav class="header-nav">
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-            <div class="header-nav__content">
-                <h3>Navigation</h3>
-                <ul class="header-nav__list">
-                    <li class="current"><a  href="https://tengokulibels.github.io">Home</a></li>
-                    <li><a   href="https://tengokulibels.github.io/about">About</a></li>
-                    <li><a   href="https://tengokulibels.github.io/reguler">Kelas Reguler</a></li>
-                    <li><a   href="https://tengokulibels.github.io/advance">Kelas Advance</a></li>
-                    <li><a   href="https://tengokulibels.github.io/kurikulum">Kurikulum</a></li>
-                    <li><a   href="https://tengokulibels.github.io/kanji">Kamus Kanji</a></li>
-                </ul>
-            </br>
-                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-                <p>Website Materi Klub Jepang "TENGOKU" SMAN 15 Surabaya.</br></br> *Website ini di kelola oleh kepengurusan Klub Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
-                <ul class="header-nav__social">
-                    <li>
-                        <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </div> <!-- end header-nav__content -->
-        </nav>  <!-- end header-nav -->
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-text">Menu</span>
-            <span class="header-menu-icon"></span>
-        </a>
-    </header> <!-- end s-header -->
-
-
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.jpg" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
-
-        <div class="overlay"></div>
-        <div class="shadow-overlay"></div>
-
-        <div class="home-content">
-
-            <div class="row home-content__main">
-
-                <h3>「天国クラブ」ウェブサイト</h3>
-
-                <h1>
-                    漢字辞典</br>
-                </h1>
-                <p class="p">
-                    Kamus Kanji</u>
-                </p>
-                
-
-                <div class="home-content__buttons">
-                    <a href="#tentang" class="smoothscroll btn btn--stroke">
-                        Lebih Lanjut
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="home-content__scroll">
-                <a href="#tentang" class="scroll-link smoothscroll">
-                    <span>Scroll Down</span>
-                </a>
-            </div>
-
-            <div class="home-content__line"></div>
-
-        </div> <!-- end home-content -->
-
-
-        <ul class="home-social">
-            <li>
-                <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-            </li>
-        </ul> 
-        <!-- end home-social -->
-
-    </section> <!-- end s-home -->
-
-    <section id='tentang' class="s-services-dept">
-
-<div class="row about-desc" data-aos="fade-up">
-    <div class="col-full">
-        <img src="images/logo-1.png" alt="---" width="50%" style="filter: drop-shadow(0px 0px 5px #012220)">
-        <p>
-            Halaman ini ditujukan untuk memberikan informasi terkait dengan kanji Jepang.</p>
-    </div>
-</div> <!-- end about-desc -->
-<div class="about__line2"></div>
-</section class="s-services-dept">
-    <div class="app">
+<body>
+  <div class="app">
     <header>
       <div class="brand">
-        <div class="muted">Klik kanji untuk melihat detail, Ketik Kanji lalu enter untuk mencari lebih lanjut.</div>
+        <h1>Kamus Kanji — JLPT</h1>
+        <div class="muted">Klik kanji untuk melihat detail (arti otomatis ke Bahasa Indonesia)</div>
       </div>
     </header><br>
     <section class="panel">
@@ -279,7 +155,7 @@
           <option value="jlpt-n2">🟧 JLPT N2</option>
           <option value="jlpt-n1">🟥 JLPT N1</option>
         </select>
-        <button id="loadList" >Muat</button></div>
+        <button id="loadList">Muat</button></div>
       </div>
       </section>
 
@@ -308,7 +184,7 @@
               <div id="strokeBadge" class="badge" style="background:#111;color:var(--muted)">Goresan: -</div>
               <div id="jlptBadge" class="badge jlpt" style="background:var(--n5)">JLPT N5</div>
             </div>
-            <div id="strokeBox" class="panel censorable1" style="margin-top:10px; height: 300px;"></div>
+            <div id="strokeBox" class="panel censorable1" style="margin-top:10px;"></div>
           
 
           </div>
@@ -352,159 +228,12 @@
           </div>
         </div>
 
-        <footer>Data detail dari <a href="https://kanjiapi.dev" style="color:var(--accent)">kanjiapi.dev</a>. Terjemahan oleh MyMemory.</footer>
+        <footer>Data detail dari <a href="https://kanjiapi.dev" style="color:var(--accent)">kanjiapi.dev</a>. Terjemahan oleh MyMemory (gratis).</footer>
       </section>
     </div>
   </div>
 
-    </section> <!-- end s-clients -->
-
-
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact">
-
-        <div class="overlay"></div>
-        <div class="contact__line"></div>
-
-        <div class="row contact-content" data-aos="fade-up">
-            
-            <div class="contact-primary">
-                <h3 class="h2">Misi TENGOKU</h3>
-              <p class="text"> Membuat Sumber Daya Manusia yang lebih siap dalam bersaing dengan hal yang berhubungan dengan Jepang.</p>
-
-            </div> <!-- end contact-primary -->
-
-            <div class="contact-secondary">
-                <div class="contact-info">
-
-                    <div class="cinfo">
-                        <h5>Sosial Media</h5>
-                        <i class="fa fa-instagram"></i>⠀@tengoku_libels <br>
-                        <i class="fa fa-globe"></i>⠀tengokulibels.github.io<br><br><br>
-                        <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-
-                    </div>
-
-                </div> <!-- end contact-info -->
-            </div> <!-- end contact-secondary -->
-
-        </div> <!-- end contact-content -->
-
-    </section> <!-- end s-contact -->
-
-
-    <!-- footer
-    ================================================== -->
-    <footer>
-        <div class="row footer-main">
-            <div class="col-six tab-full left footer-desc">
-                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
-            </div>
-            <div class="col-three tab-full right footer-subscribe">
-                ⠀
-            </div>
-            <div class="col-three tab-full right footer-subscribe">
-                <b>Sosial Media</b> <br>
-                <i class="fa fa-instagram"></i>⠀@tengoku_libels <br>
-                <i class="fa fa-globe"></i>⠀tengokulibels.github.io
-            </div>
-        </div> <!-- end footer-main -->
-        <div class="row footer-bottom">
-            <div class="col-twelve">
-                <div class="copyright">
-                    <span>©2025 - 2026 TENGOKU </span> 
-                    <span>Kabinet '3 Mirai</span>	
-                    <span>Ditenagai oleh Github</span>	
-                </div>
-
-                <div class="go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div> <!-- end footer-bottom -->
-    </footer> <!-- end footer -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
-                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
-                    "Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
-                "Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </div> <!-- end photoSwipe background -->
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
-            <img src="logo-1.png" alt="---" width="10%"><br>
-            <div class="line-scale-pulse-out">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-     
-    <script>
-        // Selecting the iframe element
-        var frame = document.getElementById("Iframe");
-        
-        // Adjusting the iframe height onload event
-        frame.onload = function() {
-            // set the height of the iframe as 
-            // the height of the iframe content
-            frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
-
-            // set the width of the iframe as the 
-            // width of the iframe content
-            frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
-        }
-    </script>
-    <script>
+  <script>
     
  const API_ROOT = 'https://kanjiapi.dev/v1';
  const MYMEMORY_BASE = 'https://api.mymemory.translated.net/get?q=';
@@ -874,6 +603,7 @@ $('toggleCensor').onclick = () => {
    if (cards.length) {
     const r = cards[Math.floor(Math.random() * cards.length)];
     r.click();
+    r.scrollIntoView({ behavior: 'smooth', block: 'center' });
    }
   });
   
@@ -887,5 +617,4 @@ $('toggleCensor').onclick = () => {
 </script>
 
 </body>
-
 </html>

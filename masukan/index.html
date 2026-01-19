@@ -127,7 +127,7 @@
 
     .success {
       margin-top: 14px;
-      font-size: 2rem;
+      font-size: 0.85rem;
       color: #9effc3;
       display: none;
     }
@@ -265,7 +265,7 @@
       <label>Masukan atau Pendapat</label>
     </div>
 
-    <button type="submit">Kirim!</button>
+    <button type="submit" onclick="alert('Pesanmu terkirim!')">Kirim!</button>
     <div class="success" id="successMsg">✔ Pesanmu tersampaikan</div>
   </form>
 
@@ -417,10 +417,12 @@
         }
     </script>
  <script>
+
   function handleSubmit() {
     setTimeout(() => {
       document.getElementById("success").style.display = "block";
     }, 400);
+
   }
   function autoGrow(el) {
     el.style.height = "auto";

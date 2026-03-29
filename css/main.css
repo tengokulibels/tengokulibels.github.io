@@ -794,6 +794,13 @@ select:-webkit-autofill:focus {
 }
 
 
+.imgbtnotl {
+  filter: drop-shadow(2px 0 0 white) 
+          drop-shadow(-2px 0 0 white) 
+          drop-shadow(0 2px 0 white) 
+          drop-shadow(0 -2px 0 white);
+}
+
 
 /* ===================================================================
  * # buttons
@@ -896,7 +903,7 @@ input[type="button"]:focus {
  input[type="button"].btn--code:hover
 
  .btn.btn--code:focus,
- button.btn--gehenna:focus,
+ button.btn--code:focus,
  input[type="submit"].btn--code:focus,
  input[type="reset"].btn--code:focus,
  input[type="button"].btn--code:focus {
@@ -905,98 +912,112 @@ input[type="button"]:focus {
  }
 
 
- .btn.btn--gehenna,
- button.btn--gehenna,
- input[type="submit"].btn--gehenna,
- input[type="reset"].btn--gehenna,
- input[type="button"].btn--gehenna {
-     border-radius: 0px 10px 0px 10px;
-     background: linear-gradient(-90deg, #ed4a46, transparent) #8e2e2c;
-     border-color: #b9312f;
-     color: #FFFFFF;
-     height: 16rem;
-    width: 30rem;
-    font-weight: bold;
-    padding: 8 3rem;
-    line-height: calc(1.5);
- }
- 
+.btn.btn--gehenna,
+button.btn--gehenna,
+input[type="submit"].btn--gehenna,
+input[type="reset"].btn--gehenna,
+input[type="button"].btn--gehenna {
+      width: 100%;
+      height: auto;
+      padding: 18px 3rem;
+      border-radius: 0px 12px;
+      border: none;
+      line-height: calc(1.5);
+      background: linear-gradient(45deg,#c70b1a, #f50039);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
  .btn.btn--gehenna:hover,
  button.btn--gehenna:hover,
  input[type="submit"].btn--gehenna:hover,
  input[type="reset"].btn--gehenna:hover,
  input[type="button"].btn--gehenna:hover
-
  .btn.btn--gehenna:focus,
  button.btn--gehenna:focus,
  input[type="submit"].btn--gehenna:focus,
  input[type="reset"].btn--gehenna:focus,
  input[type="button"].btn--gehenna:focus {
-     background-color: #ed4a46;
-     border-color: #b9312f;
- }
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(255, 56, 56, 0.486);
+    }
 
- .btn.btn--trinity,
- button.btn--trinity,
- input[type="submit"].btn--trinity,
- input[type="reset"].btn--trinity,
- input[type="button"].btn--trinity {
-     border-radius: 0px 10px 0px 10px;
-     background: linear-gradient(-90deg, #f1cc7d, transparent) #e29f48;
-     border-color: #d5af5b;
-     color: #FFFFFF;
-     height: 16rem;
-    width: 30rem;
-    font-weight: bold;
-    padding: 8 3rem;
-    line-height: calc(1.5);
- }
- 
+
+.btn.btn--trinity,
+button.btn--trinity,
+input[type="submit"].btn--trinity,
+input[type="reset"].btn--trinity,
+input[type="button"].btn--trinity {
+      width: 100%;
+      height: auto;
+      padding: 18px 3rem;
+      border-radius: 0px 12px;
+      border: none;
+      line-height: calc(1.5);
+      background: linear-gradient(45deg,rgb(214, 98, 2), #f3b600);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
  .btn.btn--trinity:hover,
  button.btn--trinity:hover,
  input[type="submit"].btn--trinity:hover,
  input[type="reset"].btn--trinity:hover,
  input[type="button"].btn--trinity:hover
-
  .btn.btn--trinity:focus,
  button.btn--trinity:focus,
  input[type="submit"].btn--trinity:focus,
  input[type="reset"].btn--trinity:focus,
  input[type="button"].btn--trinity:focus {
-     background-color: #f1cc7d;
-     border-color: #d5af5b;
- }
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(255, 185, 56, 0.486);
+    }
 
- .btn.btn--abydos,
- button.btn--abydos,
- input[type="submit"].btn--abydos,
- input[type="reset"].btn--abydos,
- input[type="button"].btn--abydos {
-     border-radius: 0px 10px 0px 10px;
-     background: linear-gradient(-90deg, #57d5c2, transparent) #50a9ca;
-     border-color: #42948e;
-     color: #FFFFFF;
-     height: 16rem;
-    width: 30rem;
-    font-weight: bold;
-    padding: 8 3rem;
-    line-height: calc(1.5);
- }
- 
+
+.btn.btn--abydos,
+button.btn--abydos,
+input[type="submit"].btn--abydos,
+input[type="reset"].btn--abydos,
+input[type="button"].btn--abydos {
+      width: 100%;
+      height: auto;
+      padding: 18px 3rem;
+      border-radius: 0px 12px;
+      border: none;
+      line-height: calc(1.5);
+      background: linear-gradient(45deg,#0eb1a3, #00c6e1);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
  .btn.btn--abydos:hover,
  button.btn--abydos:hover,
  input[type="submit"].btn--abydos:hover,
  input[type="reset"].btn--abydos:hover,
  input[type="button"].btn--abydos:hover
-
  .btn.btn--abydos:focus,
  button.btn--abydos:focus,
  input[type="submit"].btn--abydos:focus,
  input[type="reset"].btn--abydos:focus,
  input[type="button"].btn--abydos:focus {
-     background-color: #57d5c2;
-     border-color: #42948e;
- }
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(104, 200, 255, 0.486);
+    }
 
  .png-container {
     overflow: hidden;
@@ -3186,7 +3207,7 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 .s-contact {
     background-color: #151515;
-    background-image: url("../images/555.jpg");
+    background-image: url("../images/foot.png");
     background-repeat: no-repeat;
     background-position: center, center;
     padding-top: 15rem;

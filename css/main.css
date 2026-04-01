@@ -2404,6 +2404,20 @@ html.no-csstransitions .home-content__main {
     color: #d0d0d0;
 }
 
+.s-about2 {
+    padding-top: 16.2rem;
+    padding-bottom: 9rem;
+    background-image: url("../images/1j.png");
+    background-size: cover;
+    color: #c1c1c1;
+    position: relative;
+}
+
+.s-about2 .p {
+    font-weight: 600;
+    color: #d0d0d0;
+}
+
 .s-about--gehenna{
     padding-top: 16.2rem;
     padding-bottom: 9rem;
@@ -2440,6 +2454,10 @@ html.no-csstransitions .home-content__main {
 }
 
 .s-about .section-header.has-bottom-sep::before {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.s-about2 .section-header.has-bottom-sep::before {
     background-color: rgba(255, 255, 255, 0.25);
 }
 
@@ -3100,7 +3118,7 @@ html.no-csstransitions .home-content__main {
 
 .clients-testimonials .testimonials .slick-arrow {
     position: absolute;
-    top: 7.2rem;
+    top: 22rem;
     width: 66px;
     height: 66px;
     margin: 0;

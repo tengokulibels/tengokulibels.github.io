@@ -165,3 +165,69 @@
     font-style: normal;
     font-weight: normal;
 }
+
+/*
+ * Nunito
+================================================================================ */
+@font-face {
+    font-family: "Nunito-black";
+    src: url("../fonts/Nunito/Nunito-Black.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Black.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-bold";
+    src: url("../fonts/Nunito/Nunito-Bold.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Bold.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-extrabold";
+    src: url("../fonts/Nunito/Nunito-ExtraBold.ttf") format("ttf"), url("../fonts/Nunito/Nunito-ExtraBold.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-extralight";
+    src: url("../fonts/Nunito/Nunito-ExtraLight.ttf") format("ttf"), url("../fonts/Nunito/Nunito-ExtraLight.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-light";
+    src: url("../fonts/Nunito/Nunito-Light.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Light.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-medium";
+    src: url("../fonts/Nunito/Nunito-Medium.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Medium.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-regular";
+    src: url("../fonts/Nunito/Nunito-Regular.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Regular.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-semibold";
+    src: url("../fonts/Nunito/Nunito-SemiBold.ttf") format("ttf"), url("../fonts/Nunito/Nunito-SemiBold.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-thin";
+    src: url("../fonts/Nunito/Nunito-Thin.ttf") format("ttf"), url("../fonts/Nunito/Nunito-Thin.ttf") format("ttf");
+    font-style: normal;
+    font-weight: normal;
+}

@@ -1,0 +1,733 @@
+    <!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Website Materi Tengoku</title>
+    <meta name="Website Materi Tengoku" content="Website Materi Tengoku">
+    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<style>
+.wrapper {display:flex; justify-content:center;}
+.container {width:100%; max-width:1160px; padding:20px;}
+.grid {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:20px;
+}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:450px){.grid{grid-template-columns:1fr;}}
+
+.card {
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  cursor:pointer;
+}
+.no-shadow {
+  box-shadow: none !important;
+  transition: none !important; /* Disables animation */
+  transform: none !important;
+}
+.card img {width:100%; height:160px; object-fit:cover;}
+.card-body {padding:10px;}
+.price {color:#ff9c07; font-weight:bold;}
+.status {font-size:12px; padding:3px 6px; border-radius:6px;}
+.open {background:#4caf50; color:white;}
+.closed {background:#f44336; color:white;}
+.popup {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:10px;
+  opacity:0;
+  transition:0.25s;
+  z-index:500;
+}
+.popup.show {opacity:1;}
+.popup-content {
+  background:white;
+  border-radius:12px;
+  width:100%;
+  max-width:750px;
+  padding:20px;
+  display:flex;
+  gap:25px;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  transform:scale(0.9);
+  transition:0.25s;
+}
+.popup.show .popup-content {transform:scale(1);}
+.popup-content::-webkit-scrollbar {display:none;}
+.popup-content {scrollbar-width:none;}
+.popup-left {
+  flex:1;
+  padding-right:15px;
+  border-right:1px solid #eee;
+}
+.popup-left img {
+  width:100%;
+  height:160px;
+  object-fit:contain;
+}
+.popup-info h3 {margin:8px 0;}
+.popup-info p {font-size:13px;}
+.info-table {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:8px;
+}
+.info-box {
+  background:#f5f5f5;
+  padding:8px;
+  border-radius:6px;
+}
+.info-label {font-size:16px; color:#4e4e4e; font-weight: 600;margin-top: -0.6rem;}
+.info-desc {font-size:18px; color:#111111; font-weight: 700;line-height: 2rem; margin-top: -0.6rem;}
+.info-value {font-weight:bold; font-size:12px;}
+.popup-right {
+  flex:1;
+  padding-left:15px;
+}
+input {
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:6px;
+  font-family: "Nunito", sans-serif;
+  border:1px solid #ccc;
+  box-sizing:border-box;
+}
+.total {font-weight:bold; margin:10px 0;}
+
+#alertOverlay {
+  display:block; /* ubah dari none ke block */
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:998;
+
+  opacity:0;
+  pointer-events:none;
+  transition:0.25s;
+}
+
+#alertOverlay.show {
+  opacity:1;
+  pointer-events:auto;
+}
+.alertBox {
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
+  z-index:999;
+  text-align:center;
+  transition:0.25s;
+  opacity:0;
+}
+.alertBox.show {
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+@keyframes pop {
+  from {transform:scale(0.8); opacity:0;}
+  to {transform:scale(1); opacity:1;}
+}
+@media(max-width:600px){
+  .popup-content {flex-direction:column;}
+  .popup-left {border-right:none; padding-right:0;}
+  .popup-right {padding-left:0;}
+}
+</style>
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo-1.png" alt="Homepage">
+            </a>
+        </div>
+    </header> <!-- end s-header -->
+
+
+    <!-- home
+    ================================================== -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/foot.png" data-position-y=center>
+<div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>「天国クラブ」ウェブサイト</h3>
+
+                <h1>
+                    KEWIRAUSAHAAN APP</br>
+                </h1>
+                <p class="p">
+                    Pesan apapun dalam satu website!</u>
+                </p>
+                
+
+                <div class="home-content__buttons">
+                    <a href="#tentang" class="smoothscroll btn btn--stroke">
+                        Lebih Lanjut
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="home-content__scroll">
+                <a href="#tentang" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+
+            <div class="home-content__line"></div>
+
+        </div> <!-- end home-content -->
+
+
+        <ul class="home-social">
+            <li>
+                <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@tengoku_libels"><i class="fa fa-youtube" aria-hidden="true"></i><span>Youtube</span></a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+    <section id='recentw' class="s-services">
+    <div class="intro-wrap">
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <img src="images/logokwu.png" alt="---" width="70%">
+            </div>
+        </div> <!-- end section-header -->
+    </div> 
+
+<div class="row about-desc" data-aos="fade-up" style="margin-top: -30px;">
+    <div class="col-full">
+        <p>
+        Selamat datang! Scroll kebawah yah buat pesennya.
+        </p>
+    </div>
+</div> <!-- end about-desc -->
+<div class="about__line2"></div>
+</section>
+
+    <section id='tentang' class="s-services-dept">
+
+    <div class="intro-wrap">
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead" style="color: #0a0a0a;">Pesan dalam</h3>
+                <h1 class="display-2" style="color: #fff; margin-top: -0.8rem; margin-bottom: -1rem;">Satu Pop-Up!</h1>
+            </div>
+        </div> <!-- end section-header -->
+    </div> 
+
+    <div class="row about-desc" data-aos="fade-up">
+    <div class="col-full">
+        <p>Mau pesan? tinggal pencet aja barang atau menu yang diinginkan, isi data yang diperlukan dalam form di Pop-Up itu, pencet Pesen, Udah deh. Nggak muncul form nya? coba scroll bawah
+            Pop-Up nya, ntar muncul tuh.
+        </p>
+    </div>
+    </div> <!-- end about-desc -->
+
+    
+    </section>
+    
+    <section id="Lebihbanyak" class="s-works">
+        <div class="intro-wrap" style="margin-bottom: -25rem;">
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <img src="images/0415.png" alt="---" width="100px">
+                <h3 class="subhead" style="margin-top: 10px;">Pilihan dari kami</h3>
+                <h1 class="display-2" style="margin-top: -7px;">Barang & Menu</h1>
+            </div>
+        </div> <!-- end section-header -->
+    </div>
+
+<div class="wrapper" data-aos="fade-up">
+<div class="container">
+<div class="grid" id="productList">Loading...</div>
+</div>
+</div>
+
+<!-- POPUP PRODUK -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+
+<div class="popup-left">
+<img id="pImg" onerror="this.src='https://via.placeholder.com/300x150?text=No+Image'"></img>
+
+<div class="popup-info">
+<h3 id="pName"></h3>
+<p id="pDesc"></p>
+
+<div class="info-table">
+<div class="info-box"><div class="info-label">PO</div><div id="pPeriode" class="info-desc"></div></div>
+<div class="info-box"><div class="info-label">Harga</div><div id="pPrice" class="info-desc"></div></div>
+<div class="info-box"><div class="info-label">Ambil</div><div id="pAmbil" class="info-desc"></div></div>
+<div class="info-box"><div class="info-label">Diambil di</div><div id="pTempat" class="info-desc"></div></div>
+</div>
+
+<div class="info-box" style="margin-top:8px;">
+<div class="info-label">Status</div>
+<div id="pStatus" style="margin-top: -0.6rem;"></div>
+</div>
+
+<div class="info-desc" style="margin-top: 12px; margin-bottom: 2px;">Mau Request atau butuh bantuan?</div>
+<button id="waBtnInline" class="btn--wa">Kontak CS</button>
+</div>
+</div>
+
+<div class="popup-right">
+<h3>Form Pembelian</h3>
+
+<input id="nama" placeholder="Nama">
+<input id="kelas" placeholder="Kelas">
+<input id="hp" placeholder="No HP">
+<input id="produk" readonly>
+<input id="jumlah" type="number" value="1" min="1" onchange="updateTotal()">
+<p class="total">Total: <span id="totalHarga"></span></p>
+<button class="btn--main" onclick="confirmOrder()">Pesan</button>
+<button class="btn--s" onclick="closePopup()">Kembali</div>
+</div>
+</div>
+</div>
+
+<!-- POPUP KONFIRM -->
+<div class="popup" id="confirmPopup">
+<div class="popup-content" style="max-width:400px; flex-direction:column; text-align:center;">
+<h3>Konfirmasi Pesanan</h3>
+<p id="confirmText"></p>
+<button onclick="sendOrder()" class="btn--main">Ya, Pesan</button>
+<button onclick="closeConfirm()" class="btn--gehenna">Batal</button>
+</div>
+</div>
+
+<!-- POPUP STRUK -->
+<div class="popup" id="receiptPopup">
+<div class="popup-content" style="max-width:400px; flex-direction:column; text-align:center;">
+<h3>Struk</h3>
+
+<canvas id="receiptCanvas"></canvas>
+
+<p style="font-size:12px; margin-top:10px;">
+Pastikan uang anda dan tunjukkan struk anda pada saat mengambil barang
+</p>
+
+<button onclick="downloadReceipt()" class="btn--main">Download</button>
+<button onclick="closeReceipt()" class="btn--s">Tutup</button>
+</div>
+</div>
+
+<!-- ALERT -->
+<div id="alertOverlay" onclick="closeAlert()"></div>
+
+<!-- ALERT BOX -->
+<div class="alertBox" id="alertBox">
+  <p>Harap isi semua data!</p>
+  <button onclick="closeAlert()" class="btn--main">OK</button>
+</div>
+        <div class="row section-header" data-aos="fade-up" style="margin-top: 120px;">
+            <div class="col-full about-desc">
+                <p>Kami berkomitmen untuk selalu menjaga kenyamanan dan data privasi anda. Jika terdapat kendala pada Website ini yang mungkin mengganggu kenyamanan, Anda bisa
+                    langsung melaporkan kendalanya dibawah ini.
+                </p>
+                <button onclick="window.location.href='https://tengokulibels.github.io/masukan';" class="btn btn--gehenna">
+                Kirim Masukan</button>
+            </div>
+        </div> <!-- end section-header -->
+
+    </section> <!-- end s-clients -->
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row footer-main">
+            <div class="col-six tab-full left footer-desc">
+                <div class="footer-logo"><img src="images/logokwu.png" /></a></div>
+                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                ⠀
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                <b>Sosial Media</b> <br>
+                <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
+                <i class="fa fa-globe"></i>⠀tengokulibels.github.io
+            </div>
+        </div> <!-- end footer-main -->
+        <div class="row footer-bottom">
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>©2025 - 2026 TENGOKU </span> 
+                    <span>Kabinet '3 Mirai</span>	
+                    <span>Ditenagai oleh Github</span>	
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div> <!-- end footer-bottom -->
+    </footer> <!-- end footer -->
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <img src="logo-1.png" alt="---" width="200px"><br>
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+     
+    <script>
+        // Selecting the iframe element
+        var frame = document.getElementById("Iframe");
+        
+        // Adjusting the iframe height onload event
+        frame.onload = function() {
+            // set the height of the iframe as 
+            // the height of the iframe content
+            frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+
+            // set the width of the iframe as the 
+            // width of the iframe content
+            frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
+        }
+    </script>
+
+    <script>
+const sheetURL = "https://opensheet.elk.sh/1VkKKLNjLnnLrLEv-0UIUWR8lf47Fcl3RF-Jz-H5STTI/Sheet1";
+let products = [];
+let currentProduct = null;
+
+fetch(sheetURL).then(res=>res.json()).then(d=>{
+  products=d;
+  renderProducts();
+});
+
+function driveImage(url){
+  if(!url) return '';
+
+  // format: ...id=XXXX
+  if(url.includes("id=")){
+    return "https://lh3.googleusercontent.com/d/" + url.split("id=")[1];
+  }
+
+  // format: .../d/XXXX/
+  if(url.includes("/d/")){
+    return "https://lh3.googleusercontent.com/d/" + url.split("/d/")[1].split("/")[0];
+  }
+
+  return url;
+}
+
+function formatRupiah(num){
+  return 'Rp '+Number(num).toLocaleString('id-ID');
+}
+
+function formatWA(num){
+  return "https://wa.me/+62"+num;
+}
+
+function getStatus(v){
+  return v==1
+  ? '<span class="status open">PO Dibuka</span>'
+  : '<span class="status closed">PO Ditutup</span>';
+}
+
+function renderProducts(){
+  let c=document.getElementById('productList');
+  c.innerHTML='';
+  products.forEach(p=>{
+    let d=document.createElement('div');
+    d.className='card';
+    d.onclick=()=>openPopup(p);
+    d.innerHTML=`
+    <img src="${driveImage(p['Gambar Produk'])}">
+    <div class="card-body">
+      <h4 style="margin-top:-1rem">${p['Nama Produk']}</h4>
+      <p class="price" style="margin-top:-2.4rem;margin-bottom:-0.03rem">${formatRupiah(p['Harga Produk'])}</p>
+      ${getStatus(p['PO Available?'])}
+    </div>`;
+    c.appendChild(d);
+  });
+}
+
+function openPopup(p){
+  currentProduct=p;
+  popup.style.display='flex';
+  setTimeout(()=>popup.classList.add('show'),10);
+
+  pImg.src = driveImage(p['Gambar Produk']);
+  pName.innerText=p['Nama Produk'];
+  pDesc.innerText=p['Deskripsi Produk'];
+  pPrice.innerText=formatRupiah(p['Harga Produk']);
+  pPeriode.innerText=p['Periode Open PO'];
+  pAmbil.innerText=p['Dapat diambil pada waktu'];
+  pTempat.innerText=p['Tempat Pengambilan'];
+  pStatus.innerHTML=getStatus(p['PO Available?']);
+  produk.value=p['Nama Produk'];
+  
+  jumlah.value = 1;
+  updateTotal();
+
+  totalHarga.innerText=formatRupiah(p['Harga Produk']);
+
+  waBtnInline.onclick=()=>{
+    window.open(formatWA(p['Nomor HP PJ']));
+  };
+  
+  let btn = document.querySelector('.popup-right button');
+
+if(p['PO Available?'] != 1){
+  btn.disabled = true;
+  btn.innerText = "PO Ditutup";
+  btn.style.background = "#ccc";
+  btn.style.cursor = "not-allowed";
+  btn.classList.add('no-shadow');
+} else {
+  btn.disabled = false;
+  btn.innerText = "Pesan";
+  btn.style.background = "#ff9c07";
+  btn.style.cursor = "pointer";
+  btn.classList.remove('no-shadow');
+}
+}
+
+function closePopup(){
+  popup.classList.remove('show');
+  setTimeout(()=>popup.style.display='none',250);
+}
+
+function updateTotal(){
+  if(!currentProduct) return;
+  let harga = Number(currentProduct['Harga Produk']) || 0;
+  let qty = Number(jumlah.value) || 1;
+
+  totalHarga.innerText = formatRupiah(harga * qty);
+}
+
+function confirmOrder(){
+  if(!nama.value || !kelas.value || !hp.value){
+    alertOverlay.classList.add('show');
+    alertBox.style.display='block';
+
+    setTimeout(()=>{
+      alertBox.classList.add('show');
+    },10);
+
+    return;
+  }
+
+  confirmText.innerHTML = `
+  ${nama.value}<br>
+  ${currentProduct['Nama Produk']}<br>
+  ${jumlah.value} pcs<br>
+  ${totalHarga.innerText}
+  `;
+
+  confirmPopup.style.display='flex';
+  setTimeout(()=>confirmPopup.classList.add('show'),10);
+}
+
+function closeConfirm(){
+  confirmPopup.classList.remove('show');
+  setTimeout(()=>confirmPopup.style.display='none',250);
+}
+
+function sendOrder(){
+  let total = Number(currentProduct['Harga Produk']) * Number(jumlah.value);
+
+  let link = `https://docs.google.com/forms/d/e/1FAIpQLSfHbf5EipYGh7fITONY6pl9KqkL9AI_FkzBYBL1deL5CzaesQ/formResponse?` +
+  `entry.1800115301=${encodeURIComponent(nama.value)}` +
+  `&entry.1701887564=${encodeURIComponent(kelas.value)}` +
+  `&entry.1792317139=${encodeURIComponent(hp.value)}` +
+  `&entry.757722018=${encodeURIComponent(currentProduct['Nama Produk'])}` +
+  `&entry.1840538909=${encodeURIComponent(jumlah.value)}` +
+  `&entry.1512453420=${encodeURIComponent(total)}`;
+
+  fetch(link,{mode:'no-cors'});
+
+  closeConfirm();
+  closePopup();
+  setTimeout(()=>{
+  showReceipt();
+}, 300);
+}
+
+function showReceipt(){
+  let c=document.getElementById('receiptCanvas');
+  let ctx=c.getContext('2d');
+  c.width=300; c.height=420;
+
+  const now=new Date().toLocaleString('id-ID');
+
+  ctx.fillStyle="#fff";
+  ctx.fillRect(0,0,300,420);
+
+  ctx.fillStyle="#000";
+  ctx.font="14px monospace";
+
+  let y=30;
+  function t(txt){ctx.fillText(txt,10,y); y+=20;}
+
+  t(" ======== BUKTI PEMESANAN ========");
+  t(" Waktu  : "+now);
+  t(" ---------------------------------");
+  t(" Nama   : "+nama.value);
+  t(" Produk : "+currentProduct['Nama Produk']);
+  t(" Jumlah : "+jumlah.value);
+  t(" ---------------------------------");
+  t(" TOTAL   : "+totalHarga.innerText);
+  t(" Status  : Pre-Order | Belum lunas");
+  t(" ---------------------------------");
+  t(" TENGOKU - Bagian Kewirausahaan");
+
+  receiptPopup.style.display='flex';
+  setTimeout(()=>receiptPopup.classList.add('show'),10);
+}
+
+function closeReceipt(){
+  receiptPopup.classList.remove('show');
+  setTimeout(()=>receiptPopup.style.display='none',250);
+}
+
+function downloadReceipt(){
+  let link=document.createElement('a');
+  link.download='struk.png';
+  link.href=receiptCanvas.toDataURL();
+  link.click();
+}
+
+function closeAlert(){
+  alertBox.classList.remove('show');
+  alertOverlay.classList.remove('show');
+
+  setTimeout(()=>{
+    alertBox.style.display='none';
+  },250);
+}
+
+window.onclick = function(e){
+  if(e.target.id === 'popup') closePopup();
+  if(e.target.id === 'confirmPopup') closeConfirm();
+  if(e.target.id === 'receiptPopup') closeReceipt();
+}
+
+</script>
+
+</body>
+
+</html>

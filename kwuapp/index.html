@@ -340,7 +340,7 @@ input {
 <h3>Form Pembelian</h3>
 
 <input id="nama" placeholder="Nama">
-<input id="kelas" placeholder="Kelas (X-1 XI-A1 XII-A1)">
+<input id="kelas" placeholder="Kelas (X-1, XI-A1, XII-A1, Guru)">
 <input id="hp" placeholder="No HP (08XXXXXXXXXX)" oninput="handleInputangka(this)" required>
 <input id="produk" readonly>
 <input id="jumlah" type="number" value="1" min="1" onchange="updateTotal()">
@@ -633,7 +633,7 @@ function updateTotal(){
 function confirmOrder(){
 const nomor = hp.value;
 const kkelas = kelas.value;
-const kelasValid = kkelas.startsWith("X-") || kkelas.startsWith("XI-") || kkelas.startsWith("XII-");
+const kelasValid = kkelas.startsWith("X-") || kkelas.startsWith("XI-") || kkelas.startsWith("XII-") || kkelas.startsWith("guru") || kkelas.startsWith("Guru");
 const startsValid = nomor.startsWith("08") || nomor.startsWith("628") || nomor.startsWith("+628");
 const lengthValid = nomor.length >= 10 && nomor.length <= 14;
 

@@ -226,7 +226,7 @@ input {
 
             <div class="home-content__scroll">
                 <a href="#tentang" class="scroll-link smoothscroll">
-                    <span>Scroll Down</span>
+                    <span>Mau Pesen?</span>
                 </a>
             </div>
 
@@ -281,7 +281,7 @@ input {
     </div> 
 
     <div class="row about-desc" data-aos="fade-up">
-    <div class="col-full">
+    <div class="col-full" style="color: #fafafa;">
         <p>Mau pesan? tinggal pencet aja barang atau menu yang diinginkan, isi data yang diperlukan dalam form di Pop-Up itu, pencet Pesen, Udah deh. Nggak muncul form nya? coba scroll bawah
             Pop-Up nya, ntar muncul tuh.
         </p>
@@ -317,7 +317,7 @@ input {
 
 <div class="popup-info">
 <h3 id="pName"></h3>
-<p id="pDesc"></p>
+<p id="pDesc" style="line-height: 1.8rem;"></p>
 
 <div class="info-table">
 <div class="info-box"><div class="info-label">PO</div><div id="pPeriode" class="info-desc"></div></div>
@@ -340,13 +340,13 @@ input {
 <h3>Form Pembelian</h3>
 
 <input id="nama" placeholder="Nama">
-<input id="kelas" placeholder="Kelas">
-<input id="hp" placeholder="No HP">
+<input id="kelas" placeholder="Kelas (X-1 XI-A1 XII-A1)">
+<input id="hp" placeholder="No HP (08XXXXXXXXXX)" oninput="handleInputangka(this)" required>
 <input id="produk" readonly>
 <input id="jumlah" type="number" value="1" min="1" onchange="updateTotal()">
 <p class="total">Total: <span id="totalHarga"></span></p>
-<button class="btn--main" onclick="confirmOrder()">Pesan</button>
-<button class="btn--s" onclick="closePopup()">Kembali</div>
+<button class="btn--main" onclick="confirmOrder()" style="margin-bottom: 10px;">Pesan</button>
+<button class="btn--s" onclick="closePopup()" style="margin-bottom: 5px;">Kembali</div>
 </div>
 </div>
 </div>
@@ -354,55 +354,52 @@ input {
 <!-- POPUP KONFIRM -->
 <div class="popup" id="confirmPopup">
 <div class="popup-content" style="max-width:400px; flex-direction:column; text-align:center;">
-<h3>Konfirmasi Pesanan</h3>
-<p id="confirmText"></p>
-<button onclick="sendOrder()" class="btn--main">Ya, Pesan</button>
-<button onclick="closeConfirm()" class="btn--gehenna">Batal</button>
+<h3 style="margin-bottom: -3px; margin-top: 20px;">Konfirmasi Pesanan</h3>
+<p id="confirmText" style="line-height: 2rem; margin-bottom: 10px"></p>
+<button onclick="sendOrder()" class="btn--main" style="margin-bottom: -10px;">Ya, Pesan</button>
+<button onclick="closeConfirm()" class="btn--gehenna" style="margin-bottom: 3px;">Batal</button>
 </div>
 </div>
 
 <!-- POPUP STRUK -->
 <div class="popup" id="receiptPopup">
 <div class="popup-content" style="max-width:400px; flex-direction:column; text-align:center;">
-<h3>Struk</h3>
-
+<h3 style="margin-top:20px; margin-bottom:-10px">Struk</h3>
 <canvas id="receiptCanvas"></canvas>
-
-<p style="font-size:12px; margin-top:10px;">
-Pastikan uang anda dan tunjukkan struk anda pada saat mengambil barang
+<p style="font-size:12px; margin-top:-20px; line-height:1.8rem; margin-bottom:5px">
+Simpan Struk Anda. Pastikan uang anda dan tunjukkan struk anda pada saat mengambil barang.
 </p>
-
-<button onclick="downloadReceipt()" class="btn--main">Download</button>
-<button onclick="closeReceipt()" class="btn--s">Tutup</button>
+<button onclick="downloadReceipt()" class="btn--main" style="margin-bottom: -10px;">Download</button>
+<button onclick="closeReceipt()" class="btn--s" style="margin-bottom: 3px;">Tutup</button>
 </div>
 </div>
 
 <!-- ALERT -->
 <div id="alertOverlay" onclick="closeAlert()"></div>
-
 <!-- ALERT BOX -->
 <div class="alertBox" id="alertBox">
-  <p>Harap isi semua data!</p>
-  <button onclick="closeAlert()" class="btn--main">OK</button>
+  <p>Diisi yang bener yah...</p>
+  <button onclick="closeAlert()" class="btn--main" style="margin-bottom: 5px;">Okey!</button>
 </div>
-        <div class="row section-header" data-aos="fade-up" style="margin-top: 120px;">
-            <div class="col-full about-desc">
-                <p>Kami berkomitmen untuk selalu menjaga kenyamanan dan data privasi anda. Jika terdapat kendala pada Website ini yang mungkin mengganggu kenyamanan, Anda bisa
-                    langsung melaporkan kendalanya dibawah ini.
-                </p>
-                <button onclick="window.location.href='https://tengokulibels.github.io/masukan';" class="btn btn--gehenna">
-                Kirim Masukan</button>
-            </div>
-        </div> <!-- end section-header -->
+
+    <div class="row section-header" data-aos="fade-up" style="margin-top: 120px;">
+        <div class="col-full about-desc">
+            <p>Kami berkomitmen untuk selalu menjaga kenyamanan dan data privasi anda. Jika terdapat kendala pada Website ini yang mungkin mengganggu kenyamanan, Anda bisa
+            langsung melaporkan kendalanya dibawah ini.
+            </p>
+            <button onclick="window.location.href='https://tengokulibels.github.io/masukan';" class="btn btn--main">
+            Kirim Masukan</button>
+        </div>
+    </div> <!-- end section-header -->
 
     </section> <!-- end s-clients -->
     <!-- footer
     ================================================== -->
     <footer>
         <div class="row footer-main">
-            <div class="col-six tab-full left footer-desc">
-                <div class="footer-logo"><img src="images/logokwu.png" /></a></div>
-                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
+            <div class="col-six tab-full left footer-desc" >
+                <div class="footer-logo" style="margin-bottom: 10px;"><img src="images/logo-1.png" /></a></div>
+                Website-Based-App ini merupakan milik dari Klub/Ekstrakurikuler Jepang SMAN 15 Surabaya, dan merupakan sebuah project yang dikerjakan seluruhnya oleh anggota kami.
             </div>
             <div class="col-three tab-full right footer-subscribe">
                 ⠀
@@ -416,7 +413,8 @@ Pastikan uang anda dan tunjukkan struk anda pada saat mengambil barang
         <div class="row footer-bottom">
             <div class="col-twelve">
                 <div class="copyright">
-                    <span>©2025 - 2026 TENGOKU </span> 
+                    <span>©2025 - 2026 TENGOKU</span> 
+                    <span>Bagian Kewirausahaan</span> 
                     <span>Kabinet '3 Mirai</span>	
                     <span>Ditenagai oleh Github</span>	
                 </div>
@@ -473,7 +471,7 @@ Pastikan uang anda dan tunjukkan struk anda pada saat mengambil barang
     ================================================== -->
     <div id="preloader">
         <div id="loader">
-            <img src="logo-1.png" alt="---" width="200px"><br>
+            <img src="logo-1.png" alt="---" width="300px"><br>
             <div class="line-scale-pulse-out">
                 <div></div>
                 <div></div>
@@ -532,6 +530,19 @@ function driveImage(url){
 
   return url;
 }
+
+function handleInputangka(element) {
+            if (element.dataset.type === "phone") {
+                element.value = element.value.replace(/[^0-9+]/g, '');
+            } else {
+                element.value = element.value.replace(/[^0-9]/g, '');
+            }
+
+            // 2. Jalankan validasi pola (pattern recognition)
+            if (element.dataset.type === "phone") {
+                validateIndoPhone(element);
+            }
+        }
 
 function formatRupiah(num){
   return 'Rp '+Number(num).toLocaleString('id-ID');
@@ -620,7 +631,13 @@ function updateTotal(){
 }
 
 function confirmOrder(){
-  if(!nama.value || !kelas.value || !hp.value){
+const nomor = hp.value;
+const kkelas = kelas.value;
+const kelasValid = kkelas.startsWith("X-") || kkelas.startsWith("XI-") || kkelas.startsWith("XII-");
+const startsValid = nomor.startsWith("08") || nomor.startsWith("628") || nomor.startsWith("+628");
+const lengthValid = nomor.length >= 10 && nomor.length <= 14;
+
+  if(!nama.value || !kelas.value || !hp.value || !startsValid || !lengthValid || !kelasValid){
     alertOverlay.classList.add('show');
     alertBox.style.display='block';
 

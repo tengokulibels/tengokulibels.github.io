@@ -109,7 +109,7 @@ a {
 }
 
 a:hover, a:focus, a:active {
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 a:hover, a:active {
@@ -385,7 +385,7 @@ ul.disc li::before {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #bb002c;
+    background: #ff9c07;
     position: absolute;
     left: -17px;
     top: 11px;
@@ -394,7 +394,7 @@ ul.disc li::before {
 
 dt {
     margin: 0;
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 dd {
@@ -520,7 +520,7 @@ form,
 }
 
 .pace .pace-progress {
-    background: #bb002c;
+    background: #ff9c07;
     position: fixed;
     z-index: 900;
     top: 0;
@@ -563,7 +563,7 @@ form,
 }
 
 .line-scale-pulse-out > div {
-    background-color: #bb002c;
+    background-color: #ff9c07;
     width: 4px;
     height: 35px;
     border-radius: 2px;
@@ -629,7 +629,6 @@ input[type="email"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
-input[type="tel"],
 input[type="url"],
 input[type="password"],
 textarea,
@@ -648,6 +647,16 @@ select {
     border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+input[type="tel"] {
+    display: block;
+    height: 4.1rem;
+    color: #333333;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    max-width: 100%;
+    background: transparent;
 }
 
 .cl-custom-select {
@@ -1386,7 +1395,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .stats-tabs li a:hover {
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 .stats-tabs li a em {
@@ -1531,7 +1540,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     line-height: 1.333;
     text-transform: uppercase;
     letter-spacing: .25rem;
-    color: #a51010;
+    color: #ff9c07;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -1705,7 +1714,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .slick-slider .slick-dots li.slick-active button,
 .slick-slider .slick-dots li:hover button {
-    background: #bb002c;
+    background: #ff9c07;
 }
 
 
@@ -1798,7 +1807,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     letter-spacing: .25rem;
     margin-bottom: 4.8rem;
     margin-top: .9rem;
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 .header-nav p {
@@ -1937,7 +1946,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: .3rem;
-    color: #bb002c;
+    color: #ff9c07;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
@@ -2154,8 +2163,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .home-content__scroll a::before {
-    border-bottom: 2px solid #bb002c;
-    border-right: 2px solid #bb002c;
+    border-bottom: 2px solid #ff9c07;
+    border-right: 2px solid #ff9c07;
     content: '';
     display: block;
     height: 8px;
@@ -2179,7 +2188,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #bb002c;
+    background-color: #ff9c07;
     position: absolute;
     right: 7.2rem;
     bottom: 0;
@@ -2239,7 +2248,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .home-social span {
-    color: #bb002c;
+    color: #ff9c07;
     right: 4.5rem;
     font-size: 1.3rem;
     opacity: 0;
@@ -2610,7 +2619,7 @@ html.no-csstransitions .home-content__main {
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #bb002c;
+    background-color: #ff9c07;
     position: absolute;
     right: 7.2rem;
     top: 0;
@@ -2737,7 +2746,7 @@ html.no-csstransitions .home-content__main {
 .s-services-dept {
     padding-top: 16.2rem;
     padding-bottom: 13.2rem;
-    background-image: url("../images/bg.png");
+    background-image: url("../images/bga.png");
     background-size: cover;
     color: #d7d7d7;
     position: relative;
@@ -2773,7 +2782,7 @@ html.no-csstransitions .home-content__main {
 
 .services-list .service-icon {
     float: left;
-    color: #bb002c;
+    color: #ff9c07;
     font-size: 4.8rem;
     margin-top: -.6rem;
 }
@@ -3353,7 +3362,7 @@ html.no-csstransitions .home-content__main {
     padding: 0 2rem;
     margin: 0;
     color: #FFFFFF;
-    background: #bb002c;
+    background: #ff9c07;
 }
 
 .s-contact .form-field label::after {
@@ -3364,14 +3373,14 @@ html.no-csstransitions .home-content__main {
     margin-top: -6px;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 5px solid #bb002c;
+    border-right: 5px solid #ff9c07;
 }
 
 .contact__line {
     display: block;
     width: 2px;
     height: 20.4rem;
-    background-color: #bb002c;
+    background-color: #ff9c07;
     position: absolute;
     left: 50%;
     top: -10.2rem;
@@ -3398,7 +3407,7 @@ html.no-csstransitions .home-content__main {
 
 .contact-content h5 {
     margin-top: 0;
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 .contact-content input[type="email"],
@@ -3425,7 +3434,7 @@ html.no-csstransitions .home-content__main {
 .contact-content textarea:focus,
 .contact-content select:focus {
     color: #FFFFFF;
-    border-bottom: 1px solid #bb002c;
+    border-bottom: 1px solid #ff9c07;
 }
 
 .contact-content button,
@@ -3528,7 +3537,7 @@ html.no-csstransitions .home-content__main {
 
 .contact-social li a:hover, 
 .contact-social li a:focus {
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 .contact-social li:last-child {
@@ -3551,7 +3560,7 @@ html.no-csstransitions .home-content__main {
 }
 
 .message-success {
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 .message-warning i, .message-success i {
@@ -3743,7 +3752,7 @@ footer a {
 }
 
 footer a:hover, footer a:focus, footer a:active {
-    color: #bb002c;
+    color: #ff9c07;
 }
 
 footer .row {
@@ -3834,8 +3843,8 @@ footer .row {
     top: 0;
     right: 0;
     color: #FFFFFF;
-    background: #bb002c;
-    border-color: #bb002c;
+    background: #ff9c07;
+    border-color: #ff9c07;
     padding: 0 20px;
 }
 

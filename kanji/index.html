@@ -5,8 +5,14 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-<head>
+<script>
+const version = "20260526"; // update when font changes
+document.querySelector(
+    'link[href="css/fonts.css"]'
+).href = `css/fonts.css?v=${version}`;
+</script>
 
+<head>
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">

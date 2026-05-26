@@ -122,6 +122,20 @@ a:hover, a:active {
     color: #f3f3f3;
 }
 
+.candidateBtn{
+    background:#222;
+    color:white;
+    border:none;
+    padding:10px;
+    font-size:24px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.candidateBtn:hover{
+    transform:scale(1.1);
+}
+
 /* ===================================================================
  * # typography & general theme styles
  * 

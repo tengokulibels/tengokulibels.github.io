@@ -162,9 +162,8 @@
 
         <!-- button disabled   style="cursor: not-allowed; opacity: 0.6; buat disable -->
         <div class="col-block stats__col">
-               <button disabled onclick="window.location.href='https://tengokulibels.github.io/cbt/etest';"  class="btn btn--abydos" 
-               style="cursor: not-allowed; opacity: 0.6;
-               "><div>
+               <button onclick="popupinfo()"  class="btn btn--abydos"
+               ><div>
                  <img class="imgbtnotl" src="images/ari.png" width="100" height="100">
                 </br>TENGOKU-CBT
                   </div></button></br>
@@ -172,6 +171,20 @@
         </div>
 
     </section> <!-- end s-about -->
+
+    <div id="popupOverlay" class="poverlay" onclick="closePopup(event)">
+    <div class="popup" onclick="event.stopPropagation()">
+        <h2>Ini Bukan Simulasi!</h2>
+        <p>Pastikan perangkat menggunakan mode "Don't Disturb" dan koneksi yang stabil. Tidak diperkenankan untuk membuka Tab
+            baru dan pastikan juga tidak ada aplikasi yang mengganggu jalannya ujian.<br><br><b>Apakah anda sudah yakin?</b>
+        </p>
+
+        <div class="btn-group">
+            <button class="pbtn kembali" onclick="goHome()">Kembali</button>
+            <button class="pbtn kirim" onclick="confirmKirim()">Ya, Yakin</button>
+        </div>
+    </div>
+</div>
 
     <!-- clients
     ================================================== -->
@@ -318,6 +331,24 @@
     <script src="js/main.js"></script>
      
     <script>
+    function popupinfo() {
+    document.getElementById("popupOverlay").classList.add("active");
+}
+
+// klik overlay untuk menutup
+function closePopup(e) {
+    document.getElementById("popupOverlay").classList.remove("active");
+}
+
+// tombol kembali → ke halaman utama
+function goHome() {
+    document.getElementById("popupOverlay").classList.remove("active");
+}
+
+// tombol kirim → ke link CBT
+function confirmKirim() {
+    window.location.href = "https://tengokulibels.github.io/cbt/etest";
+}
         // Selecting the iframe element
         var frame = document.getElementById("Iframe");
         

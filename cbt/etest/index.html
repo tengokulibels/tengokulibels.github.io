@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <title>Tengoku-CBT</title>
+    <meta name="Tengoku-CBT" content="Tengoku-CBT">
+    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="header-hero">
+    <img id="headerImg">
+    <div class="header-title">Advance E-Test</div>
+</div>
+
+<!-- HEADER STICKY -->
+<div class="header-sticky">
+    T-CBT
+</div>
+
+<div class="container">
+<form id="quizForm">
+
+<div class="card">
+<label style="font-weight: 600;">Nama</label>
+<input type="text" id="nama" required>
+</div>
+
+<div class="card">
+<label style="font-weight: 600;">Kelas</label>
+<input type="text" id="kelas" required>
+</div>
+
+<div class="card">
+<label style="font-weight: 600;">Kode Siswa</label>
+<input type="text" id="kode" required>
+</div>
+
+<div id="content"></div>
+<p style="color: #616161; margin-top:70px; text-align: center; font-weight: 800;">Pastikan seluruh soal telah terjawab!</p>
+<button type="submit" class="submit-btn" style="margin-top:10px;">Submit</button>
+
+<div id="popupOverlay" class="popup-overlay">
+    <div class="popup-box">
+        <p style="margin-top:8px;">Tekan tombol dibawah untuk memulai ujian</p>
+        <button class="popup-btn" style="margin-top:2px;" onclick="startExam()">Mulai</button>
+    </div>
+</div>
+
+</form>
+</div>
+
+<!-- PANEL -->
+<div class="panel-wrapper" id="panelWrap">
+    <div class="toggle-panel" onclick="togglePanel()">☰</div>
+    <div class="sidebar">
+        <h4>Nomor</h4>
+        <div id="numberPanel" class="number-grid"></div>
+    </div>
+</div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

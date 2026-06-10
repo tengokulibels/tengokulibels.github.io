@@ -1980,6 +1980,99 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     background: #000000;
 }
 
+.poverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 900;
+}
+
+.poverlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    background: #f2f2f2;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    font-family: sans-serif;
+    z-index: 900;
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+    margin-top: 2rem;
+}
+
+.popup p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 25px;
+    font-family: Nunito;
+    font-weight: 600;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.pbtn {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 1px;
+}
+
+/* tombol kembali */
+.kembali {
+    background: #9e9e9e;
+    color: white;
+}
+
+/* tombol kirim */
+.kirim {
+    background: rgb(187, 0, 44);
+    color: white;
+}
+
+.kembali:hover {
+    background: #7a7a7a;
+    border-radius: 10px;
+}
+
+.kembali:focus {
+    background: #7a7a7a;
+    border-radius: 10px;
+}
+
+.kirim:hover {
+    background: rgb(155, 0, 36);
+    border-radius: 10px;
+}
+
+.kirim:focus {
+    background: rgb(155, 0, 36);
+    border-radius: 10px;
+}
+
 
 /* ------------------------------------------------------------------- 
  * ## home content

@@ -1,0 +1,456 @@
+    <!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<script>
+const version = "20260526"; // update when font changes
+document.querySelector(
+    'link[href="css/fonts.css"]'
+).href = `css/fonts.css?v=${version}`;
+</script>
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Website Materi Tengoku</title>
+    <meta name="Website Materi Tengoku" content="Website Materi Tengoku">
+    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+      --bg: #0b0d12;
+      --card: #111111;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #331f1f;
+      --accent: #d61212;
+      --radius: 0px 16px;
+    }
+
+    *{box-sizing:border-box}
+    .app{max-width:1200px;margin:18px auto;padding:46px;background: var(--card);border-radius: var(--radius);box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px var(--border);margin-top: 12rem;margin-bottom: 18rem;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .list-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+
+    /* Floating Field */
+    .field {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 16px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-size: 2rem;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field label {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 2.5rem;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      background: var(--card);
+      padding: 0 6px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 124, 124, 0.15);
+    }
+
+    .field input:focus + label,
+    .field textarea:focus + label,
+    .field input:not(:placeholder-shown) + label,
+    .field textarea:not(:placeholder-shown) + label {
+      top: -6px;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 0px 12px;
+      border: none;
+      background: linear-gradient(135deg, #d62727, #f32727);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(230, 71, 71, 0.35);
+    }
+
+    .success {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #9effc3;
+      display: none;
+    }
+
+</style>
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo-1.png" alt="Homepage">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+            <div class="header-nav__content">
+                <h3>Navigation</h3>
+                <ul class="header-nav__list">
+                    <li class="current"><a  href="https://tengokulibels.github.io">Home</a></li>
+                    <li><a   href="https://tengokulibels.github.io/about">About</a></li>
+                    <li><a   href="https://tengokulibels.github.io/reguler">Kelas Reguler</a></li>
+                    <li><a   href="https://tengokulibels.github.io/advance">Kelas Advance</a></li>
+                    <li><a   href="https://tengokulibels.github.io/kurikulum">Kurikulum</a></li>
+                    <li><a   href="https://tengokulibels.github.io/kanji">Kamus Kanji</a></li>
+                    <li><a   href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a></li>
+                </ul>
+            </br>
+                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
+                <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</br></br> *Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+                <ul class="header-nav__social">
+                <li>
+                    <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i></a>
+                </li>
+                </ul>
+            </div> <!-- end header-nav__content -->
+        </nav>  <!-- end header-nav -->
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-text">Menu</span>
+            <span class="header-menu-icon"></span>
+        </a>
+    </header> <!-- end s-header -->
+
+
+    <!-- home
+    ================================================== -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.png" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>「天国クラブ」ウェブサイト</h3>
+
+                <h1>
+                    意見を入力する</br>
+                </h1>
+                <p class="p">
+                    Kirim Masukan</u>
+                </p>
+                
+
+                <div class="home-content__buttons">
+                    <a href="#masukan" class="smoothscroll btn btn--stroke">
+                        Lebih Lanjut
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="home-content__scroll">
+                <a href="#masukan" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+
+            <div class="home-content__line"></div>
+
+        </div> <!-- end home-content -->
+
+
+        <ul class="home-social">
+            <li>
+                <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@tengoku_libels"><i class="fa fa-youtube" aria-hidden="true"></i><span>Youtube</span></a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+<section id='masukan' class="s-services-dept">
+<div class="row about-desc" data-aos="fade-up">
+    <div class="col-full">
+        <img src="images/logo-1.png" alt="---" width="50%" style="filter: drop-shadow(0px 0px 5px #012220)">
+       </div>
+</div> <!-- end about-desc -->
+
+<div class="about__line2"></div>
+</section class="s-services-dept">
+      
+       <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <form
+    class="app"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSevA3OtSMQNcGWzSpUnIRYc7gKH5o4ZTYPCskZMzDf4dy1ntw/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="handleSubmit()"
+  >
+    <h1 style="margin-top: 1rem; margin-bottom: 0.5rem;">Kirim Masukanmu!</h1>
+    <p>Kirim pesan apapun mulai dari kekurangan, kelebihan, saran, pendapat dan lain lain yang berkaitan dengan TENGOKU.</p>
+
+    <div class="field">
+      <input
+        type="number"
+        name="entry.160629884"
+        required
+        placeholder=" "
+      />
+      <label>Kelas 10/11 (Angka)</label>
+    </div>
+
+    <div class="field">
+      <textarea
+        name="entry.766235656"
+        required
+        placeholder=" "
+        oninput="autoGrow(this)"
+      ></textarea>
+      <label>Masukan atau Pendapat</label>
+    </div>
+
+    <button type="submit" onclick="alert('Pesanmu terkirim!')">Kirim!</button>
+    <div class="success" id="successMsg">✔ Pesanmu tersampaikan</div>
+  </form>
+
+    </section> <!-- end s-clients -->
+
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact">
+
+        <div class="overlay"></div>
+        <div class="contact__line"></div>
+
+        <div class="row contact-content" data-aos="fade-up">
+            
+            <div class="contact-primary">
+                <h3 class="h2" style="margin-bottom: 2rem;">Misi TENGOKU</h3>
+              <p class="text"> Membuat Sumber Daya Manusia yang berprestasi dan berpengaruh dalam dunia yang berhubungan dengan jepang.</p>
+
+            </div> <!-- end contact-primary -->
+
+            <div class="contact-secondary">
+                <div class="contact-info">
+
+                    <div class="cinfo">
+                        <h5>Sosial Media</h5>
+                        <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
+                        <i class="fa fa-globe"></i>⠀tengokulibels.github.io<br><br><br>
+                        <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
+
+                    </div>
+
+                </div> <!-- end contact-info -->
+            </div> <!-- end contact-secondary -->
+
+        </div> <!-- end contact-content -->
+
+    </section> <!-- end s-contact -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row footer-main">
+            <div class="col-six tab-full left footer-desc">
+                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
+                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                ⠀
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                <b>Sosial Media</b> <br>
+                <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
+                <i class="fa fa-globe"></i>⠀tengokulibels.github.io
+            </div>
+        </div> <!-- end footer-main -->
+        <div class="row footer-bottom">
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>©2025 - 2026 TENGOKU </span> 
+                    <span>Kabinet '3 Mirai</span>	
+                    <span>Ditenagai oleh Github</span>	
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div> <!-- end footer-bottom -->
+    </footer> <!-- end footer -->
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <img src="logo-1.png" alt="---" width="200px"><br>
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+     
+    <script>
+        // Selecting the iframe element
+        var frame = document.getElementById("Iframe");
+        
+        // Adjusting the iframe height onload event
+        frame.onload = function() {
+            // set the height of the iframe as 
+            // the height of the iframe content
+            frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+
+            // set the width of the iframe as the 
+            // width of the iframe content
+            frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
+        }
+    </script>
+ <script>
+
+  function handleSubmit() {
+    setTimeout(() => {
+      document.getElementById("success").style.display = "block";
+    }, 400);
+
+  }
+  function autoGrow(el) {
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  }
+</script>
+
+</body>
+
+</html>

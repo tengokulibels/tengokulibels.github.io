@@ -1,0 +1,601 @@
+    <!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Website Materi Tengoku</title>
+    <meta name="Website Materi Tengoku" content="Pendaftaran Tengoku!">
+    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+.card{
+background:#1d1d1d;
+padding:28px;
+border-radius:18px;
+margin-bottom:20px;
+font-family: "Nunito", sans-serif;
+}
+
+.input{
+margin-bottom:22px;
+}
+
+.input label{
+display:block;
+margin-bottom:8px;
+font-family: "Nunito", sans-serif;
+}
+
+.input input,
+.input textarea{
+width:100%;
+background:transparent;
+border:none;
+border-bottom:2px solid #555;
+padding:12px 5px;
+color:white;
+font-size:16px;
+outline:none;
+font-family: "Nunito", sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 1000px #1d1d1d inset !important;
+    box-shadow: 0 0 0 1000px #1d1d1d inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white;
+}
+
+input:focus, textarea:focus{
+    outline:none;
+    background:transparent;
+    border-bottom:2px solid rgb(187, 0, 44);
+}
+
+textarea{
+resize:vertical;
+min-height:120px;
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+display:none;
+z-index: 900;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.box{
+background:#1d1d1d;
+width:100%;
+max-width:700px;
+border-radius:20px;
+margin: 14px;
+display:flex;
+overflow:hidden;
+padding: 30px;
+}
+
+.left1{
+width:40%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+}
+
+.left1 img{
+max-width:258px;
+object-fit:contain;
+content: url('maskot1.png');
+}
+
+.right1{
+width:60%;
+padding:10px 14px 0px 32px;
+}
+
+.right1 h2{
+margin-bottom:10px;
+}
+
+.right1 p{
+color:#bbb;
+margin-bottom:20px;
+}
+
+.copyCard{
+background:#2a2a2a;
+border-radius:16px;
+padding:15px;
+margin:20px 0;
+}
+
+.copyHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
+
+.copyHeader span{
+font-weight:600;
+font-size:15px;
+}
+
+.copied{
+background:#bb002c;
+padding:6px 14px;
+border-radius:12px;
+font-size:13px;
+transition:.25s;
+color: #fff;
+}
+
+.copyBody{
+display:flex;
+gap:10px;
+}
+
+.copyBody input{
+flex:1;
+background:#1d1d1d;
+border:1px solid #444;
+border-radius:12px;
+padding:14px;
+color:white;
+font-size:16px;
+}
+
+.copyBtn{
+width:58px;
+height:58px;
+border:none;
+border-radius:12px;
+background:#bb002c;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+transition:.25s;
+margin-bottom: 0px;
+padding: 2rem;
+}
+
+.copyBtn:hover, .copyBtn:focus{
+transform:scale(1.05);
+background:#cc0433;
+border-radius:12px;
+}
+
+
+
+.confirmBox{
+max-width:500px;
+}
+
+.full{
+width:100%;
+}
+
+.btnRow{
+display:flex;
+gap:12px;
+margin-top:25px;
+}
+
+.cancelBtn{
+background:#555;
+}
+
+.cancelBtn:hover{
+background:#666;
+}
+
+@media(max-width:768px){
+
+	.banner{
+		height:140px;
+	}
+	.box{
+		flex-direction:column;
+        padding: 20px;
+	}
+	.left1{
+		width:100%;
+	}
+	.left1 img{
+		max-width:180px;
+        content: url('maskot.png');
+        
+	}
+	.right1{
+		width:100%;
+		padding:25px;
+	}
+	.copyBox{
+		flex-direction:column;
+	}
+	.copyBox button{
+		width:100%;
+	}
+	.btnRow{
+		flex-direction:column;
+	}
+
+	.copyBody{
+		flex-direction:column;
+	}
+
+	.copyBtn{
+		width:100%;
+		height:52px;
+	}
+}
+  </style>
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo-1.png" alt="Homepage">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+            <div class="header-nav__content">
+                <h3>Navigation</h3>
+                <ul class="header-nav__list">
+                    <li class="current"><a  href="https://tengokulibels.github.io">Home</a></li>
+                    <li><a   href="https://tengokulibels.github.io/about">About</a></li>
+                    <li><a   href="https://tengokulibels.github.io/reguler">Kelas Reguler</a></li>
+                    <li><a   href="https://tengokulibels.github.io/advance">Kelas Advance</a></li>
+                    <li><a   href="https://tengokulibels.github.io/kurikulum">Kurikulum</a></li>
+                    <li><a   href="https://tengokulibels.github.io/kanji">Kamus Kanji</a></li>
+                    <li><a   href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a></li>
+                </ul>
+            </br>
+                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
+                <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</br></br> *Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+                <ul class="header-nav__social">
+                <li>
+                    <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i></a>
+                </li>
+                </ul>
+            </div> <!-- end header-nav__content -->
+        </nav>  <!-- end header-nav -->
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-text">Menu</span>
+            <span class="header-menu-icon"></span>
+        </a>
+    </header> <!-- end s-header -->
+
+
+    <!-- home
+    ================================================== -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.png" data-position-y=center>
+
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="home-content__scroll">
+                <a href="#daftar" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+
+            <div class="home-content__line"></div>
+
+        </div> <!-- end home-content -->
+
+
+        <ul class="home-social">
+            <li>
+                <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@tengoku_libels"><i class="fa fa-youtube" aria-hidden="true"></i><span>Youtube</span></a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+<section id='daftar' class="s-about">
+<div class="row about-desc" data-aos="fade-up">
+    <div class="col-full" style="margin-bottom: 50px;">
+        <img src="images/logo-1.png" alt="---" width="50%" style="filter: drop-shadow(0px 0px 5px #012220)">
+       </div>
+</div> <!-- end about-desc -->
+
+<div class="about__line2"></div>
+</section>
+
+<section class="s-works">
+<div class="intro-wrap">
+        <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead subhead--light">Halo Minna!</h3>
+                <h1 class="display-1 display-1--light">Formulir Pendaftaran</h1>
+            </div>
+        </div> <!-- end section-header -->
+</div> 
+
+<div class="row about-desc" data-aos="fade-up" style="margin-top: -230px;">
+    <div class="col-full">
+		<div class="card" style="margin: 10px;">
+        <form id="form" style="text-align: left;">
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">Nama Lengkap</label>
+				<input type="text" id="nama" required>
+			</div>
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">No. HP</label>
+				<input type="text" id="hp" required>
+			</div>
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">Alasan Bergabung</label>
+				<textarea id="alasan" required></textarea>
+			</div>
+			<button class="btn--main" style="margin-bottom: 0px;">Kirim</button>
+		</form>
+	</div>
+</div>
+        </div>
+</div> <!-- end about-desc -->
+</section> <!-- end s-clients -->
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row footer-main">
+            <div class="col-six tab-full left footer-desc">
+                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
+                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                ⠀
+            </div>
+            <div class="col-three tab-full right footer-subscribe">
+                <b>Sosial Media</b> <br>
+                <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
+                <i class="fa fa-globe"></i>⠀tengokulibels.github.io
+            </div>
+        </div> <!-- end footer-main -->
+        <div class="row footer-bottom">
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>©2025 - 2026 TENGOKU </span> 
+                    <span>Kabinet '3 Mirai</span>	
+                    <span>Ditenagai oleh Github</span>	
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div> <!-- end footer-bottom -->
+    </footer> <!-- end footer -->
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <img src="logo-1.png" alt="---" width="200px"><br>
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+<div class="popup" id="popup">
+	<div class="box">
+		<div class="left1">
+        	<img>
+        </div>
+		<div class="right1">
+			<h2 style="margin-top: 0px; color: #fff;">Jawabanmu sudah terkirim!</h2>
+			<p>Terima kasih telah mendaftar.<br>Follow Instagram dong, dan masuk ke Grup WA biar nggak ketinggalan informasi!</p>
+			<div class="copyCard">
+				<div class="copyHeader">
+					<span>Instagram</span>
+					<div class="copied" id="copiedText">
+						Salin
+					</div>
+				</div>
+				<div class="copyBody">
+					<input style="margin-bottom: 0px;" id="ig" readonly value="@tengoku_libels">
+                    <button style="margin-right: 0px;" class="copyBtn" onclick="copyIG()">
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2"/>
+							<path d="M5 15V5a2 2 0 0 1 2-2h10" stroke-width="2"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<button class="btn--wa" onclick="window.open('https://chat.whatsapp.com/CAHfqaGGyyX41zknTvAHCJ')">Masuk Grup WA</button>
+		</div>
+	</div>
+</div>
+
+<div class="popup" id="confirmPopup">
+	<div class="box confirmBox">
+		<div class="right full">
+			<h2 style="margin-top: 0px; color: #fff;">Konfirmasi Pengiriman</h2>
+			<p style="line-height: 1.4; font-weight: 600;">Pastikan seluruh data yang telah kamu isi sudah bener. Data yang telah terkirim tidak dapat diubah, Gk kayak waifu/husbumu yang selalu berubah.</p>
+			<div class="btnRow">
+				<button class="btn--s" onclick="closeConfirm()" style="margin-bottom: 4px;">Batal</button>
+				<button class="btn--primary" onclick="submitForm()" style="margin-bottom: 4px;">Ya, Kirim</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+     
+    <script>
+        // Selecting the iframe element
+        var frame = document.getElementById("Iframe");
+        
+        // Adjusting the iframe height onload event
+        frame.onload = function() {
+            // set the height of the iframe as 
+            // the height of the iframe content
+            frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+
+            // set the width of the iframe as the 
+            // width of the iframe content
+            frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
+        }
+    </script>
+    <script>
+    const form=document.getElementById("form");
+  
+form.addEventListener("submit",(e)=>{
+	e.preventDefault();
+	document.getElementById("confirmPopup").style.display="flex";
+});
+
+function closeConfirm(){
+
+document.getElementById("confirmPopup").style.display="none";
+
+}
+
+function submitForm(){
+	closeConfirm();
+	const data=new FormData();
+
+	data.append("entry.781095769",document.getElementById("nama").value);
+
+	data.append("entry.1429673765",document.getElementById("hp").value);
+
+	data.append("entry.998097761",document.getElementById("alasan").value);
+
+	fetch("https://docs.google.com/forms/d/e/1FAIpQLSf6LOv9qclW_Pe01YY71c5e2jo0N7C8FKbNJefHK0zFKT1Iyg/formResponse",
+	{method:"POST",mode:"no-cors",body:data}).then(()=>{
+	document.getElementById("popup").style.display="flex";
+	form.reset();});
+}
+
+function copyIG(){
+	navigator.clipboard.writeText("@tengoku_libels");
+	const text=document.getElementById("copiedText");
+	text.innerHTML="Tersalin ✓";
+	setTimeout(()=>{
+		text.innerHTML="Salin";
+	},2000);
+}
+  </script>
+ 
+
+</body>
+
+</html>

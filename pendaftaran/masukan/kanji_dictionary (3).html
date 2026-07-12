@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kamus Kanji — JLPT (Indonesia)</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --bg:#0b0b0c; --panel:#121214; --muted:#9aa3b2; --accent:#701212;
+    --n5:#1e2b1d; --n4:#23302e; --n3:#29281f; --n2:#24201c; --n1:#271d1d;
+    --wn5:#209717; --wn4:#1eaa95; --wn3:#bbab19; --wn2:#be6a16; --wn1:#c71919;
+    font-family:'Noto Sans JP',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:#eef2f6;-webkit-font-smoothing:antialiased}
+  .app{max-width:1180px;margin:18px auto;padding:18px}
+  header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+  .brand{display:flex;gap:12px;align-items:center}
+  h1{margin:0;font-size:18px}
+  .controls{display:flex;gap:8px;align-items:center}
+  input[type="search"], select, button{
+    background:#0f1113;border:1px solid #301b1b;padding:10px 12px;border-radius:0px 10px;
+    color:#e3e8ef;font-size:14px;transition:all .2s ease;
+  }
+  .rad {
+  display: inline-block;
+  margin: 4px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+.rad.main {
+  background: #333;
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+.muted {
+  color: #888;
+  font-size: 18px;
+}
+
+  input::placeholder{color:#6b7280}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;position:relative;padding-right:28px;}
+  select:hover,button:hover,input[type="search"]:hover{
+    box-shadow:0 0 0 2px #d61212;
+  }
+  button{cursor:pointer}
+  button:hover{background:var(--accent);border:4px #d61212;color:white}
+  .main{display:grid;grid-template-columns:410px 1fr;gap:20px;margin-top:18px}
+  .panel{background:var(--panel);border-radius:14px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  
+  /* --- KANJI GRID --- */
+  .list-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .kanji-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+    height:80vh;overflow:auto;padding-right:6px;
+  }
+  .kanji-card{
+    border-radius:0px 10px;padding:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    cursor:pointer;
+    border:1px solid #272b30;
+    transition:transform .18s, box-shadow .18s, filter .18s;
+    color:#fff;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  .kanji-card:hover{
+    transform:translateY(-6px) scale(1.05);
+    box-shadow:0 0 10px rgba(40, 217, 179, 0.4);
+    filter:brightness(1.1);
+  }
+  .kanji-char{font-size:30px}
+  .kanji-meaning{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}
+  
+  /* --- DETAIL PANEL --- */
+  .detail-grid{display:grid;grid-template-columns:320px 1fr;gap:18px}
+  .kanji-large{
+    background:#0a0a0b;border-radius:12px;padding:26px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:120px;min-height:220px;
+  }
+  .meta-box{display:flex;flex-direction:column;gap:10px}
+  .title-row{display:flex;align-items:center;gap:12px}
+  .title-row h2{margin:0}
+  .badge{padding:6px 10px;border-radius:10px;font-weight:700;font-size:13px;color:#08101a}
+  .badge.jlpt{color:white}
+  .muted{color:var(--muted)}
+  .radicals{display:flex;gap:8px;flex-wrap:wrap}
+  .rad{background:#0f1417;padding:6px 8px;border-radius:8px;border:1px solid #233;min-width:36px;text-align:center}
+  .words{margin-top:8px}
+  .word{padding:10px;border-radius:8px;background:#181818;margin-bottom:8px}
+  .loading{opacity:.85;font-style:italic}
+  footer{margin-top:14px;color:var(--muted);font-size:13px}
+  
+  /* --- RESPONSIVE --- */
+  @media (max-width:980px){
+    .main{grid-template-columns:1fr}
+    .kanji-grid{grid-template-columns:repeat(6,1fr);height:25vh;}
+    .kanji-large{font-size:72px;min-height:160px;padding:16px}
+    .detail-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .kanji-grid{grid-template-columns:repeat(4,1fr);height:25vh;}
+    input[type="search"]{min-width:140px}
+  }
+
+  .censorable {
+    transition: filter 0.4s ease, opacity 0.4s ease;
+  }
+
+  /* when censored */
+  .censored {
+    filter: blur(6px);
+    opacity: 0.4;
+    user-select: none;
+  }
+
+  .censorable1 {
+    transition: filter 0.4s ease, opacity 0.4s ease;
+  }
+
+  /* when censored */
+  .censored1 {
+    filter: blur(50px);
+    opacity: 0.4;
+    user-select: none;
+  }
+
+</style>
+
+
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <h1>Kamus Kanji — JLPT</h1>
+        <div class="muted">Klik kanji untuk melihat detail (arti otomatis ke Bahasa Indonesia)</div>
+      </div>
+    </header><br>
+    <section class="panel">
+    <div class="meta-box">
+        <input id="searchInput" type="search" style="height: 50px;" placeholder="Cari kanji (ketik lalu Enter)" />
+        <div style="display: flex;flex-direction: row;justify-content: space-between; flex-grow: 1;">
+        <select id="listSelect" aria-label="Pilih level" style="flex-grow: 1; margin-right: 20px;">
+          <option value="hiragana">Hiragana</option>
+          <option value="katakana">Katakana</option>
+          <option value="jlpt-n5">🟩 JLPT N5</option>
+          <option value="jlpt-n4">🟦 JLPT N4</option>
+          <option value="jlpt-n3">🟨 JLPT N3</option>
+          <option value="jlpt-n2">🟧 JLPT N2</option>
+          <option value="jlpt-n1">🟥 JLPT N1</option>
+        </select>
+        <button id="loadList">Muat</button></div>
+      </div>
+      </section>
+
+    <div class="main">
+      <aside class="panel">
+        <div class="list-head">
+          <strong>Daftar Kanji</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+
+          </div>
+        </div>
+        <div id="kanjiGrid" class="kanji-grid" aria-live="polite"></div>
+      </aside>
+
+      <section class="panel">
+        <div class="detail-grid">
+          <div>
+            <div style="margin-top:12px;margin-bottom: 12px;display:flex;gap:8px;height:44px;align-items:center">
+              <div style="font-weight:700">Sensor</div> 
+              <button id="toggleCensor">OFF</button>
+              <button id="randomBtn">Kanji Acak</button>
+              <button id="replayStroke">🔁 Replay</button>
+            </div>
+            <div id="kanjiLarge" class="kanji-large">日</div>
+            <div style="margin-top:12px;display:flex;gap:8px;height:44px;align-items:center">
+              <div id="strokeBadge" class="badge" style="background:#111;color:var(--muted)">Goresan: -</div>
+              <div id="jlptBadge" class="badge jlpt" style="background:var(--n5)">JLPT N5</div>
+            </div>
+            <div id="strokeBox" class="panel censorable1" style="margin-top:10px;"></div>
+          
+
+          </div>
+
+          <div>
+            <div class="meta-box">
+              <div class="title-row">
+                <h2 id="kanjiTitle">日</h2>
+                <div id="readingLine" class="muted"></div>
+              </div>
+
+              <div>
+                <div style="font-weight:700">Arti (English)</div>
+                <div id="meaningsEng" class="muted loading censorable">-</div>
+              </div>
+
+              <div>
+                <div style="font-weight:700">Arti (Indonesia)</div>
+                <div id="meaningsId" class="muted loading censorable">-</div>
+              </div>
+                <div>
+                  <div style="font-weight:700">Bacaan Kun'yomi</div>
+                  <div id="kunRead" class="muted censorable">-</div>
+                </div>
+                <div>
+                  <div style="font-weight:700">Bacaan On'yomi</div>
+                  <div id="onRead" class="muted censorable">-</div>
+                </div>
+
+                <div>
+                <div style="font-weight:700">Dapat Dibaca Sebagai</div>
+                <div id="romaread" class="muted loading censorable">-</div>
+              </div>
+
+              <div>
+                <div style="font-weight:700">Kata umum</div>
+                <div id="wordsList" class="words censorable"><div class="muted">-</div></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <footer>Data detail dari <a href="https://kanjiapi.dev" style="color:var(--accent)">kanjiapi.dev</a>. Terjemahan oleh MyMemory (gratis).</footer>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    
+ const API_ROOT = 'https://kanjiapi.dev/v1';
+ const MYMEMORY_BASE = 'https://api.mymemory.translated.net/get?q=';
+ const LANG_PAIR = '&langpair=en|id';
+ feather.replace();
+ 
+ // --- 1. GLOBAL STATE FOR REPLAY ---
+ let currentKanji = '日'; // Initialize with a default kanji
+ 
+ const JLPT = {
+  "hiragana": ("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん").split(""),
+  "katakana": ("アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン").split(""),
+  "jlpt-n5": ("一七万三上下中九二五人今休何先入八六円出前北十千午半南友右名四国土外大天女子学小山川左年後日時書月木本来東校母毎気水火父生男白百聞行西見話語読車金長間雨電食高").split(""), 
+  "jlpt-n4": ("不世主事件京仕代以会住体作使借元兄公写冬切別力勉動医去口古台同味品員問図地堂場所売夏夕多夜妹姉始字安室家少屋工帰広店度建弟強待心思急悪意手持教文料新方旅族早明映春昼曜有服朝業楽歌止正歩死注洋海漢牛物特犬理用田町画界病発目真着知研社私秋究空立答紙終習考者肉自色花英茶親言計試買貸質赤走起足転近送通週運道重野銀開院集青音題風飯飲館駅験魚鳥黒").split(""), 
+  "jlpt-n3": ("与両乗予争互亡交他付件任伝似位余例供便係信倒候値偉側偶備働優光全共具内冷処列初判利到制刻割加助努労務勝勤化単危原参反収取受号合向君否吸吹告呼命和商喜回因困園在報増声変夢太夫失好妻娘婚婦存宅守完官定実客害容宿寄富寒寝察対局居差市師席常平幸幾座庭式引当形役彼徒得御必忘忙念怒怖性恐恥息悲情想愛感慣成戦戻所才打払投折抜抱押招指捕掛探支放政敗散数断易昔昨晩景晴暗暮曲更最望期未末束杯果格構様権横機欠次欲歯歳残段殺民求決治法泳洗活流浮消深済渡港満演点然煙熱犯状猫王現球産由申留番疑疲痛登皆盗直相眠石破確示礼祖神福科程種積突窓笑等箱米精約組経給絵絶続緒罪置美老耳職育背能腹舞船良若苦草落葉薬術表要規覚観解記訪許認誤説調談論識警議負財貧責費資賛越路辞込迎返迷追退逃途速連進遅遊過達違遠適選部都配酒閉関降限除険陽際雑難雪静非面靴頂頭頼顔願類飛首馬髪鳴").split(""), 
+  "jlpt-n2": ("並丸久乱乳乾了介仏令仲伸伺低依個倍停傾像億兆児党兵冊再凍刊刷券刺則副劇効勇募勢包匹区卒協占印卵厚双叫召史各含周咲喫営団囲固圧坂均型埋城域塔塗塩境央奥姓委季孫宇宝寺封専将尊導届層岩岸島州巨巻布希帯帽幅干幼庁床底府庫延弱律復快恋患悩憎戸承技担拝拾挟捜捨掃掘採接換損改敬旧昇星普暴曇替札机材村板林枚枝枯柔柱査栄根械棒森植極橋欧武歴殿毒比毛氷永汗汚池沈河沸油況泉泊波泥浅浴涙液涼混清減温測湖湯湾湿準溶滴漁濃濯灯灰炭焼照燃燥爆片版玉珍瓶甘畜略畳療皮皿省県短砂硬磨祈祝祭禁秒移税章童競竹符筆筒算管築簡籍粉粒糸紅純細紹絡綿総緑線編練績缶署群羽翌耕肌肩肯胃胸脂脳腕腰膚臓臣舟航般芸荒荷菓菜著蒸蔵薄虫血衣袋被装裏補複角触訓設詞詰誌課諸講谷豊象貝貨販貯貿賞賢贈超跡踊軍軒軟軽輪輸辛農辺述逆造郊郵量針鈍鉄鉱銅鋭録門防陸隅階隻雇雲零震革順預領額香駐骨麦黄鼻齢").split(""), 
+  "jlpt-n1": ("丁丑且丘丙丞丹乃之乏乙也亀井亘亜亥亦亨享亭亮仁仙仮仰企伊伍伎伏伐伯伴伶伽但佐佑佳併侃侍侑価侮侯侵促俊俗保修俳俵俸倉倖倣倫倭倹偏健偲偵偽傍傑傘催債傷僕僚僧儀儒償允充克免典兼冒冗冠冴冶准凌凜凝凡凪凱凶凸凹刀刃刈刑削剖剛剣剤剰創功劣励劾勁勅勘勧勲勺匁匠匡匿升卑卓博卯即却卸厄厘厳又及叙叡句只叶司吉后吏吐吟呂呈呉哀哉哲唄唆唇唯唱啄啓善喚喝喪喬嗣嘆嘉嘱器噴嚇囚圏圭坑坪垂垣執培基堀堅堕堤堪塀塁塊塑塚塾墓墜墨墳墾壁壇壊壌士壮壱奇奈奉奎奏契奔奨奪奮奴如妃妄妊妙妥妨姫姻姿威娠娯婆婿媒媛嫁嫌嫡嬉嬢孔孟孤宏宗宙宜宣宥宮宰宴宵寂寅密寛寡寧審寮寸射尉尋尚尭就尺尼尽尾尿屈展属履屯岐岬岳峠峡崇崎崚崩嵐嵩嵯嶺巌巡巣巧己巳巴巽帆帝帥帳幕幣幹幻幽庄序庶康庸廃廉廊廷弁弊弐弓弔弘弥弦弧張弾彗彦彩彪彫彬彰影往征径徐従循微徳徴徹忌忍志応忠怜怠怪恒恕恨恩恭恵悌悔悟悠悦悼惇惑惜惟惣惨惰愁愉愚慈態慎慕慢慧慨慮慰慶憂憤憧憩憲憶憾懇懐懲懸我戒戯房扇扉扱扶批抄把抑抗択披抵抹抽拍拐拒拓拘拙拠拡括拳拷挑挙振挿据捷捺授掌排控推措掲描提揚握揮援揺搬搭携搾摂摘摩撃撤撮撲擁操擦擬攻故敏救敢敦整敵敷斉斎斐斗斜斤斥於施旋旗既旦旨旬旭旺昂昆昌昭是昴晃晋晏晟晨晶智暁暉暑暖暢暦暫曙朋朔朕朗朱朴朽杉李杏杜条松析枠枢架柄柊某染柚柳柾栓栗栞株核栽桂桃案桐桑桜桟梅梓梢梧梨棄棋棚棟棺椋椎検椰椿楊楓楠楼概榛槙槻槽標模樹樺橘檀欄欣欽款歓殉殊殖殴殻毅毬氏汁汐江汰汽沖沙没沢沼沿泌泡泣泰洞津洪洲洵洸派浄浜浦浩浪浸涯淑淡淳添渇渉渋渓渚渥渦湧源溝滅滉滑滝滞漂漆漏漠漫漬漱漸潔潜潟潤潮澄澪激濁濫瀬災炉炊炎為烈焦煩煮熊熙熟燎燦燿爵爽爾牧牲犠狂狩独狭猛猟猪献猶猿獄獣獲玄率玖玲珠班琉琢琳琴瑚瑛瑞瑠瑳瑶璃環甚甫甲畔畝異疎疫疾症痘痢痴癒癖皇皐皓盆益盛盟監盤盲盾眉看眸眺眼睡督睦瞬瞭瞳矛矢矯砕砲硝硫碁碑碧碩磁磯礁礎祉祐祥票禄禅禍禎秀秘祖秦秩称稀稔稚稜稲稼稿穀穂穏穣穫穴窃窒窮窯竜竣端笙笛第笹筋策箇節範篤簿粋粗粘粛糖糧系糾紀紋納紗紘級紛素紡索紫紬累紳紺絃結絞絢統絹継綜維綱網綸綺綾緊緋締緩緯縁縄縛縦縫縮繁繊織繕繭繰罰罷羅羊義翁翔翠翻翼耀耐耗耶聖聡聴肇肖肝肢肥肪肺胆胎胞胡胤胴脅脈脚脩脱脹腐腸膜膨臨臭至致興舌舎舗舜舶艇艦艶芋芙芝芳芹芽苑苗茂茄茅茉茎茜荘莉莞菊菌菖菫華萌萩葬葵蒔蒼蓄蓉蓮蔦蕉蕗薦薪薫藍藤藩藻蘭虎虐虚虜虞虹蚊蚕蛇蛍蛮蝶融衆街衛衝衡衰衷衿袈裁裂裕裟裸製褐褒襟襲覆覇視覧訂討託訟訟訴診証詐詔評詠詢詩該詳誇誉誓誕誘誠誼諄請諒諭諮諾謀謁謄謙謝謡謹譜譲護豆豚豪貞貢貫貴賀賃賄賊賓賜賠賦購赦赳赴趣距跳践踏躍軌軸較載輔輝輩轄辰辱迅迪迫迭透逐逓逝逮逸遂遇遍遣遥遭遮遵遷遺遼避還邑那邦邪邸郁郎郡郭郷酉酌酔酢酪酬酵酷酸醜醸采釈釣鈴鉛鉢銃銑銘銭鋳鋼錘錠錦錬錯鍛鎌鎖鎮鏡鐘鑑閑閣閥閲闘阻阿附陛陣陥陪陰陳陵陶隆隊随隔障隠隣隷隼雄雅雌雛離雰雷需霊霜霞霧露靖鞠韻響項須頌頑頒頻顕顧颯飢飼飽飾養餓馨駄駆駒駿騎騒騰曽髄鬼魁魂魅魔鮎鮮鯉鯛鯨鳩鳳鴻鵬鶏鶴鷹鹿麗麟麻麿黎黙黛鼓").split("")
+ };
+ const JLPT_COLOR = {
+  'jlpt-n5': 'var(--n5)',
+  'jlpt-n4': 'var(--n4)',
+  'jlpt-n3': 'var(--n3)',
+  'jlpt-n2': 'var(--n2)',
+  'jlpt-n1': 'var(--n1)'
+ };
+ const JLPT_BORDER = {
+  'jlpt-n5': 'var(--wn5)',
+  'jlpt-n4': 'var(--wn4)',
+  'jlpt-n3': 'var(--wn3)',
+  'jlpt-n2': 'var(--wn2)',
+  'jlpt-n1': 'var(--wn1)'
+ };
+
+ const $ = id => document.getElementById(id);
+ function el(tag, cls) {
+  const d = document.createElement(tag);
+  if (cls) d.className = cls;
+  return d;
+ }
+
+ function renderManual(level) {
+  const grid = $('kanjiGrid');
+  grid.innerHTML = '';
+  const data = JLPT[level] || [];
+  if (!data.length) {
+   grid.innerHTML = '<div class="muted">Tidak ada kanji</div>';
+   return;
+  }
+  data.forEach(ch => {
+   const card = el('div', 'kanji-card');
+   card.innerHTML = `<div class="kanji-char">${ch}</div>`;
+   card.style.background = JLPT_COLOR[level];
+   card.style.borderColor = JLPT_BORDER[level];
+   card.onclick = () => selectKanji(ch, level);
+   grid.appendChild(card);
+  });
+ }
+ 
+ // small helper to avoid inserting raw HTML from API into the page
+ function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+   .replace(/&/g, '&amp;')
+   .replace(/</g, '&lt;')
+   .replace(/>/g, '&gt;')
+   .replace(/"/g, '&quot;')
+   .replace(/'/g, '&#39;');
+ }
+ 
+ // --- 2. NEW ANIMATION FUNCTION (Extracted from selectKanji) ---
+ async function animateKanjiStroke(k) {
+  const strokeBox = $('strokeBox');
+  if (strokeBox) strokeBox.innerHTML = '<div class="muted loading">Memuat animasi goresan…</div>';
+
+  try {
+   const code = k.codePointAt(0).toString(16).padStart(5, '0');
+   const svgUrl = `https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${code}.svg`;
+   const sres = await fetch(svgUrl);
+
+   if (!sres.ok) {
+    if (strokeBox) strokeBox.innerHTML = '<div class="muted">Tidak ada data stroke KanjiVG.</div>';
+    return;
+   }
+   
+   let svgText = await sres.text();
+
+   // sanitize: remove xml/doctypes and stray ]]> etc.
+   svgText = svgText
+    .replace(/<\?xml[\s\S]*?\?>/g, '')
+    .replace(/<!DOCTYPE[\s\S]*?>/g, '')
+    .replace(/\]\]>/g, '')
+    .trim();
+
+   if (!/\<svg[\s\S]*?\>/.test(svgText)) {
+    if (strokeBox) strokeBox.innerHTML = '<div class="muted">SVG tidak valid.</div>';
+    return;
+   }
+
+   let doc;
+   try {
+    doc = (new DOMParser()).parseFromString(svgText, 'image/svg+xml');
+    if (doc.getElementsByTagName('parsererror').length) throw new Error('parsererror');
+   } catch (err) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = svgText;
+    const svgElem = tmp.querySelector('svg');
+    if (!svgElem) {
+     if (strokeBox) strokeBox.innerHTML = '<div class="muted">SVG tidak dapat diurai.</div>';
+     return;
+    }
+    doc = document.implementation.createDocument('', '', null);
+    const imported = document.importNode(svgElem, true);
+    doc.appendChild(imported);
+   }
+
+   const svg = doc.querySelector('svg');
+   if (!svg) {
+    if (strokeBox) strokeBox.innerHTML = '<div class="muted">SVG tidak valid.</div>';
+    return;
+   }
+
+   svg.querySelectorAll('text').forEach(n=>n.remove());
+   svg.removeAttribute('width');
+   svg.removeAttribute('height');
+   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+   const container = document.createElement('div');
+   container.style.cssText = 'display:flex; justify-content:center; align-items:center; width:100%; pointer-events:none;';
+
+   const styleEl = document.createElement('style');
+   styleEl.textContent = `@keyframes k_draw { to { stroke-dashoffset: 0; } }`;
+   container.appendChild(styleEl);
+
+   const importedSvg = document.importNode(svg, true);
+   importedSvg.style.cssText = 'width:100%; max-width:240px; height:auto; display:block;';
+
+   importedSvg.querySelectorAll('*').forEach(n=>{
+    if (n.hasAttribute && n.hasAttribute('fill')) {
+     n.removeAttribute('fill');
+    }
+   });
+
+   const paths = Array.from(importedSvg.querySelectorAll('path'));
+   if (!paths.length) {
+    if (strokeBox) strokeBox.innerHTML = '<div class="muted">Tidak ada path di SVG.</div>';
+    return;
+   }
+
+   container.appendChild(importedSvg);
+   strokeBox.innerHTML = '';
+   strokeBox.appendChild(container);
+
+   // After SVG is in DOM, compute lengths and set animation per path
+   requestAnimationFrame(()=> {
+    const domPaths = strokeBox.querySelectorAll('path');
+    domPaths.forEach((p, i) => {
+     try {
+      // *** CRITICAL FOR REPLAY ***
+      p.style.animation = 'none'; // Clear previous animation
+      void p.offsetWidth; // Force a DOM reflow (required for re-running CSS animation)
+
+      // compute length
+      const len = p.getTotalLength();
+      p.style.stroke = '#ffffff';
+      p.style.strokeWidth = '6';
+      p.style.fill = 'none';
+      p.style.strokeLinecap = 'round';
+      p.style.strokeLinejoin = 'round';
+      p.style.strokeDasharray = `${len}`;
+      p.style.strokeDashoffset = `${len}`; // Start position for animation
+      
+      const delay = (i * 0.9); // stagger slightly
+      const duration = Math.max(0.9, Math.min(1.4, len / 320)); // adaptive
+      p.style.animation = `k_draw ${duration}s cubic-bezier(.2,.8,.2,1) ${delay}s forwards`;
+     } catch (err) {
+      // fallback small animation if getTotalLength fails
+      p.style.stroke = '#ffffff';
+      p.style.strokeWidth = '6';
+      p.style.fill = 'none';
+      p.style.animation = `k_draw 1.5s ease ${i*1.5}s forwards`;
+     }
+    });
+   });
+  } catch (err) {
+   console.warn('SVG anim error', err);
+   if (strokeBox) strokeBox.innerHTML = '<div class="muted">Tidak ada animasi goresan.</div>';
+  }
+ }
+
+ async function selectKanji(k, level = null) {
+  // --- 3. Update Global Kanji State ---
+  currentKanji = k;
+  
+  // shorthand helpers (if you used different ones, adapt)
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls) => { const d = document.createElement(tag); if (cls) d.className = cls; return d; };
+
+  // Reset UI
+  if ($('kanjiLarge')) $('kanjiLarge').textContent = k;
+  if ($('kanjiTitle')) $('kanjiTitle').textContent = k;
+  if ($('romaread')) $('romaread').textContent = '-';
+  if ($('meaningsEng')) $('meaningsEng').textContent = 'Sedang memuat…';
+  if ($('meaningsId')) $('meaningsId').textContent = 'Menerjemahkan…';
+  if ($('kunRead')) $('kunRead').textContent = '-';
+  if ($('onRead')) $('onRead').textContent = '-';
+  if ($('radicals')) $('radicals').innerHTML = '-';
+  if ($('wordsList')) $('wordsList').innerHTML = '<div class="muted loading">Memuat kata contoh…</div>';
+  // **REMOVED** the initial 'Memuat animasi goresan...' here, it's now in animateKanjiStroke
+
+  // JLPT badge color
+  if ($('jlptBadge')) {
+   $('jlptBadge').style.background = level ? JLPT_BORDER[level] : '#222';
+  }
+
+  // --- Call the dedicated animation function ---
+  animateKanjiStroke(k);
+
+  try {
+   // === Kanji Info ===
+   const res = await fetch(`${API_ROOT}/kanji/${encodeURIComponent(k)}`);
+   const data = await res.json();
+
+   const eng = (data.meanings || []).join(', ');
+   if ($('romaread')) $('romaread').textContent = (data.name_readings || []).join('、') || '-';
+   if ($('meaningsEng')) $('meaningsEng').textContent = eng || '-';
+   if ($('kunRead')) $('kunRead').textContent = (data.kun_readings || []).join('、') || '-';
+   if ($('onRead')) $('onRead').textContent = (data.on_readings || []).join('、') || '-';
+   if ($('strokeBadge')) $('strokeBadge').textContent = 'Goresan: ' + (data.stroke_count || '-');
+   if ($('jlptBadge')) $('jlptBadge').textContent = 'JLPT-N' + (data.jlpt ||'0 '+ (level ? level.toUpperCase().replace('JLPT-', '') : ''));
+   if ($('jlptBadge')) $('jlptBadge').style.background = JLPT_BORDER[data.jlpt];
+   
+   // Translation
+
+   async function translateToIndonesian(text) {
+    if (!text || text === '-') return '-';
+    try {
+        const res = await fetch(`${MYMEMORY_BASE}${encodeURIComponent(text)}${LANG_PAIR}`);
+        if (!res.ok) {
+            // Handle HTTP errors (e.g., 400, 500)
+            return 'Terjemah GAGAL: (Error HTTP ' + res.status + ')';
+        }
+        
+        const data = await res.json();
+        
+        if (data && data.responseData && data.responseData.translatedText) {
+            let translated = data.responseData.translatedText;
+            // Check if translation is valid and not just an echo of the input
+            if (translated && translated.toLowerCase().trim() !== text.toLowerCase().trim()) {
+                return translated;
+            }
+        }
+        
+        // If API succeeded but returned bad/empty data
+        return `Terjemah GAGAL: [Tidak ada hasil]`;
+
+    } catch (err) {
+        // Catch network errors (CORS, offline, etc.) or JSON parsing errors
+        console.error('Translation error:', err);
+        return `Terjemah GAGAL: [Network/Parsing Error]`;
+    }
+}
+if ($('meaningsId')) {
+    const idTranslation = await translateToIndonesian(eng);
+    $('meaningsId').textContent = idTranslation;
+}
+
+
+   // 🟢 RADICALS
+   if ($('radicals')) {
+    const radBox = $('radicals');
+    if (data.radical && data.radical.character) {
+     radBox.innerHTML = `
+      <div class="rad main">${data.radical.character}</div>
+      <div class="rad-meaning">${data.radical.meaning || ''}</div>
+     `;
+    } else {
+     radBox.innerHTML = '<div class="muted">Radikal tidak tersedia.</div>';
+    }
+   }
+
+   // === WORD EXAMPLES (kanjiapi) ===
+   let wdata = [];
+   try {
+    const wres = await fetch(`https://kanjiapi.dev/v1/words/${encodeURIComponent(k)}`);
+    if (wres.ok) wdata = (await wres.json()) || [];
+   } catch (e) { console.warn('Gagal memuat kata dari kanjiapi:', e); }
+
+   if ($('wordsList')) {
+    $('wordsList').innerHTML = '';
+    if (!wdata.length) {
+     $('wordsList').innerHTML = '<div class="muted">Tidak ada contoh kata.</div>';
+    } else {
+     wdata.slice(0, 6).forEach(entry => {
+      let variant = entry.variants?.[0] || {};
+      let meanings = entry.meanings?.[0] || {};
+      let word = variant.written || entry.slug || '';
+      let reading = variant.pronounced || '';
+      let gloss = (meanings.glosses || []).slice(0, 2).join('; ') || '';
+
+      let d = el('div', 'word');
+      d.innerHTML = `
+       <div style="font-weight:700">
+        ${word} <span style="font-size:12px;color:var(--muted)">${reading}</span>
+       </div>
+       <div style="font-size:13px;color:var(--muted)">${gloss}</div>
+      `;
+      $('wordsList').appendChild(d);
+     });
+    }
+   }
+  } catch (err) {
+   console.error(err);
+   if ($('meaningsEng')) $('meaningsEng').textContent = 'Error';
+   if ($('strokeBox')) $('strokeBox').innerHTML = '<div class="muted">Gagal memuat data.</div>';
+  }
+ }
+
+ // --- 4. NEW REPLAY FUNCTION ---
+ function replayKanjiStroke() {
+  if (!currentKanji) {
+   alert('Pilih kanji terlebih dahulu.');
+   return;
+  }
+  // Call the dedicated animation function with the currently selected kanji
+  animateKanjiStroke(currentKanji);
+ }
+
+ let censorEnabled = false; // start with censor ON
+
+$('toggleCensor').onclick = () => {
+    censorEnabled = !censorEnabled;
+    $('toggleCensor').textContent = censorEnabled ? 'ON' : 'OFF';
+
+    // toggle fade+blur with animation
+    document.querySelectorAll('.censorable').forEach(el => {
+      if (censorEnabled) {
+        el.classList.add('censored');
+      } else {
+        el.classList.remove('censored');
+      }
+    });
+
+    document.querySelectorAll('.censorable1').forEach(el => {
+      if (censorEnabled) {
+        el.classList.add('censored1');
+      } else {
+        el.classList.remove('censored1');
+      }
+    });
+  };
+ 
+ 
+ // Attach event listeners
+ document.addEventListener('DOMContentLoaded', () => {
+  // --- 5. Attach Replay Button Event ---
+  const replayButton = $('replayStroke');
+  if (replayButton) {
+   replayButton.addEventListener('click', replayKanjiStroke);
+  }
+
+  $('loadList').addEventListener('click', () => renderManual($('listSelect').value));
+  $('searchInput').addEventListener('keydown', e => {
+   if (e.key === 'Enter') selectKanji(e.target.value[0] || '', null);
+  });
+  $('randomBtn').addEventListener('click', () => {
+   const cards = document.querySelectorAll('.kanji-card');
+   if (cards.length) {
+    const r = cards[Math.floor(Math.random() * cards.length)];
+    r.click();
+    r.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+  });
+  
+  // Initial load
+  renderManual('jlpt-n5');
+  setTimeout(() => {
+   const f = document.querySelector('.kanji-card');
+   if (f) f.click();
+  }, 300);
+ });
+</script>
+
+</body>
+</html>

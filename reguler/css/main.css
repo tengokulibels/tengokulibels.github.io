@@ -801,10 +801,7 @@ select:-webkit-autofill:focus {
  *
  * ------------------------------------------------------------------- */
 .btn,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+button{
     display: inline-block;
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -829,14 +826,8 @@ input[type="button"] {
 
 .btn:hover,
 button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
 .btn:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
+button:focus {
     background-color: #f2bd70;
     border-color: #fcb042;
     color: #ffffff;
@@ -905,6 +896,113 @@ input[type="button"]:focus {
      background-color: #871c35;
      border-color: #f2bd70;
  }
+
+ .btn.btn--wa,
+button.btn--wa,
+input[type="submit"].btn--wa,
+input[type="reset"].btn--wa,
+input[type="button"].btn--wa {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: solid #00c050;
+      line-height: calc(1.5);
+      background: transparent;
+      color: #f3f3f3;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s ease, color 0.15s ease;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--wa:hover,
+ button.btn--wa:hover,
+ input[type="submit"].btn--wa:hover,
+ input[type="reset"].btn--wa:hover,
+ input[type="button"].btn--wa:hover
+ .btn.btn--wa:focus,
+ button.btn--wa:focus,
+ input[type="submit"].btn--wa:focus,
+ input[type="reset"].btn--wa:focus,
+ input[type="button"].btn--wa:focus {
+      background: linear-gradient(45deg,#22c701, #00c050);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(79, 255, 56, 0.486);
+    }
+
+  .btn.btn--main,
+button.btn--main,
+input[type="submit"].btn--main,
+input[type="reset"].btn--main,
+input[type="button"].btn--main {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: none;
+      line-height: calc(1.5);
+      background: #bb002c;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--main:hover,
+ button.btn--main:hover,
+ input[type="submit"].btn--main:hover,
+ input[type="reset"].btn--main:hover,
+ input[type="button"].btn--main:hover
+ .btn.btn--main:focus,
+ button.btn--main:focus,
+ input[type="submit"].btn--main:focus,
+ input[type="reset"].btn--main:focus,
+ input[type="button"].btn--main:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px #80011e;
+    }
+
+      .btn.btn--s,
+button.btn--s,
+input[type="submit"].btn--s,
+input[type="reset"].btn--s,
+input[type="button"].btn--s {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: none;
+      line-height: calc(1.5);
+      background: #7e7e7e;
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--s:hover,
+ button.btn--s:hover,
+ input[type="submit"].btn--s:hover,
+ input[type="reset"].btn--s:hover,
+ input[type="button"].btn--s:hover
+ .btn.btn--s:focus,
+ button.btn--s:focus,
+ input[type="submit"].btn--s:focus,
+ input[type="reset"].btn--s:focus,
+ input[type="button"].btn--s:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px #5e5e5e9d;
+    }
 
 
  .btn.btn--gehenna,

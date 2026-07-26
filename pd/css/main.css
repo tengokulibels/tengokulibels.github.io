@@ -625,31 +625,6 @@ fieldset {
     border: none;
 }
 
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
-textarea,
-select {
-    display: block;
-    height: 6rem;
-    padding: 1.5rem 0;
-    border: 0;
-    outline: none;
-    color: #333333;
-    font-family: "montserrat-light", sans-serif;
-    font-size: 1.4rem;
-    line-height: 3rem;
-    max-width: 100%;
-    background: transparent;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
 .cl-custom-select {
     position: relative;
     padding: 0;
@@ -710,18 +685,6 @@ textarea {
     min-height: 25rem;
 }
 
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
-    color: #000000;
-    border-bottom: 2px solid black;
-}
 
 label, legend {
     font-family: "montserrat-regular", sans-serif;
@@ -733,9 +696,6 @@ label, legend {
     display: block;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    display: inline;
-}
 
 label > .label-text {
     display: inline-block;
@@ -745,21 +705,11 @@ label > .label-text {
     line-height: inherit;
 }
 
-label > input[type="checkbox"], 
-label > input[type="radio"] {
-    margin: 0;
-    position: relative;
-    top: .15rem;
-}
 
 
 /* ------------------------------------------------------------------- 
  * ## style placeholder text
  * ------------------------------------------------------------------- */
-::-webkit-input-placeholder {
-    color: #828282;
-}
-
 :-moz-placeholder {
     color: #828282;
     /* Firefox 18- */
@@ -782,9 +732,6 @@ label > input[type="radio"] {
 /* ------------------------------------------------------------------- 
  * ## change autocomplete styles in chrome
  * ------------------------------------------------------------------- */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus input:-webkit-autofill,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
@@ -800,6 +747,42 @@ select:-webkit-autofill:focus {
  * # buttons
  *
  * ------------------------------------------------------------------- */
+.btn,
+button{
+    display: inline-block;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    height: 5.4rem;
+    line-height: calc(5 - 1.1);
+    padding: 0 3rem;
+    margin: 0 .3rem 1.2rem 0;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #d99d45;
+    border: .2rem solid #fcb042;
+    border-radius: 0px 10px 0px 10px;
+}
+
+.btn:hover,
+button:hover,
+.btn:focus,
+button:focus {
+    background-color: #f2bd70;
+    border-color: #fcb042;
+    color: #ffffff;
+    outline: 0;
+    border-radius: 0px 10px 0px 10px;
+}
+
+
 .btn,
 button,
 input[type="submit"],
@@ -853,10 +836,20 @@ input[type="button"]:focus {
  input[type="submit"].btn--primary,
  input[type="reset"].btn--primary,
  input[type="button"].btn--primary {
-     border-radius: 0px 10px 0px 10px;
-     background: linear-gradient(-90deg, #089976, transparent) #005555;
-     border-color: #089976;
-     color: #FFFFFF;
+     width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: none;
+      line-height: calc(1.5);
+      background: #00c050;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
      
  }
  
@@ -865,14 +858,13 @@ input[type="button"]:focus {
  input[type="submit"].btn--primary:hover,
  input[type="reset"].btn--primary:hover,
  input[type="button"].btn--primary:hover
-
  .btn.btn--primary:focus,
  button.btn--primary:focus,
  input[type="submit"].btn--primary:focus,
  input[type="reset"].btn--primary:focus,
  input[type="button"].btn--primary:focus {
-     background-color: #089976;
-     border-color: #33a242;
+     transform: translateY(-1px);
+      box-shadow: 0 10px 20px #005a26;
  }
 
  .btn.btn--code,
@@ -906,6 +898,112 @@ input[type="button"]:focus {
      border-color: #f2bd70;
  }
 
+  .btn.btn--wa,
+button.btn--wa,
+input[type="submit"].btn--wa,
+input[type="reset"].btn--wa,
+input[type="button"].btn--wa {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: solid #00c050;
+      line-height: calc(1.5);
+      background: transparent;
+      color: #f3f3f3;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s ease, color 0.15s ease;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--wa:hover,
+ button.btn--wa:hover,
+ input[type="submit"].btn--wa:hover,
+ input[type="reset"].btn--wa:hover,
+ input[type="button"].btn--wa:hover
+ .btn.btn--wa:focus,
+ button.btn--wa:focus,
+ input[type="submit"].btn--wa:focus,
+ input[type="reset"].btn--wa:focus,
+ input[type="button"].btn--wa:focus {
+      background: linear-gradient(45deg,#22c701, #00c050);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(79, 255, 56, 0.486);
+    }
+
+  .btn.btn--main,
+button.btn--main,
+input[type="submit"].btn--main,
+input[type="reset"].btn--main,
+input[type="button"].btn--main {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: none;
+      line-height: calc(1.5);
+      background: #bb002c;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--main:hover,
+ button.btn--main:hover,
+ input[type="submit"].btn--main:hover,
+ input[type="reset"].btn--main:hover,
+ input[type="button"].btn--main:hover
+ .btn.btn--main:focus,
+ button.btn--main:focus,
+ input[type="submit"].btn--main:focus,
+ input[type="reset"].btn--main:focus,
+ input[type="button"].btn--main:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px #80011e;
+    }
+
+      .btn.btn--s,
+button.btn--s,
+input[type="submit"].btn--s,
+input[type="reset"].btn--s,
+input[type="button"].btn--s {
+      width: 100%;
+      height: auto;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
+      border: none;
+      line-height: calc(1.5);
+      background: #7e7e7e;
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 4px;
+      margin-bottom: 25px;
+    }
+
+ .btn.btn--s:hover,
+ button.btn--s:hover,
+ input[type="submit"].btn--s:hover,
+ input[type="reset"].btn--s:hover,
+ input[type="button"].btn--s:hover
+ .btn.btn--s:focus,
+ button.btn--s:focus,
+ input[type="submit"].btn--s:focus,
+ input[type="reset"].btn--s:focus,
+ input[type="button"].btn--s:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px #5e5e5e9d;
+    }
 
  .btn.btn--gehenna,
 button.btn--gehenna,
@@ -914,8 +1012,8 @@ input[type="reset"].btn--gehenna,
 input[type="button"].btn--gehenna {
       width: 100%;
       height: auto;
-      padding: 18px 3rem;
-      border-radius: 0px 12px;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
       border: none;
       line-height: calc(1.5);
       background: linear-gradient(45deg,#c70b1a, #f50039);
@@ -950,8 +1048,8 @@ input[type="reset"].btn--trinity,
 input[type="button"].btn--trinity {
       width: 100%;
       height: auto;
-      padding: 18px 3rem;
-      border-radius: 0px 12px;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
       border: none;
       line-height: calc(1.5);
       background: linear-gradient(45deg,rgb(214, 98, 2), #f3b600);
@@ -986,8 +1084,8 @@ input[type="reset"].btn--abydos,
 input[type="button"].btn--abydos {
       width: 100%;
       height: auto;
-      padding: 18px 3rem;
-      border-radius: 0px 12px;
+      padding: 14px 3rem;
+      border-radius: 8px 8px;
       border: none;
       line-height: calc(1.5);
       background: linear-gradient(45deg,#0eb1a3, #00c6e1);
@@ -1509,7 +1607,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .section-header.has-bottom-sep.light-sep::before {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.089);
 }
 
 
@@ -1936,10 +2034,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.6;
-    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    opacity: 0.3;
+    background: -moz-linear-gradient(top, transparent 0%, #bb002c 100%);
+    background: -webkit-linear-gradient(top, transparent 0%, #bb002c 100%);
+    background: linear-gradient(to bottom, transparent 0%, #bb002c 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
 }
 
@@ -2761,7 +2859,7 @@ html.no-csstransitions .home-content__main {
  *
  * ------------------------------------------------------------------- */
 .s-works {
-    background: #fffdfd;
+    background: #101113;
     padding: 0 0 15rem 0;
     min-height: 800px;
     position: relative;

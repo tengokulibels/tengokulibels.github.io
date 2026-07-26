@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -11,7 +11,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <title>Website Materi Tengoku</title>
-    <meta name="Website Materi Tengoku" content="Website Materi Tengoku">
+    <meta name="Website Materi Tengoku" content="Pendaftaran Tengoku!">
     <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
 
     <!-- mobile specific metas
@@ -36,6 +36,246 @@
     ================================================== -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+.card{
+background:#1d1d1d;
+padding:28px;
+border-radius:18px;
+margin-bottom:20px;
+font-family: "Nunito", sans-serif;
+}
+
+.input{
+margin-bottom:22px;
+}
+
+.input label{
+display:block;
+margin-bottom:8px;
+font-family: "Nunito", sans-serif;
+}
+
+.input input,
+.input textarea{
+width:100%;
+background:transparent;
+border:none;
+border-bottom:2px solid #555;
+padding:12px 5px;
+color:white;
+font-size:16px;
+outline:none;
+font-family: "Nunito", sans-serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 1000px #1d1d1d inset !important;
+    box-shadow: 0 0 0 1000px #1d1d1d inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white;
+}
+
+input:focus, textarea:focus{
+    outline:none;
+    background:transparent;
+    border-bottom:2px solid rgb(187, 0, 44);
+}
+
+textarea{
+resize:vertical;
+min-height:120px;
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+display:none;
+z-index: 900;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.box{
+background:#1d1d1d;
+width:100%;
+max-width:700px;
+border-radius:20px;
+margin: 14px;
+display:flex;
+overflow:hidden;
+padding: 30px;
+}
+
+.left1{
+width:40%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+}
+
+.left1 img{
+max-width:258px;
+object-fit:contain;
+content: url('maskot1.png');
+}
+
+.right1{
+width:60%;
+padding:10px 14px 0px 32px;
+}
+
+.right1 h2{
+margin-bottom:10px;
+}
+
+.right1 p{
+color:#bbb;
+margin-bottom:20px;
+}
+
+.copyCard{
+background:#2a2a2a;
+border-radius:16px;
+padding:15px;
+margin:20px 0;
+}
+
+.copyHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
+
+.copyHeader span{
+font-weight:600;
+font-size:15px;
+}
+
+.copied{
+background:#bb002c;
+padding:6px 14px;
+border-radius:12px;
+font-size:13px;
+transition:.25s;
+color: #fff;
+}
+
+.copyBody{
+display:flex;
+gap:10px;
+}
+
+.copyBody input{
+flex:1;
+background:#1d1d1d;
+border:1px solid #444;
+border-radius:12px;
+padding:14px;
+color:white;
+font-size:16px;
+}
+
+.copyBtn{
+width:58px;
+height:58px;
+border:none;
+border-radius:12px;
+background:#bb002c;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+transition:.25s;
+margin-bottom: 0px;
+padding: 2rem;
+}
+
+.copyBtn:hover, .copyBtn:focus{
+transform:scale(1.05);
+background:#cc0433;
+border-radius:12px;
+}
+
+
+
+.confirmBox{
+max-width:500px;
+}
+
+.full{
+width:100%;
+}
+
+.btnRow{
+display:flex;
+gap:12px;
+margin-top:25px;
+}
+
+.cancelBtn{
+background:#555;
+}
+
+.cancelBtn:hover{
+background:#666;
+}
+
+@media(max-width:768px){
+
+	.banner{
+		height:140px;
+	}
+	.box{
+		flex-direction:column;
+        padding: 20px;
+	}
+	.left1{
+		width:100%;
+	}
+	.left1 img{
+		max-width:180px;
+        content: url('maskot.png');
+        
+	}
+	.right1{
+		width:100%;
+		padding:25px;
+	}
+	.copyBox{
+		flex-direction:column;
+	}
+	.copyBox button{
+		width:100%;
+	}
+	.btnRow{
+		flex-direction:column;
+	}
+
+	.copyBody{
+		flex-direction:column;
+	}
+
+	.copyBtn{
+		width:100%;
+		height:52px;
+	}
+}
+  </style>
 
 </head>
 
@@ -87,22 +327,19 @@
 
     <!-- home
     ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/bg.png" data-position-y=center>
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/141.png" data-position-y=center>
+
+        <div class="shadow-overlay"></div>
 
         <div class="home-content">
 
-            <div class="row home-content__main">
-                <img src="images/moi1.png" width="250px" style="margin-bottom: 5px;">
-                <h3>皆さん、ごめんなさい。</h3>
-                <h1>
-                    Halaman Tidak Tersedia</br>
-                </h1>
-                <p class="p">
-                    Halaman yang Minna-san cari tidak ada...
-                </p>
-                
-
+            <div class="home-content__scroll">
+                <a href="#daftar" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
             </div>
+
+            <div class="home-content__line"></div>
 
         </div> <!-- end home-content -->
 
@@ -121,6 +358,50 @@
         <!-- end home-social -->
 
     </section> <!-- end s-home -->
+
+<section id='daftar' class="s-about">
+<div class="row about-desc" data-aos="fade-up">
+    <div class="col-full" style="margin-bottom: 50px;">
+        <img src="images/logo-1.png" alt="---" width="50%" style="filter: drop-shadow(0px 0px 5px #012220)">
+       </div>
+</div> <!-- end about-desc -->
+
+<div class="about__line2"></div>
+</section>
+
+<section class="s-works">
+<div class="intro-wrap">
+        <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead subhead--light">Halo Minna!</h3>
+                <h1 class="display-1 display-1--light">Formulir Pendaftaran</h1>
+            </div>
+        </div> <!-- end section-header -->
+</div> 
+
+<div class="row about-desc" data-aos="fade-up" style="margin-top: -230px;">
+    <div class="col-full">
+		<div class="card" style="margin: 10px;">
+        <form id="form" style="text-align: left;">
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">Nama Lengkap</label>
+				<input type="text" id="nama" required>
+			</div>
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">No. HP</label>
+				<input type="text" id="hp" required>
+			</div>
+			<div class="input">
+				<label style="color: #fff; font-size: 20px; font-weight: 700;">Alasan Bergabung</label>
+				<textarea id="alasan" required></textarea>
+			</div>
+			<button class="btn--main" style="margin-bottom: 0px;">Kirim</button>
+		</form>
+	</div>
+</div>
+        </div>
+</div> <!-- end about-desc -->
+</section> <!-- end s-clients -->
 
     <!-- footer
     ================================================== -->
@@ -210,6 +491,48 @@
         </div>
     </div>
 
+<div class="popup" id="popup">
+	<div class="box">
+		<div class="left1">
+        	<img>
+        </div>
+		<div class="right1">
+			<h2 style="margin-top: 0px; color: #fff;">Jawabanmu sudah terkirim!</h2>
+			<p>Terima kasih telah mendaftar.<br>Follow Instagram dong, dan masuk ke Grup WA biar nggak ketinggalan informasi!</p>
+			<div class="copyCard">
+				<div class="copyHeader">
+					<span>Instagram</span>
+					<div class="copied" id="copiedText">
+						Salin
+					</div>
+				</div>
+				<div class="copyBody">
+					<input style="margin-bottom: 0px;" id="ig" readonly value="@tengoku_libels">
+                    <button style="margin-right: 0px;" class="copyBtn" onclick="copyIG()">
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2"/>
+							<path d="M5 15V5a2 2 0 0 1 2-2h10" stroke-width="2"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+			<button class="btn--wa" onclick="window.open('https://chat.whatsapp.com/CAHfqaGGyyX41zknTvAHCJ')" style="font-size: 20px;">Masuk Grup WA</button>
+		</div>
+	</div>
+</div>
+
+<div class="popup" id="confirmPopup">
+	<div class="box confirmBox">
+		<div class="right full">
+			<h2 style="margin-top: 0px; color: #fff;">Konfirmasi Pengiriman</h2>
+			<p style="line-height: 1.4; font-weight: 600;">Pastikan seluruh data yang telah kamu isi sudah bener. Data yang telah terkirim tidak dapat diubah, Gk kayak waifu/husbumu yang selalu berubah.</p>
+			<div class="btnRow">
+				<button class="btn--s" onclick="closeConfirm()" style="margin-bottom: 4px; font-size: 16px;">Batal</button>
+				<button class="btn--primary" onclick="submitForm()" style="margin-bottom: 4px; font-size: 16px;">Ya, Kirim</button>
+			</div>
+		</div>
+	</div>
+</div>
 
     <!-- Java Script
     ================================================== -->
@@ -232,6 +555,46 @@
             frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
         }
     </script>
+    <script>
+    const form=document.getElementById("form");
+  
+form.addEventListener("submit",(e)=>{
+	e.preventDefault();
+	document.getElementById("confirmPopup").style.display="flex";
+});
+
+function closeConfirm(){
+
+document.getElementById("confirmPopup").style.display="none";
+
+}
+
+function submitForm(){
+	closeConfirm();
+	const data=new FormData();
+
+	data.append("entry.781095769",document.getElementById("nama").value);
+
+	data.append("entry.1429673765",document.getElementById("hp").value);
+
+	data.append("entry.998097761",document.getElementById("alasan").value);
+
+	fetch("https://docs.google.com/forms/d/e/1FAIpQLSf6LOv9qclW_Pe01YY71c5e2jo0N7C8FKbNJefHK0zFKT1Iyg/formResponse",
+	{method:"POST",mode:"no-cors",body:data}).then(()=>{
+	document.getElementById("popup").style.display="flex";
+	form.reset();});
+}
+
+function copyIG(){
+	navigator.clipboard.writeText("@tengoku_libels");
+	const text=document.getElementById("copiedText");
+	text.innerHTML="Tersalin ✓";
+	setTimeout(()=>{
+		text.innerHTML="Salin";
+	},2000);
+}
+  </script>
+ 
 
 </body>
 

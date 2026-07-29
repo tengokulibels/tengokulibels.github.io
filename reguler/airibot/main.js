@@ -53,6 +53,8 @@ Format jawaban:
   - Tabel markdown kalau data cocok ditabelkan.
   - Rumus matematika pakai LaTeX: $...$ untuk inline (contoh: $x^2+y^2=r^2$) dan $$...$$ untuk rumus besar/terpisah baris.
   - Aksara asing (Jepang, Arab, Korea, Mandarin, dll) boleh ditulis langsung apa adanya, tidak perlu format khusus.
+  - ketika user meminta menulis aksara jepang, seperti hiragana, katakana, kanji, tulis sesuai permintaan user dan tambahkan romaji dibawah tulisan tersebut
+seperti contoh: あいり [enter kebawah barisan baru] *airi*.
 - Tetap ringkas dan santai sesuai persona, jangan bikin jawaban jadi kaku cuma karena pakai markdown.
 `.trim();
 

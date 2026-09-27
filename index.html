@@ -1,544 +1,270 @@
 <!DOCTYPE html>
-<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
+<html lang="id">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TENGOKU — Klub Bahasa &amp; Budaya Jepang SMAN 15 Surabaya</title>
+<meta name="description" content="Website Pembelajaran Tengoku">
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Website Materi Tengoku</title>
-    <meta name="Website Materi Tengoku" content="Website Materi Tengoku">
-    <meta name="tengokulibels.github.io" content="tengokulibels.github.io">
+<script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="airibot/style.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
+<body>
 
-<body id="top">
+<!-- ============ NAV — dibersihkan: cuma logo + tombol sidebar ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-row">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="assets/logo-putih.png" alt="TENGOKU">
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo-1.png" alt="Homepage">
-            </a>
-        </div>
-        <nav class="header-nav">
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-            <div class="header-nav__content">
-                <h3>Navigation</h3>
-                <ul class="header-nav__list">
-                    <li class="current"><a  href="https://tengokulibels.github.io">Home</a></li>
-                    <li><a   href="https://tengokulibels.github.io/about">About</a></li>
-                    <li><a   href="https://tengokulibels.github.io/reguler">Kelas Reguler</a></li>
-                    <li><a   href="https://tengokulibels.github.io/advance">Kelas Advance</a></li>
-                    <li><a   href="https://tengokulibels.github.io/kurikulum">Kurikulum</a></li>
-                    <li><a   href="https://tengokulibels.github.io/kanji">Kamus Kanji</a></li>
-                    <li><a   href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a></li>
-                </ul>
-            </br>
-                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-                <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</br></br> *Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
-                <ul class="header-nav__social">
-                <li>
-                    <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i></a>
-                </li>
-                </ul>
-            </div> <!-- end header-nav__content -->
-        </nav>  <!-- end header-nav -->
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-text">Menu</span>
-            <span class="header-menu-icon"></span>
-        </a>
-    </header> <!-- end s-header -->
-
-
-     <!-- home
-    ================================================== -->
-    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="./images/333.png" data-natural-width=3070 data-natural-height=2048 data-position-y=top>
-
-    
-        <div class="shadow-overlay"></div>
-        <div class="home-content">
-            <div class="row home-content__main">
-                <h3>Selamat Datang!</h3>
-                <h1>
-                    こんにちは！</br>
-                </h1>       
-            </div>
-            <div class="home-content__scroll">
-                <a href="#recentw" class="scroll-link smoothscroll">
-                    <span>Scroll Down</span>
-                </a>
-            </div>
-            <div class="home-content__line"></div>
-        </div> <!-- end home-content -->
-        <ul class="home-social">
-            <li>
-                <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com/@tengoku_libels"><i class="fa fa-youtube" aria-hidden="true"></i><span>Youtube</span></a>
-            </li>
-            <li>
-                <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok</span></a>
-            </li>
-        </ul> 
-        <!-- end home-social -->
-    </section> <!-- end s-home -->
-
-    
-    <section id='recentw' class="s-services">
-    <div class="intro-wrap">
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead"> Klub/Ekstrakurikuler  Jepang</h3>
-                <h1 class="display-2">T E N G O K U</h1>
-            </div>
-        </div> <!-- end section-header -->
-    </div> 
-        
-        <div class="row works-content about-desc" data-aos="fade-up">
-            <div class="video-wrapper" style="margin-top:50px;">
-    <iframe 
-        src="https://www.youtube.com/embed/GDXymeJpuMc"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-</div></div>
-
-<div class="row about-desc" data-aos="fade-up">
-    <div class="col-full">
-        <p><br>
-        Sebuah Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya yang hingga kini masih menjalani Kegiatan Belajar Mengajar di SMAN 15 Surabaya.
-        </p>
+<!-- ============ SIDEBAR — satu-satunya navigasi, dipakai di semua ukuran layar ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="mobile-nav-label">NAVIGASI</span>
+    <button class="nav-close" id="navCloseBtn" aria-label="Tutup menu">✕</button>
+  </div>
+  <nav class="mobile-links">
+    <a href="https://tengokulibels.github.io" class="active">Beranda</a>
+    <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+    <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+    <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+    <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+    <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+    <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+    <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="brand">
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU">
     </div>
-</div> <!-- end about-desc -->
-<div class="about__line2"></div>
-<div class="home-content__line"></div>
+    <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</p>
+    <p class="disclaimer">*Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/tengoku_libels" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@tengoku_libels" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@tengoku_libels" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ HERO — WAJIB gambar/visual di awal tiap halaman ============ -->
+<!-- TEMPLATE: ganti src hero-bg dengan foto asli. Jika kosong/gagal dimuat,
+     gradient merah tetap tampil rapi berkat onerror di bawah. -->
+<section class="hero">
+  <img class="hero-bg" src="images/333.png" alt="" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-kanji jp">天国</div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow-jp jp">「天国クラブ」ウェブサイト</p>
+    <h1>Cieeee<br>Balik lagi nih!</h1>
+    <p>Selamat datang di Website Materi, kurikulum, dan komunitas dari Bahasa &amp; Budaya Jepang SMAN 15 Surabaya</p>
+  </div>
 </section>
 
-
-    <!-- about
-    ================================================== -->
-    <section id='about' class="s-about">
-
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead subhead--dark">Kumpulan - Kumpulan</h3>
-                <h1 class="display-1 display-1--light">Materi Pembelajaran</h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row about-desc" data-aos="fade-up">
-            <div class="col-full">
-                <p>
-                Di sini, Minna-san bisa memilih pembahasan materi sesuai pembelajaran Minna-san. Tidak hanya itu, Sensei juga bisa membaca atau melihat struktur Kurikulum yang ada disini.
-                </p>
-            </div>
-        </div> <!-- end about-desc -->
-
-        <div class="row about-stats stats block-1-3 block-m-1-3 block-mob-full" data-aos="fade-up">
-
-           <div class="col-block stats__col ">
-              <button onclick="window.location.href='https://tengokulibels.github.io/reguler';"  class="btn btn--trinity"><div>
-                  <img class="imgbtnotl" src="images/mid.png" width="100" height="100">
-                </br>Kelas Reguler
-               </div></button></br>
-          </div>
-         <div class="col-block stats__col">
-               <button onclick="window.location.href='https://tengokulibels.github.io/advance';"  class="btn btn--gehenna"><div>
-                 <img class="imgbtnotl" src="images/moi.png" width="100" height="100">
-                </br>Kelas Advance
-                  </div></button></br>
-            </div>
-        <div class="col-block stats__col">
-               <button onclick="window.location.href='https://tengokulibels.github.io/kurikulum';"  class="btn btn--abydos"><div>
-                 <img class="imgbtnotl" src="images/ari.png" width="100" height="100">
-                </br>Kurikulum
-                  </div></button></br>
-            </div>
-        </div>
-        <div class="about__line"></div>
-
-    </section> <!-- end s-about -->
-
-
-    <!-- clients
-    ================================================== -->
-    <section id="clients" class="s-clients">
-
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <img src="images/airi.png" width="130px" style="margin-bottom: 5px;">
-                <h3 class="subhead" style="margin-bottom: -5px;">Kalian bisa akses website ini</h3> 
-                <h1 class="display-2">Tanpa Harus Login!</h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row about-desc" data-aos="fade-up">
-            <div class="col-full" style="margin-bottom: 50px;">
-                <p>
-                Minna-san bisa akses seluruh sisi website ini secara bebas. Minna-san tidak perlu khawatir dengan masalah akun, password, data pribadi, limitasi konten 
-                yang dapat diakses, dan masalah lainnya yang mungkin Minna-san pernah alami pada website pembelajaran lainnya. Kami berkomitmen untuk selalu menghormati dan menjaga data pribadi serta 
-                kenyamanan Minna-san.
-                </p>
-            </div>
-        </div> <!-- end about-desc -->
-        <div class="home-content__line"></div>
-    </section> <!-- end s-clients -->
-
-    <!-- about
-    ================================================== -->
-    <section id='about' class="s-about2">
-
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead subhead--dark">Gitu aja?</h3>
-                <h1 class="display-1 display-1--light">Nggak dong!</h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row about-desc" data-aos="fade-up">
-            <div class="col-full">
-                <p>
-                Disini, Minna-san bisa menikmati beberapa fasilitas dan kebutuhan yang disediakan oleh website ini! Mampir-in yuk!
-                </p>
-            </div>
-        </div> <!-- end about-desc -->
-
-        <div class="row about-stats stats block-1-3 block-m-1-3 block-mob-full" data-aos="fade-up">
-            <div class="col-block stats__col">
-               <button onclick="window.location.href='https://tengokulibels.github.io/about';"  class="btn btn--abydos"><div>
-                 <img class="imgbtnotl" src="images/aro.png" width="100" height="100">
-                </br>Tentang Kami
-                  </div></button></br>
-            </div>
-         <div class="col-block stats__col">
-               <button onclick="window.location.href='https://tengokulibels.github.io/kanji';"  class="btn btn--gehenna"><div>
-                 <img class="imgbtnotl" src="images/shi.png" width="100" height="100">
-                </br>Kamus Kanji
-                </div></button></br>
-            </div>
-        <div class="col-block stats__col ">
-              <button onclick="window.location.href='https://tengokulibels.github.io/kwuapp';"  class="btn btn--trinity"><div>
-                  <img class="imgbtnotl" src="images/ser.png" width="100" height="100">
-                </br>Kewirausahaan app
-               </div></button></br>
-          </div>
-          </div>
-        <div class="about__line"></div>
-
-    </section> <!-- end s-about -->
-
-    <!-- clients
-    ================================================== -->
-    <section id="clients" class="s-clients">
-    
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full about-desc">
-                <p>Kami berkomitmen untuk selalu menjaga kenyamanan dan data privasi Minna-san. Jika terdapat kendala pada Website ini yang mungkin mengganggu kenyamanan, Minna-san bisa
-                    langsung melaporkan kendalanya dibawah ini.
-                </p>
-                <button onclick="window.location.href='https://tengokulibels.github.io/masukan';" class="btn btn--gehenna">
-                Kirim Masukan</button>
-            </div>
-        </div> <!-- end section-header -->
-
-    <div class="row clients-testimonials" data-aos="fade-up">
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h1 class="display-2">Disini Kalian Akan...</h1>
-            </div>
-        </div> <!-- end section-header -->
-        <div class="col-full">
-            <div class="testimonials">
-                <div class="testimonials__slide">
-                    <img src="images/444.png" />
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Belajar Kana & Kanji</span>
-                        </div>
-                    </div>
-                    <div class="testimonials__slide">
-                        <img src="images/555.jpg" />
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Belajar Kaiwa (Percakapan)</span>
-                        </div>
-                    </div>
-                    <div class="testimonials__slide">
-                        <img src="images/333.png" />
-                        <div class="testimonials__info">
-                            <span class="testimonials__pos">⠀</span>
-                            <span class="testimonials__pos">Dapet Komunitas Jepang</span>
-                        </div>
-                    </div>
-                </div><!-- end testimonials -->
-            </div> <!-- end col-full -->
-        </div> <!-- end client-testimonials -->
-    </section> <!-- end s-clients -->
-
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact">
-
-        <div class="overlay"></div>
-        <div class="contact__line"></div>
-
-        <div class="row contact-content" data-aos="fade-up">
-            
-            <div class="contact-primary">
-                <h3 class="h2" style="margin-bottom: 2rem;">Misi TENGOKU</h3>
-              <p class="text"> Membuat Sumber Daya Manusia yang berprestasi dan berpengaruh dalam dunia yang berhubungan dengan jepang.</p>
-
-            </div> <!-- end contact-primary -->
-
-            <div class="contact-secondary">
-                <div class="contact-info">
-
-                    <div class="cinfo">
-                        <h5>Sosial Media</h5>
-                        <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
-                        <i class="fa fa-globe"></i>⠀tengokulibels.github.io<br><br><br>
-                        <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-
-                    </div>
-
-                </div> <!-- end contact-info -->
-            </div> <!-- end contact-secondary -->
-
-        </div> <!-- end contact-content -->
-
-    </section> <!-- end s-contact -->
-
-
-    <!-- footer
-    ================================================== -->
-    <footer>
-        <div class="row footer-main">
-            <div class="col-six tab-full left footer-desc">
-                <div class="footer-logo"><img src="images/logo-1.png" /></a></div>
-                DISCLAIMER | Beberapa aset di dalam website ini mungkin saja adalah bukan hasil dari karya kami sendiri dan kami tidak memiliki maksud untuk mengambil kepemilikan atas aset itu dan hanya digunakan sebatas untuk edukasi.
-            </div>
-            <div class="col-three tab-full right footer-subscribe">
-                ⠀
-            </div>
-            <div class="col-three tab-full right footer-subscribe">
-                <b>Sosial Media</b> <br>
-                <i class="fa fa-instagram"></i>⠀<i class="fa-brands fa-square-youtube"></i>⠀<i class="fa-brands fa-tiktok"></i>⠀@tengoku_libels <br>
-                <i class="fa fa-globe"></i>⠀tengokulibels.github.io
-            </div>
-        </div> <!-- end footer-main -->
-        <div class="row footer-bottom">
-            <div class="col-twelve">
-                <div class="copyright">
-                    <span>©2025 - 2026 TENGOKU </span> 
-                    <span>Kabinet '3 Mirai</span>	
-                    <span>Ditenagai oleh Github</span>	
-                </div>
-
-                <div class="go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div> <!-- end footer-bottom -->
-    </footer> <!-- end footer -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
-                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
-                    "Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
-                "Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </div> <!-- end photoSwipe background -->
-
-    <!-- Airi
-    ================================================== -->
-
-    <div class="launcher-wrap">
-    <section id="drawer" class="drawer" aria-label="Chat assistant">
-      <header class="drawer-head">
-        <button id="profileToggle" class="drawer-profile" type="button" aria-expanded="false" aria-controls="profileInfo">
-          <div class="drawer-avatar"><img src="airican.png" alt="Airi icon" /></div>
-          <div class="drawer-title">
-            <h2 style="font-size: 16px; color: #fff; letter-spacing: 0.07rem; text-transform: none;">Airi</h2>
-            <p style="letter-spacing: 0rem; text-transform: none; font-size: 12px;">Kalau aku gk jawab, berarti emang gk mau aja.</p>
-          </div>
-        </button>
-        <button id="closeBtn" class="close-btn" aria-label="Close chat">✕</button>
-      </header>
-
-      <div class="drawer-body">
-        <section id="profileInfo" class="profile-info hidden" aria-hidden="true">
-          <div class="profile-info-top">
-            <div>
-              <h3 style="color: #f3f3f3; font-size: 20px; letter-spacing: 0.05rem;">Eh! Aku Airi.</h3>
-              <div class="sub" style="font-size: 12px;">Bisa bantu ngerjain ide, nulis, soal jepang, coding, atau ngobrol santai. Aku bisa aja salah ya... maaf...</div>
-            </div>
-            <button id="profileCloseBtn" class="profile-close-btn" type="button" aria-label="Tutup info">✕</button>
-          </div>
-          <div class="mini-tags">
-            <span class="mini-tag">AI Assistant</span>
-            <span class="mini-tag">Bahasa Indonesia</span>
-          </div>
-
-          <div class="suggestions">
-            <button class="suggestion" data-prompt="Bantu bikinin haiku jepang dong">
-              <strong>Ide Haiku</strong>
-              <span>Bikinin contoh puisi jepang Haiku.</span>
-            </button>
-            <button class="suggestion" data-prompt="Tolong jelaskan apa itu HTML responsive dengan singkat dan mudah dipahami.">
-              <strong>Belajar web</strong>
-              <span>Penjelasan cepat tentang responsive design.</span>
-            </button>
-            <button class="suggestion" data-prompt="Buatkan contoh perkenalan diri yang sopan dan santai.">
-              <strong>Contoh teks</strong>
-              <span>Kalimat siap pakai buat perkenalan.</span>
-            </button>
-          </div>
-        </section>
-
-        <div id="chat" class="chat" aria-live="polite"></div>
-        <div id="typing" class="typing"><span class="dots"><span></span><span></span><span></span></span><span id="typingText">Airi sedang mikir... jangan ganggu ya.</span></div>
-
-        <div class="composer">
-          <div class="composer-shell">
-            <textarea id="input" placeholder="Tulis pesanmu di sini..."></textarea>
-            <div class="composer-row">
-              <div class="left-actions">
-                <button id="clearBtn" class="mini-btn">Hapus chat</button>
-                <button id="demoBtn" class="mini-btn">Isi contoh</button>
-              </div>
-              <button id="sendBtn" class="mini-btn primary">Kirim</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <button id="launcher" class="launcher" aria-label="Open chat">
-      <i class="fa-solid fa-comment-dots" style="font-size:20px"></i>
-    </button>
-  </div>
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
-            <img src="logo-1.png" alt="---" width="200px"><br>
-            <div class="line-scale-pulse-out">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+<!-- ============ CONTOH: header alternatif untuk halaman DALAM ============
+     Pakai komponen ini (bukan .hero) di halaman sekunder yang tak perlu
+     visual setinggi hero, mis. Panduan Mengajar, detail Kurikulum, dsb. -->
+<div class="page-header">
+  <div class="page-header-top"></div>
+  <div class="page-header-body">
+    <div class="page-header-watermark" aria-hidden="true">TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU</div>
+    <div class="wrap rel">
+      <p class="tag light jp">こんにちは！</p>
+      <h2>Selamat Datang Minna!</h2>
     </div>
+  </div>
+</div>
+
+<!-- ============ VIDEO PROFIL KLUB ============ -->
+<section class="intro-video">
+  <div class="bg-word pos-left jp">紹介ビデオ</div>
+  <div class="wrap rel">
+    <p class="tag">KLUB/EKSTRAKURIKULER JEPANG</p>
+    <h2 class="intro-title">TENGOKU</h2>
+    <div class="intro-frame" id="introFrame">
+      <img class="intro-thumb" src="images/thumb.png" alt="Video profil Tengoku" onerror="this.style.display='none'">
+      <button class="play-btn" id="introPlay" aria-label="Putar video">▶</button>
+      <span class="intro-badge">Tonton di YouTube</span>
+    </div>
+    <p class="intro-caption">Sebuah Klub/Ekstrakurikuler Bahasa dan Budaya Jepang SMAN 15 Surabaya yang hingga kini masih menjalani kegiatan belajar mengajar di SMAN 15 Surabaya.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ MISI / ABOUT STRIP ============ -->
+<section class="mission">
+  <div class="bg-word pos-right on-dark jp" style="opacity:.1;">使命</div>
+  <div class="wrap rel">
+    <div>
+      <p class="jp" style="color:var(--gold); font-weight:700;">私たちの使命</p>
+      <h2>Membentuk generasi yang berprestasi dan berpengaruh di dunia yang berhubungan dengan Jepang.</h2>
+    </div>
+    <div class="mission-stats">
+      <div><div class="num">57+</div><div class="lbl">ANGGOTA AKTIF</div></div>
+      <div><div class="num">50+</div><div class="lbl">KONTRIBUSI LOMBA</div></div>
+      <div><div class="num">10</div><div class="lbl">PRESTASI UMUM</div></div>
+      <div><div class="num">4</div><div class="lbl">PRESTASI PRIBADI</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILIHAN KELAS — klik = merah & membesar ============ -->
+<section>
+  <div class="bg-word pos-right jp">選択</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI PEMBELAJARAN</p>
+      <h2>Pilih Tujuanmu</h2>
+    </div>
+    <div class="kelas-picker">
+      <button class="kelas-item active" type="button">
+        <img class="img-paper" src="images/mid.png" width="70" height="70" style="margin-bottom: 10px;">
+        <span class="jp">レギュラークラス</span>
+        <h4>Kelas Reguler</h4>
+        <p class="desc">Dasar-dasar hiragana, katakana, dan pola kalimat pemula.</p>
+        <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/reguler';">Masuk Kelas →</span>
+      </button>
+      <button class="kelas-item" type="button">
+        <img class="img-paper" src="images/moi.png" width="70" height="70" style="margin-bottom: 10px;">
+        <span class="jp">アドバンスクラス</span>
+        <h4>Kelas Advance</h4>
+        <p class="desc">Untuk yang siap masuk lebih dalam. Tata bahasa lanjutan, Kanji N4, Sejarah, dan sample ujian JLPT.</p>
+        <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/advance';">Masuk Kelas →</span>
+      </button>
+      <button class="kelas-item" type="button">
+        <img class="img-paper" src="images/ari.png" width="70" height="70" style="margin-bottom: 10px;">
+        <span class="jp">カリキュラム</span>
+        <h4>Kurikulum</h4>
+        <p class="desc">Struktur lengkap silabus &amp; Petunjuk dari Panduan Mengajar Mirai.</p>
+        <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/kurikulum';">Buka Kurikulum →</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ JALUR VISUAL — versi background foto ============ -->
+<section class="jalur-visual">
+  <div class="bg-word pos-left jp">道</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">FASILITAS ONLINE</p>
+      <h2>Website Pendukung lainnya</h2>
+    </div>
+    <div class="jalur-visual-grid">
+      <!-- TEMPLATE: ganti src <img> dengan foto asli tiap kelas -->
+      <button class="jalur-visual-item active" type="button">
+        <img src="images/5.png" alt="" onerror="this.style.display='none'">
+        <div class="jalur-visual-shade"></div>
+        <div class="jalur-visual-body">
+          <span class="jp">はじめ！eラーニング</span>
+          <h4>Hajime! e-Learning</h4>
+          <p class="desc">Belajar lebih seru dan canggih dengan soal soal yang menarik.</p>
+          <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/hajime';">Kunjungi Website →</span>
+        </div>
+      </button>
+      <button class="jalur-visual-item" type="button">
+        <img src="images/4.png" alt="" onerror="this.style.display='none'">
+        <div class="jalur-visual-shade"></div>
+        <div class="jalur-visual-body">
+          <span class="jp">漢字辞典</span>
+          <h4>Kamus Kanji</h4>
+          <p class="desc">Kamus lengkap untuk mencari kanji sesuai level JLPT.</p>
+          <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/kanji';">Kunjungi Website →</span>
+        </div>
+      </button>
+      <button class="jalur-visual-item" type="button">
+        <img src="images/6.png" alt="" onerror="this.style.display='none'">
+        <div class="jalur-visual-shade"></div>
+        <div class="jalur-visual-body">
+          <span class="jp">起業アプリ</span>
+          <h4>KWU App</h4>
+          <p class="desc">Merch & Barang lainnya yang dijual oleh Tengoku.</p>
+          <span class="btn btn-light cta" onclick="window.location.href='https://tengokulibels.github.io/kwuapp';">Kunjungi Website →</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
 
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script src="airibot/main.js"></script>
+<!-- ============ GALERI — Google Drive + lightbox ============ -->
+<section>
+  <div class="bg-word pos-left jp">写真</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">DOKUMENTASI</p>
+      <h2>Galeri Kegiatan</h2>
+      <p>Kumpulan dokumentasi seru dari banyaknya kegiatan Tengoku!</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
 
-     <!-- Markdown parser: biar Airi bisa kirim link, list, code block, tabel, dll -->
-  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
-  <!-- Sanitizer: bersihin HTML hasil markdown biar aman dari XSS sebelum ditampilkan -->
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
-  <!-- KaTeX: render rumus matematika (LaTeX) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.css" integrity="sha384-1vdNCNel6Tx/NQa8IR1mGOGKsbGreCkOPfbtPPnUURJ5Tu2PRVfQ/7KLZC+Pi1p1" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/katex.min.js" integrity="sha384-ycJ6GAwiS15LoUPipwJOrWTvkUHl/YqELValBwI5I4awP1EeEQJYarj+w85ntcz7" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.18.1/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"></script>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Tutup">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
 
-     
-    <script>
-        // Selecting the iframe element
-        var frame = document.getElementById("Iframe");
-        
-        // Adjusting the iframe height onload event
-        frame.onload = function() {
-            // set the height of the iframe as 
-            // the height of the iframe content
-            frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+<!-- ============ KIRIM MASUKAN — dimaksimalkan, tanpa iframe ============ -->
+<section class="masukan">
+  <div class="bg-word pos-right jp" style="opacity:.045;">意見</div>
+  <div class="wrap masukan-box rel">
+    <span class="jp">意見を入力する</span>
+    <h2>Kirim Masukanmu</h2>
+    <p class="desc">Kekurangan, kelebihan, saran, atau pendapat apapun tentang Tengoku, sampaikan lewat formulir singkat kami. Responmu langsung masuk ke tim pengurus.</p>
+    <!-- TEMPLATE: ganti href dengan link Google Form asli -->
+    <a class="btn btn-primary btn-lg" href="https://tengokulibels.github.io/masukan" target="_blank" rel="noopener">Isi Formulir Masukan ↗</a>
+  </div>
+</section>
 
-            // set the width of the iframe as the 
-            // width of the iframe content
-            frame.style.width  = frame.contentWindow.document.body.scrollWidth + 'px';
-        }
-    </script>
+<!-- ============ FOOTER — sama di semua halaman ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU" style="margin-bottom:1rem;">
+      <p>Website Materi Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya. Dikelola sepenuhnya oleh kepengurusan klub, tanpa campur tangan pihak sekolah.</p>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">HALAMAN</div>
+      <a href="https://tengokulibels.github.io">Beranda</a>
+      <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+      <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+      <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+      <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+      <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+      <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+      <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">SOSIAL MEDIA</div>
+      <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i> @tengoku_libels</a>
+      <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i> @tengoku_libels</a>
+      <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i> @tengoku_libels</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2025 - 2026 Tengoku</span>
+    <span>Kabinet Mirai</span>
+  </div>
+</footer>
 
+<script src="assets/script.js"></script>
 </body>
-
 </html>

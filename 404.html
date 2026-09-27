@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TENGOKU — Klub Bahasa &amp; Budaya Jepang SMAN 15 Surabaya</title>
+<meta name="description" content="Website Pembelajaran Tengoku">
+
+<script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- ============ NAV — dibersihkan: cuma logo + tombol sidebar ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-row">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="assets/logo-putih.png" alt="TENGOKU">
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ SIDEBAR — satu-satunya navigasi, dipakai di semua ukuran layar ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="mobile-nav-label">NAVIGASI</span>
+    <button class="nav-close" id="navCloseBtn" aria-label="Tutup menu">✕</button>
+  </div>
+  <nav class="mobile-links">
+    <a href="https://tengokulibels.github.io">Beranda</a>
+    <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+    <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+    <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+    <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+    <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+    <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+    <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="brand">
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU">
+    </div>
+    <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</p>
+    <p class="disclaimer">*Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/tengoku_libels" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@tengoku_libels" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@tengoku_libels" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ HERO — WAJIB gambar/visual di awal tiap halaman ============ -->
+<!-- TEMPLATE: ganti src hero-bg dengan foto asli. Jika kosong/gagal dimuat,
+     gradient merah tetap tampil rapi berkat onerror di bawah. -->
+<section class="hero">
+  <img class="hero-bg" src="images/3331.png" alt="" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-kanji jp">天国</div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow-jp jp">「天国クラブ」ウェブサイト</p>
+    <h1>404<br>Tidak Tersedia</h1>
+    <p>Yah Gomen ne... Halaman yang kamu cari gk ada nih...</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER — sama di semua halaman ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU" style="margin-bottom:1rem;">
+      <p>Website Materi Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya. Dikelola sepenuhnya oleh kepengurusan klub, tanpa campur tangan pihak sekolah.</p>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">HALAMAN</div>
+      <a href="https://tengokulibels.github.io">Beranda</a>
+      <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+      <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+      <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+      <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+      <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+      <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+      <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">SOSIAL MEDIA</div>
+      <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i> @tengoku_libels</a>
+      <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i> @tengoku_libels</a>
+      <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i> @tengoku_libels</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2025 - 2026 Tengoku</span>
+    <span>Kabinet Mirai</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

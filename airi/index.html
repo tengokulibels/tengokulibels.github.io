@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chat Airi — Latihan Bicara Jepang | TENGOKU</title>
+<meta name="description" content="Latihan berbicara bahasa Jepang dasar bersama Airi, AI Tengoku">
+
+<script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/chat.css">
+
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- ============ NAV — dibersihkan: cuma logo + tombol sidebar ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-row">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="assets/logo-putih.png" alt="TENGOKU">
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ SIDEBAR — satu-satunya navigasi, dipakai di semua ukuran layar ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="mobile-nav-label">NAVIGASI</span>
+    <button class="nav-close" id="navCloseBtn" aria-label="Tutup menu">✕</button>
+  </div>
+  <nav class="mobile-links">
+    <a href="https://tengokulibels.github.io" class="active">Beranda</a>
+    <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+    <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+    <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+    <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+    <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+    <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+    <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="brand">
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU">
+    </div>
+    <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</p>
+    <p class="disclaimer">*Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/tengoku_libels" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@tengoku_libels" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@tengoku_libels" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ HEADER HALAMAN DALAM ============ -->
+<div class="page-header">
+  <div class="page-header-top"></div>
+  <div class="page-header-body">
+    <div class="page-header-watermark" aria-hidden="true">TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU</div>
+    <div class="wrap rel">
+      <p class="tag light">LATIHAN BICARA</p>
+      <h2>Ngobrol Bareng Airi</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHAT AI ============ -->
+<section class="airi-chat">
+  <div class="bg-word pos-right jp">会話</div>
+  <div class="wrap rel">
+    <div class="section-head center">
+      <p class="tag">100% BAHASA JEPANG</p>
+      <h2>Latihan percakapan sehari-hari</h2>
+      <p>Dengarkan Airi, jawab dengan suaramu, dan lihat arti tiap kata. Kurang jelas? Tekan tombol Ulangi untuk mendengar lagi lengkap dengan subtitle.</p>
+    </div>
+
+    <div class="call" id="call">
+      <div class="call-top">
+        <div class="avatar jp" id="avatar">あ</div>
+        <div class="call-title"><b>Airi</b><small><span id="statusEl">Online</span> · <span id="sceneName">Pilih topik</span></small></div>
+        <button class="chip-btn" id="rateBtn" type="button">Nilai tingkat</button>
+        <button class="chip-btn" id="changeScene" type="button">Ganti topik</button>
+      </div>
+      <div class="subtitle jp" id="subtitle" title="Klik untuk menutup"></div>
+      <div class="stream" id="stream" aria-live="polite"></div>
+      <div class="composer">
+        <button class="mic" id="micBtn" type="button" aria-label="Bicara (tekan lagi untuk berhenti)"><i class="fa-solid fa-microphone"></i></button>
+        <textarea id="input" rows="1" lang="ja" placeholder="Ucapkan atau ketik jawabanmu dalam bahasa Jepang"></textarea>
+        <button class="send" id="sendBtn" type="button" aria-label="Kirim"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+
+      <div class="scenes" id="scenes">
+        <div>
+          <p class="jp" style="color:var(--gold); font-weight:700;">今日は何を話す？</p>
+          <h3>Mau ngobrol tentang apa hari ini?</h3>
+          <p>Airi hanya berbicara bahasa Jepang. Pilih situasi, lalu mulai bicara.</p>
+        </div>
+        <div class="scene-grid"></div>
+      </div>
+    </div>
+    <p class="call-hint" id="micHint">Izinkan akses mikrofon saat diminta browser. Percakapan ini hanya latihan, jadi santai saja kalau salah.</p>
+  </div>
+</section>
+
+<!-- ============ POP-UP PENILAIAN (di luar percakapan) ============ -->
+<div class="modal" id="rateModal" role="dialog" aria-modal="true" aria-labelledby="rateTitle">
+  <div class="modal-box">
+    <span class="jp">難しさ</span>
+    <h3 id="rateTitle">Percakapan tadi terasa bagaimana?</h3>
+    <p>Jawabanmu dipakai Airi untuk menyesuaikan tingkat pembicaraan berikutnya.</p>
+    <div class="rate-opts">
+      <button class="btn btn-ghost" type="button" data-rate="1">Terlalu ringan</button>
+      <button class="btn btn-primary" type="button" data-rate="0">Pas</button>
+      <button class="btn btn-ghost" type="button" data-rate="-1">Terlalu susah</button>
+    </div>
+    <button class="modal-skip" id="rateSkip" type="button">Nanti saja</button>
+  </div>
+</div>
+
+<!-- ============ FOOTER — sama di semua halaman ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU" style="margin-bottom:1rem;">
+      <p>Website Materi Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya. Dikelola sepenuhnya oleh kepengurusan klub, tanpa campur tangan pihak sekolah.</p>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">HALAMAN</div>
+      <a href="https://tengokulibels.github.io">Beranda</a>
+      <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+      <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+      <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+      <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+      <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+      <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+      <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">SOSIAL MEDIA</div>
+      <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i> @tengoku_libels</a>
+      <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i> @tengoku_libels</a>
+      <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i> @tengoku_libels</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2025 - 2026 Tengoku</span>
+    <span>Kabinet Mirai</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/chat.js"></script>
+</body>
+</html>

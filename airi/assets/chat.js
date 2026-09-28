@@ -6,7 +6,7 @@
 const API_URL = "https://airi-groq-proxy.raditya-alfarezah12.workers.dev";
 // Suara: Cloudflare Worker (Workers AI - MeloTTS), lang "ja".
 const VOICE_URL = "https://airi-voice.tengokulibels15.workers.dev/";
-const MODELS_TO_TRY = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+const MODELS_TO_TRY = ["openai/gpt-oss-120b", "openai/gpt-oss-20b"];
 const REQUEST_TIMEOUT_MS = 25000;
 const RETRY_DELAY_MS = 700;
 const MAX_ATTEMPTS_PER_MODEL = 2;

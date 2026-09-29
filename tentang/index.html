@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TENGOKU — Klub Bahasa &amp; Budaya Jepang SMAN 15 Surabaya</title>
+<meta name="description" content="Website Pembelajaran Tengoku">
+
+<script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- ============ NAV — dibersihkan: cuma logo + tombol sidebar ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-row">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="assets/logo-putih.png" alt="TENGOKU">
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ SIDEBAR — satu-satunya navigasi, dipakai di semua ukuran layar ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="mobile-nav-label">NAVIGASI</span>
+    <button class="nav-close" id="navCloseBtn" aria-label="Tutup menu">✕</button>
+  </div>
+  <nav class="mobile-links">
+    <a href="https://tengokulibels.github.io">Beranda</a>
+    <a href="https://tengokulibels.github.io/tentang" class="active">Tentang</a>
+    <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+    <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+    <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+    <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+    <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+    <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="brand">
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU">
+    </div>
+    <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</p>
+    <p class="disclaimer">*Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/tengoku_libels" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@tengoku_libels" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@tengoku_libels" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ HERO — WAJIB gambar/visual di awal tiap halaman ============ -->
+<!-- TEMPLATE: ganti src hero-bg dengan foto asli. Jika kosong/gagal dimuat,
+     gradient merah tetap tampil rapi berkat onerror di bawah. -->
+<section class="hero">
+  <img class="hero-bg" src="images/333.png" alt="" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-kanji jp">天国</div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow-jp jp">「天国クラブ」ウェブサイト</p>
+    <h1>Hmm?<br>Pengen tau ya?</h1>
+    <p>Lebih banyak tentang Klub/Ekstrakurikuler Bahasa &amp; Budaya Jepang SMAN 15 Surabaya</p>
+  </div>
+</section>
+
+<!-- ============ CONTOH: header alternatif untuk halaman DALAM ============
+     Pakai komponen ini (bukan .hero) di halaman sekunder yang tak perlu
+     visual setinggi hero, mis. Panduan Mengajar, detail Kurikulum, dsb. -->
+<div class="page-header">
+  <div class="page-header-top"></div>
+  <div class="page-header-body">
+    <div class="page-header-watermark" aria-hidden="true">TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU</div>
+    <div class="wrap rel">
+      <p class="tag light">TENTANG KAMI</p>
+      <h2 class="jp">私たちについて</h2>
+    </div>
+  </div>
+</div>
+
+<!-- ============ VIDEO PROFIL KLUB ============ -->
+<section class="intro-video">
+  <div class="bg-word pos-left jp"></div>
+  <div class="wrap rel">
+    <img style="justify-self: center; margin-bottom: 5vh; max-height: 4.7rem;" src="assets/logo-putih.png" alt="TENGOKU">
+    <div>
+      <h2 style="font-weight: 600; color: #b6b6b6; font-size: 2.5vh;">Lahir pada Januari 2023, Sebuah Klub/Ekstrakurikuler yang berfokus pada pengembangan dan pendidikan bahasa dan budaya Jepang khususnya di SMAN 15 Surabaya.
+        Kami bertujuan untuk terus mencetak prestasi dan pengalaman yang seru untuk seluruh Siswa Siswi SMAN 15 Surabaya pada
+        bidang Bahasa, Budaya, dan apapun yang seputar dengan Jepang.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ MISI / ABOUT STRIP ============ -->
+<section class="mission">
+  <div class="bg-word pos-right on-dark jp" style="opacity:.1;">使命</div>
+  <div class="wrap rel">
+    <div>
+      <p class="jp" style="color:var(--gold); font-weight:700;">私たちの使命</p>
+      <h2>Membentuk generasi yang berprestasi dan berpengaruh di dunia yang berhubungan dengan Jepang.</h2>
+    </div>
+    <div class="mission-stats">
+      <div><div class="num">57+</div><div class="lbl">ANGGOTA AKTIF</div></div>
+      <div><div class="num">50+</div><div class="lbl">KONTRIBUSI LOMBA</div></div>
+      <div><div class="num">10</div><div class="lbl">PRESTASI UMUM</div></div>
+      <div><div class="num">4</div><div class="lbl">PRESTASI PRIBADI</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENDERA & LAMBANG ============ -->
+<section class="flags">
+  <div class="bg-word pos-left jp">旗とシンボル</div>
+  <div class="wrap rel">
+    <div class="section-head center">
+      <p class="tag">TENTANG</p>
+      <h2>Bendera TENGOKU</h2>
+    </div>
+    <div class="flags-grid">
+      <!-- TEMPLATE: ganti .flag-swatch dengan <img> bendera asli bila ada -->
+      <div class="flag-card">
+        <img src="images/bm.png" alt="" onerror="this.style.display='none'">
+        <div class="flag-cap">Bendera Lambang Sakura</div>
+      </div>
+      <div class="flag-card">
+        <img src="images/b1.png" alt="" onerror="this.style.display='none'">
+        <div class="flag-cap">Bendera Klub/Ekstrakurikuler</div>
+      </div>
+      <div class="flag-card">
+        <img src="images/b2.png" alt="" onerror="this.style.display='none'">
+        <div class="flag-cap">Bendera Perlombaan</div>
+      </div>
+    </div>
+    <div class="flag-emblem">
+      <img src="images/m.png" width="64" height="64" style="justify-self: center; margin-bottom: 2vh;" alt="" onerror="this.style.display='none'">
+      <p>Lambang Sakura Kuning berkelopak 5 berlatar Merah — lambang dari TENGOKU, digunakan sebagai pengganti logo utama pada keadaan atau situasi formal tertentu.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ PENGURUS — Kabinet Mirai ============ -->
+<section class="pengurus">
+  <div class="bg-word pos-right jp">役員</div>
+  <div class="wrap rel">
+    <div class="section-head center">
+      <p class="tag">KEPENGURUSAN 2025 – 2026</p>
+      <h2>Kabinet Mirai</h2>
+    </div>
+
+    <!-- TEMPLATE: duplikat .pengurus-card, ganti <img> foto & nama -->
+    <div class="pengurus-row top">
+      <div class="pengurus-card lg">
+        <div class="pengurus-photo"><img src="images/potrait/ra1.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>Raditya Alfareza H.</h5>
+        <span>Ketua Pengurus</span>
+      </div>
+      <div class="pengurus-card lg">
+        <div class="pengurus-photo"><img src="images/potrait/art.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>M. N. Rachmad Dwiartha</h5>
+        <span>Wakil Ketua Pengurus</span>
+      </div>
+    </div>
+
+    <div class="pengurus-row">
+      <div class="pengurus-card">
+        <div class="pengurus-photo"><img src="images/potrait/aik.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>Alexandra Aiko R.</h5><span>Sekretaris 1</span>
+      </div>
+      <div class="pengurus-card">
+        <div class="pengurus-photo"><img src="images/potrait/yus.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>M. Yusuf Rasyad</h5><span>Bendahara 1</span>
+      </div>
+      <div class="pengurus-card">
+        <div class="pengurus-photo"><img src="images/potrait/rag.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>Raditya Ganthari A.</h5><span>Sekretaris 2</span>
+      </div>
+      <div class="pengurus-card">
+        <div class="pengurus-photo"><img src="images/potrait/mel.png" alt="" onerror="this.style.display='none'"></div>
+        <h5>Limeily Sugiarto</h5><span>Bendahara 2</span>
+      </div>
+    </div>
+
+    <h3 class="pengurus-sub">Koordinator</h3>
+    <div class="pengurus-row coord">
+      <div class="pengurus-card"><div class="pengurus-photo"><img src="images/potrait/zia.png" alt="" onerror="this.style.display='none'"></div><h5>Ziad Hersasmaya</h5><span>Acara</span></div>
+      <div class="pengurus-card"><div class="pengurus-photo"><img src="images/potrait/ra1.png" alt="" onerror="this.style.display='none'"></div><h5>Raditya Alfareza H.</h5><span>Desain & Hobi</span></div>
+      <div class="pengurus-card"><div class="pengurus-photo"><img src="images/potrait/fau.png" alt="" onerror="this.style.display='none'"></div><h5>M. Fauzan Alfinsya</h5><span>Konten</span></div>
+      <div class="pengurus-card"><div class="pengurus-photo"><img src="images/potrait/irz.png" alt="" onerror="this.style.display='none'"></div><h5>M. Irza Zakaria A.</h5><span>Kurikulum</span></div>
+      <div class="pengurus-card"><div class="pengurus-photo"><img src="images/potrait/mah.png" alt="" onerror="this.style.display='none'"></div><h5>Mahardhika Ananda P.</h5><span>Kewirausahaan</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ GALERI — Google Drive + lightbox ============ -->
+<section>
+  <div class="bg-word pos-left jp">写真</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">DOKUMENTASI</p>
+      <h2>Galeri Kegiatan</h2>
+      <p>Kumpulan dokumentasi seru dari banyaknya kegiatan Tengoku!</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Tutup">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ============ KIRIM MASUKAN — dimaksimalkan, tanpa iframe ============ -->
+<section class="masukan">
+  <div class="bg-word pos-right jp" style="opacity:.045;">意見</div>
+  <div class="wrap masukan-box rel">
+    <span class="jp">意見を入力する</span>
+    <h2>Kirim Masukanmu</h2>
+    <p class="desc">Kekurangan, kelebihan, saran, atau pendapat apapun tentang Tengoku, sampaikan lewat formulir singkat kami. Responmu langsung masuk ke tim pengurus.</p>
+    <!-- TEMPLATE: ganti href dengan link Google Form asli -->
+    <a class="btn btn-primary btn-lg" href="https://tengokulibels.github.io/masukan" target="_blank" rel="noopener">Isi Formulir Masukan ↗</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER — sama di semua halaman ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU" style="margin-bottom:1rem;">
+      <p>Website Materi Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya. Dikelola sepenuhnya oleh kepengurusan klub, tanpa campur tangan pihak sekolah.</p>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">HALAMAN</div>
+      <a href="https://tengokulibels.github.io">Beranda</a>
+      <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+      <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+      <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+      <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+      <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+      <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+      <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">SOSIAL MEDIA</div>
+      <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i> @tengoku_libels</a>
+      <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i> @tengoku_libels</a>
+      <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i> @tengoku_libels</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2025 - 2026 Tengoku</span>
+    <span>Kabinet Mirai</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

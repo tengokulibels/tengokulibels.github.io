@@ -92,11 +92,28 @@ if (galleryGrid){
   });
 }
 function openLightbox(id, alt){
-  lightboxImg.src = driveFull(id);
-  lightboxImg.alt = alt || '';
-  lightbox.classList.add('show');
+  openLightboxSrc(driveFull(id), alt, false);
 }
-function closeLightbox(){ lightbox.classList.remove('show'); lightboxImg.src=''; }
+/* Buka lightbox dari sumber gambar apa pun. wide=true untuk bagan lebar:
+   di layar kecil gambar ditampilkan besar dan bisa digeser. */
+function openLightboxSrc(src, alt, wide){
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightbox.classList.toggle('wide', !!wide);
+  lightbox.classList.add('show');
+  lightbox.scrollTo?.(0, 0);
+}
+function closeLightbox(){ lightbox.classList.remove('show', 'wide'); lightboxImg.src=''; }
 lightboxClose?.addEventListener('click', closeLightbox);
 lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ---------- 6. Gambar lokal yang bisa diperbesar (mis. bagan struktur) ----------
+   Pakai atribut data-lightbox pada elemen yang membungkus <img>.
+   Tambah data-lightbox-wide untuk gambar lebar (bagan/diagram).                    */
+document.querySelectorAll('[data-lightbox]').forEach(el => {
+  el.addEventListener('click', () => {
+    const img = el.querySelector('img');
+    if (img) openLightboxSrc(img.currentSrc || img.src, img.alt, el.hasAttribute('data-lightbox-wide'));
+  });
+});

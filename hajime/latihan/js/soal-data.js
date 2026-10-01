@@ -170,9 +170,9 @@ const SOAL_DATA = [
             type: "matching",
             prompt: "Cocokkan hiragana campuran dengan bacaan romajinya.",
             pairs: [
-              { kana: "ぜ", options: ["JI","ZU","ZA"], answer: "ZE" },
+              { kana: "ぜ", options: ["JI","ZE","ZA"], answer: "ZE" },
               { kana: "ご", options: ["GA","GO","GI"], answer: "GO" },
-              { kana: "で", options: ["DA","DE","DO"], answer: "DE" }
+              { kana: "で", options: ["DA","DO","DE"], answer: "DE" }
             ],
             points: 15
           },
@@ -927,7 +927,7 @@ const SOAL_DATA = [
             type: "matching",
             prompt: "Cocokkan katakana campuran dengan bacaan romajinya.",
             pairs: [
-              { kana: "ボ", options: ["SHI","SU","SA"], answer: "BO" },
+              { kana: "ボ", options: ["BO","SU","SA"], answer: "BO" },
               { kana: "デ", options: ["TE","CHI","DE"], answer: "DE" },
               { kana: "れ", options: ["RE","FU","HE"], answer: "RE" },
               { kana: "ル", options: ["RO","RI","RU"], answer: "RU" },

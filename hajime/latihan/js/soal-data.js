@@ -459,7 +459,7 @@ const SOAL_DATA = [
           { type: "multiple_choice", prompt: "Huruf 「せ」 dibaca...", options: ["SA","SHI","SE","SO"], answer: "SE", points: 5 },
           { type: "multiple_choice", prompt: "Huruf 「つ」 dibaca...", options: ["TA","CHI","TSU","TO"], answer: "TSU", points: 5 },
           { type: "multiple_choice", prompt: "Huruf 「く」 dibaca...", options: ["KA","KI","KU","KE"], answer: "KU", points: 5 },
-          { type: "multiple_choice", prompt: "Huruf 「ぶ」 dibaca...", options: ["BA","PI","PU","BU"], answer: "FU", points: 5 },
+          { type: "multiple_choice", prompt: "Huruf 「ぶ」 dibaca...", options: ["BA","PI","PU","BU"], answer: "BU", points: 5 },
           { type: "multiple_choice", prompt: "Huruf 「れ」 dibaca...", options: ["RA","RE","RU","RO"], answer: "RE", points: 5 },
           { type: "multiple_choice", prompt: "Huruf 「よ」 dibaca...", options: ["YA","RI","YU","YO"], answer: "YO", points: 5 },
           {
@@ -468,7 +468,7 @@ const SOAL_DATA = [
             pairs: [
               { kana: "しゃ", options: ["SHI","SU","SHA"], answer: "SHA" },
               { kana: "ぎゃ", options: ["GYA","GO","GI"], answer: "GYA" },
-              { kana: "りょ", options: ["RA","RYO","RYO"], answer: "RYO" }
+              { kana: "りょ", options: ["RA","RYO","RYA"], answer: "RYO" }
             ],
             points: 15
           },
@@ -476,7 +476,7 @@ const SOAL_DATA = [
             type: "matching",
             prompt: "Cocokkan hiragana campuran dengan bacaan romajinya.",
             pairs: [
-              { kana: "みょ", options: ["MI","MYU","MYA"], answer: "MYO" },
+              { kana: "みょ", options: ["MI","MYO","MYA"], answer: "MYO" },
               { kana: "りゅ", options: ["RI","RYO","RYU"], answer: "RYU" },
               { kana: "にゅ", options: ["NYA","NI","NYU"], answer: "NYU" }
             ],
@@ -486,8 +486,8 @@ const SOAL_DATA = [
             type: "matching",
             prompt: "Cocokkan hiragana campuran dengan bacaan romajinya.",
             pairs: [
-              { kana: "ちゅ", options: ["SHI","SU","SA"], answer: "CHU" },
-              { kana: "ひゃ", options: ["TA","TO","CHI"], answer: "HYA" },
+              { kana: "ちゅ", options: ["SHI","CHU","SA"], answer: "CHU" },
+              { kana: "ひゃ", options: ["TA","HYA","CHI"], answer: "HYA" },
               { kana: "しょ", options: ["JA","SHI","SHO"], answer: "SHO" }
             ],
             points: 15

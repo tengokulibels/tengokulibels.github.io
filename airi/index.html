@@ -67,55 +67,90 @@
     <div class="page-header-watermark" aria-hidden="true">TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU · TENGOKU</div>
     <div class="wrap rel">
       <p class="tag light">LATIHAN BICARA</p>
-      <h2>Ngobrol Bareng Airi</h2>
+      <h2>Ngobrol &amp; Telepon Bareng Airi</h2>
     </div>
   </div>
 </div>
 
-<!-- ============ CHAT AI ============ -->
+<!-- ============ CHAT & CALL AI ============ -->
 <section class="airi-chat">
   <div class="bg-word pos-right jp">会話</div>
   <div class="wrap rel">
     <div class="section-head center">
       <p class="tag">100% BAHASA JEPANG</p>
-      <h2>Latihan percakapan sehari-hari</h2>
-      <p>Dengarkan Airi, jawab dengan suaramu, dan lihat arti tiap kata. Kurang jelas? Tekan tombol Ulangi untuk mendengar lagi lengkap dengan subtitle.</p>
+      <h2>Ngobrol santai sehari-hari</h2>
+      <p>Angkat teleponnya buat ngobrol pakai suara, atau pindah ke mode Chat kalau mau balas lewat teks. Semua percakapan tersimpan di satu riwayat yang sama.</p>
     </div>
 
-    <div class="call" id="call">
-      <div class="call-top">
-        <div class="avatar jp" id="avatar">あ</div>
-        <div class="call-title"><b>Airi</b><small><span id="statusEl">Online</span> · <span id="sceneName">Pilih topik</span></small></div>
-        <button class="chip-btn" id="rateBtn" type="button">Nilai tingkat</button>
-        <button class="chip-btn" id="changeScene" type="button">Ganti topik</button>
-      </div>
-      <div class="subtitle jp" id="subtitle" title="Klik untuk menutup"></div>
-      <div class="stream" id="stream" aria-live="polite"></div>
-      <div class="composer">
-        <button class="mic" id="micBtn" type="button" aria-label="Bicara (tekan lagi untuk berhenti)"><i class="fa-solid fa-microphone"></i></button>
-        <textarea id="input" rows="1" lang="ja" placeholder="Ucapkan atau ketik jawabanmu dalam bahasa Jepang"></textarea>
-        <button class="send" id="sendBtn" type="button" aria-label="Kirim"><i class="fa-solid fa-paper-plane"></i></button>
-      </div>
-
-      <div class="scenes" id="scenes">
-        <div>
-          <p class="jp" style="color:var(--gold); font-weight:700;">今日は何を話す？</p>
-          <h3>Mau ngobrol tentang apa hari ini?</h3>
-          <p>Airi hanya berbicara bahasa Jepang. Pilih situasi, lalu mulai bicara.</p>
+    <div class="phone" id="phone">
+      <!-- ===== CALL VIEW (tampilan awal) ===== -->
+      <div class="view call-view" id="callView">
+        <div class="call-head">
+          <span class="call-status" id="callStatus">Tap untuk mulai ngobrol</span>
+          <button class="chip-btn" id="toChat" type="button">Chat</button>
         </div>
-        <div class="scene-grid"></div>
+        <div class="call-stage">
+          <div class="avatar big jp" id="bigAvatar">あ</div>
+          <p class="call-name">Airi</p>
+          <div class="subtitle jp" id="subtitle"></div>
+        </div>
+        <div class="call-controls">
+          <button class="ctrl start" id="startBtn" type="button" aria-label="Mulai telepon"><i class="fa-solid fa-phone"></i></button>
+          <button class="ctrl hide" id="repeatBtn" type="button" aria-label="Ulangi"><i class="fa-solid fa-rotate-right"></i></button>
+          <button class="ctrl mic-big hide" id="micBtn" type="button" aria-label="Tekan lalu bicara"><i class="fa-solid fa-microphone"></i></button>
+          <button class="ctrl end hide" id="endBtn" type="button" aria-label="Akhiri telepon"><i class="fa-solid fa-phone-slash"></i></button>
+        </div>
+      </div>
+
+      <!-- ===== CHAT VIEW ===== -->
+      <div class="view chat-view hide" id="chatView">
+        <div class="call-top">
+          <div class="avatar jp">あ</div>
+          <div class="call-title"><b>Airi</b><small id="statusEl">Online</small></div>
+          <button class="chip-btn" id="levelChip" type="button" title="Nilai tingkat kesulitan">Lv 2</button>
+          <button class="chip-btn" id="toCall" type="button"><i class="fa-solid fa-phone"></i> Call</button>
+        </div>
+        <div class="stream" id="stream" aria-live="polite"></div>
+        <div class="composer">
+          <textarea id="input" rows="1" lang="ja" placeholder="Ketik balasanmu dalam bahasa Jepang"></textarea>
+          <button class="send" id="sendBtn" type="button" aria-label="Kirim"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
       </div>
     </div>
-    <p class="call-hint" id="micHint">Izinkan akses mikrofon saat diminta browser. Percakapan ini hanya latihan, jadi santai saja kalau salah.</p>
+    <p class="call-hint" id="micHint">Izinkan akses mikrofon saat diminta browser. Ini cuma latihan, santai aja kalau salah ngomong.</p>
   </div>
 </section>
 
-<!-- ============ POP-UP PENILAIAN (di luar percakapan) ============ -->
+<!-- ===== POP-UP: lanjut/sudahi telepon ===== -->
+<div class="modal" id="continueModal" role="dialog" aria-modal="true" aria-labelledby="continueTitle">
+  <div class="modal-box">
+    <span class="jp">まだ話す？</span>
+    <h3 id="continueTitle">Masih mau lanjut ngobrol?</h3>
+    <p>Telepon udah cukup lama nih. Lanjut, atau Airi sudahi dulu teleponnya?</p>
+    <div class="rate-opts">
+      <button class="btn btn-primary" id="continueYes" type="button">Lanjut ngobrol</button>
+      <button class="btn btn-ghost" id="continueNo" type="button">Sudahi dulu</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== POP-UP: info partikel ===== -->
+<div class="modal" id="particleModal" role="dialog" aria-modal="true" aria-labelledby="particleTitle">
+  <div class="modal-box">
+    <span class="jp">助詞</span>
+    <h3 id="particleTitle">Partikel <span id="particleWord"></span></h3>
+    <p id="particleFungsi"></p>
+    <p class="contoh" id="particleContoh"></p>
+    <button class="modal-skip" id="particleClose" type="button">Tutup</button>
+  </div>
+</div>
+
+<!-- ===== POP-UP: nilai tingkat kesulitan ===== -->
 <div class="modal" id="rateModal" role="dialog" aria-modal="true" aria-labelledby="rateTitle">
   <div class="modal-box">
     <span class="jp">難しさ</span>
-    <h3 id="rateTitle">Percakapan tadi terasa bagaimana?</h3>
-    <p>Jawabanmu dipakai Airi untuk menyesuaikan tingkat pembicaraan berikutnya.</p>
+    <h3 id="rateTitle">Obrolan tadi terasa bagaimana?</h3>
+    <p>Dipakai buat nyesuaikan tingkat percakapan berikutnya.</p>
     <div class="rate-opts">
       <button class="btn btn-ghost" type="button" data-rate="1">Terlalu ringan</button>
       <button class="btn btn-primary" type="button" data-rate="0">Pas</button>

@@ -1,0 +1,10 @@
+Taruh foto 8 kandidat di folder ini (rasio 3:4 portrait disarankan), nama file persis:
+arsy-maulana.png
+muhammad-rizky.png
+muhammad-galih.png
+rangga-adinata.png
+rakha-umar.png
+fajrina-siti.png
+rana-salsabil.png
+khalisha-nadya.png
+Selama foto belum ada, otomatis tampil inisial nama.

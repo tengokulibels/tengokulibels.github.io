@@ -1,0 +1,90 @@
+/* ============================================================
+   TENGOKU — HALAMAN HASIL VOTING (tambahan; dipakai bersama pemilihan.css
+   untuk komponen .pair, jadi muat pemilihan.css lebih dulu)
+   ============================================================ */
+
+.hasil{padding-top:clamp(3rem,7vw,5.5rem);}
+.hasil .section-head{max-width:720px;}
+
+/* ---------- Status bar ---------- */
+.hbar{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.2rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); margin-bottom:1.4rem;}
+.hlive{display:flex; align-items:center; gap:.6rem; font-weight:800; font-size:.9rem;}
+.hlive small{color:var(--grey); font-weight:700; font-size:.8rem;}
+.dot{width:10px; height:10px; border-radius:50%; background:var(--grey); flex:none;}
+.dot.on{background:#1faa59; box-shadow:0 0 0 0 #1faa5966; animation:hpulse 1.8s infinite;}
+.dot.err{background:var(--red);}
+@keyframes hpulse{70%{box-shadow:0 0 0 9px #1faa5900;} 100%{box-shadow:0 0 0 0 #1faa5900;}}
+.hbar-actions{display:flex; gap:.6rem; flex-wrap:wrap;}
+.btn-sm{padding:.6rem 1.1rem; font-size:.85rem;}
+.btn .spin{border-color:#bb002c40; border-top-color:var(--red);}
+.btn-primary .spin{border-color:#ffffff60; border-top-color:#fff;}
+
+/* ---------- Statistik ---------- */
+.hstats{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-bottom:clamp(3rem,6vw,4.5rem);}
+.hstat{border-radius:var(--radius); background:linear-gradient(155deg,var(--red),#7a001c); color:#fff; padding:1.5rem 1.6rem;}
+.hstat .num{font-size:clamp(2.2rem,5vw,3.4rem); font-weight:900; line-height:1;}
+.hstat .num.sm{font-size:clamp(1.3rem,2.6vw,1.7rem); line-height:1.25;}
+.hstat .lbl{margin-top:.6rem; font-size:.78rem; font-weight:800; color:var(--gold); letter-spacing:.04em; text-transform:uppercase;}
+
+/* ---------- Susunan sementara ---------- */
+.hsub{margin-bottom:1.8rem; max-width:62ch;}
+.hsub .jp{color:var(--red); font-weight:700; font-size:.95rem; display:block;}
+.hsub h3{font-size:clamp(1.5rem,3.4vw,2.1rem); margin-top:.2rem;}
+.hsub p{color:var(--grey); line-height:1.65; margin-top:.6rem; font-size:.97rem;}
+.cabinet{margin-bottom:clamp(3rem,6vw,4.5rem);}
+.cabinet .pairs{margin-bottom:0;}
+.pair-tie{display:inline-block; margin-top:.3rem; font-size:.68rem; font-weight:800; color:var(--red); border:1px solid var(--red); border-radius:99px; padding:.05rem .5rem; text-transform:uppercase; letter-spacing:.04em;}
+.pair-cap .votes{display:block; margin-top:.15rem; font-size:.74rem; font-weight:700; color:var(--red);}
+
+/* ---------- Papan peringkat ---------- */
+.board-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1.4rem; margin-bottom:clamp(3rem,6vw,4.5rem);}
+.board{border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); padding:clamp(1.2rem,2.5vw,1.8rem);}
+.board-head{display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:1.2rem; padding-bottom:1rem; border-bottom:1px solid var(--line);}
+.board-head .jp{color:var(--red); font-size:.85rem; font-weight:700;}
+.board-head h4{font-size:1.35rem; font-weight:900; font-family:'Nunito',sans-serif;}
+.board-head small{color:var(--grey); font-weight:700; font-size:.78rem; white-space:nowrap;}
+.brow{display:grid; grid-template-columns:22px 40px 1fr; gap:.8rem; align-items:center; padding:.5rem 0;}
+.brow + .brow{border-top:1px dashed var(--line);}
+.brow-rank{font-weight:900; color:var(--grey); font-size:.85rem; text-align:center;}
+.brow.lead .brow-rank{color:var(--red);}
+.bavatar{position:relative; width:40px; height:40px; border-radius:50%; overflow:hidden; background:var(--paper-dim); border:1px solid var(--line);}
+.bavatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;}
+.bavatar .ini{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.8rem; color:var(--red); opacity:.6;}
+.brow-main{min-width:0;}
+.brow-top{display:flex; justify-content:space-between; align-items:baseline; gap:.6rem; margin-bottom:.35rem;}
+.brow-name{font-weight:800; font-size:.92rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.brow.lead .brow-name{color:var(--red);}
+.brow-val{font-weight:900; font-size:.88rem; white-space:nowrap;}
+.brow-val small{color:var(--grey); font-weight:700; font-size:.74rem; margin-left:.25rem;}
+.btrack{height:10px; border-radius:99px; background:var(--paper-dim); overflow:hidden;}
+.bfill{height:100%; border-radius:99px; background:var(--grey); opacity:.45; transform-origin:left; min-width:0;}
+.brow.lead .bfill{background:linear-gradient(90deg,var(--red),#e0334f); opacity:1;}
+.first-load .bfill{animation:barin .9s cubic-bezier(.22,1,.36,1);}
+@keyframes barin{from{transform:scaleX(0);}}
+.board-note{margin-top:.9rem; font-size:.8rem; color:var(--red); font-weight:700;}
+
+/* ---------- Tabel rekap ---------- */
+.rekap-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper);}
+.rekap{width:100%; border-collapse:collapse; min-width:620px;}
+.rekap th, .rekap td{padding:.85rem 1rem; text-align:center; font-size:.92rem; border-bottom:1px solid var(--line);}
+.rekap th{font-size:.75rem; font-weight:800; color:var(--red); text-transform:uppercase; letter-spacing:.04em; background:var(--paper-dim);}
+.rekap th:first-child, .rekap td:first-child{text-align:left; font-weight:800;}
+.rekap tr:last-child td{border-bottom:0;}
+.rekap td.hot{background:color-mix(in srgb, var(--red) calc(var(--heat) * 28%), transparent); font-weight:900;}
+.rekap td.zero{color:var(--grey); opacity:.6;}
+.rekap td.total{font-weight:900; color:var(--red);}
+
+/* ---------- Pesan ---------- */
+.hmsg{text-align:center; padding:clamp(2.5rem,6vw,4rem) 1rem; border:1px dashed var(--line); border-radius:var(--radius); color:var(--grey); line-height:1.7;}
+.hmsg h4{font-family:'Nunito',sans-serif; font-size:1.3rem; color:var(--ink); margin-bottom:.5rem;}
+.hmsg .btn{margin-top:1.2rem;}
+.hskeleton{height:120px; border-radius:var(--radius); background:linear-gradient(90deg,var(--paper-dim),var(--line),var(--paper-dim)); background-size:200% 100%; animation:hshine 1.4s linear infinite;}
+@keyframes hshine{to{background-position:-200% 0;}}
+
+/* ---------- Responsif ---------- */
+@media (max-width:860px){ .board-grid{grid-template-columns:1fr;} }
+@media (max-width:640px){
+  .hstats{grid-template-columns:1fr; gap:.8rem;}
+  .hbar{flex-direction:column; align-items:stretch;}
+  .hbar-actions .btn{flex:1; justify-content:center;}
+}

@@ -1,0 +1,116 @@
+/* ============================================================
+   TENGOKU — HALAMAN PEMILIHAN PENGURUS (tambahan, tidak mengubah style.css)
+   ============================================================ */
+
+.vote{padding-top:clamp(3rem,7vw,5.5rem);}
+.vote .section-head{max-width:720px;}
+.vote-rules{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem;}
+.vote-rules span{font-size:.82rem; font-weight:800; padding:.45rem .9rem; border-radius:99px; border:1px solid var(--line); background:var(--paper); color:var(--ink);}
+.vote-rules span b{color:var(--red);}
+
+.vote-app{scroll-margin-top:90px;}
+
+/* ---------- Stepper ---------- */
+.vote-steps{display:grid; grid-template-columns:repeat(5,1fr); gap:.6rem; margin-bottom:2rem; position:relative;}
+.vstep{display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:.9rem .4rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); color:var(--ink); cursor:pointer; font-family:inherit; transition:background .3s ease, color .3s ease, border-color .3s ease, transform .15s ease;}
+.vstep:hover:not(:disabled){border-color:var(--red);}
+.vstep:active:not(:disabled){transform:scale(.97);}
+.vstep:disabled{opacity:.45; cursor:not-allowed;}
+.vstep-num{width:34px; height:34px; border-radius:50%; background:var(--paper-dim); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:.95rem; transition:inherit;}
+.vstep-label{font-weight:800; font-size:.88rem; line-height:1.1;}
+.vstep-count{font-size:.74rem; font-weight:700; color:var(--grey);}
+.vstep.done .vstep-num{background:var(--gold); border-color:var(--gold); color:#201a1a;}
+.vstep.active{background:linear-gradient(155deg,var(--red),#7a001c); border-color:transparent; color:#fff;}
+.vstep.active .vstep-num{background:#ffffff26; border-color:#ffffff40; color:#fff;}
+.vstep.active .vstep-count{color:#ffffffbe;}
+
+/* ---------- Panel ---------- */
+.vpanel.enter{animation:vfade .45s cubic-bezier(.22,1,.36,1);}
+@keyframes vfade{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
+.vpanel-head{display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.6rem;}
+.vpanel-head .jp{color:var(--red); font-weight:700; font-size:.95rem; display:block;}
+.vpanel-head h3{font-size:clamp(1.6rem,3.6vw,2.3rem); margin-top:.2rem;}
+.vpanel-head p{color:var(--grey); margin-top:.5rem; line-height:1.6; max-width:52ch;}
+.vcounter{font-weight:900; font-size:.9rem; padding:.55rem 1.1rem; border-radius:99px; background:var(--paper-dim); border:1px solid var(--line);}
+.vcounter b{color:var(--red);}
+
+/* ---------- Pasangan: pengurus lama -> pilihan baru ---------- */
+.pairs{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem; margin-bottom:2.2rem;}
+.pairs.single{grid-template-columns:minmax(280px,420px); justify-content:center;}
+.pair{border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); padding:1.1rem 1.2rem 1.2rem; transition:border-color .3s ease, box-shadow .3s ease;}
+.pair.filled{border-color:var(--red); box-shadow:0 18px 36px -20px rgba(187,0,44,.45);}
+.pair-role{font-size:.75rem; font-weight:800; color:var(--red); text-transform:uppercase; letter-spacing:.05em; margin-bottom:.9rem;}
+.pair-row{display:flex; align-items:flex-start; justify-content:center; gap:.9rem;}
+.pair-fig{flex:1; min-width:0; text-align:center;}
+.pair-photo{position:relative; aspect-ratio:3/4; border-radius:var(--radius-sm); overflow:hidden; background:var(--paper-dim); border:1px solid var(--line);}
+.pair-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;}
+.pair-fig.old .pair-photo img{filter:grayscale(.55);}
+.pair-photo .ini{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:2rem; color:var(--red); opacity:.55;}
+.pair-photo.empty{border-style:dashed; background:transparent;}
+.pair-photo.empty .ini{font-size:2.4rem; color:var(--grey); opacity:.5; font-weight:700;}
+.pair-photo.pop{animation:vpop .5s cubic-bezier(.22,1,.36,1);}
+@keyframes vpop{0%{transform:scale(.86); opacity:.2;} 100%{transform:none; opacity:1;}}
+.pair-cap{margin-top:.55rem; font-size:.82rem; font-weight:800; line-height:1.25;}
+.pair-cap small{display:block; font-size:.7rem; font-weight:700; color:var(--grey); margin-bottom:.1rem; text-transform:uppercase; letter-spacing:.04em;}
+.pair-cap.none{color:var(--grey); font-weight:700;}
+.pair-arrow{flex:none; width:34px; height:34px; border-radius:50%; background:var(--paper-dim); display:flex; align-items:center; justify-content:center; color:var(--red); font-weight:900; align-self:flex-start; margin-top:4.4rem; transition:background .3s ease, color .3s ease;}
+.pair.filled .pair-arrow{background:var(--red); color:#fff;}
+
+/* ---------- Kandidat ---------- */
+.vlabel{font-weight:800; font-size:.85rem; color:var(--red); margin-bottom:.9rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;}
+.vlabel span{color:var(--grey); font-weight:700;}
+.cand-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem;}
+.cand{position:relative; text-align:left; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--paper); color:var(--ink); cursor:pointer; padding:0; font-family:inherit; display:flex; flex-direction:column; transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;}
+.cand:hover:not(:disabled){transform:translateY(-6px); box-shadow:0 22px 40px -16px rgba(32,26,26,.25); border-color:transparent;}
+.cand:active:not(:disabled){transform:scale(.98);}
+.cand-photo{position:relative; aspect-ratio:3/4; background:var(--paper-dim); overflow:hidden;}
+.cand-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform .5s ease, filter .3s ease;}
+.cand:hover:not(:disabled) .cand-photo img{transform:scale(1.05);}
+.cand-photo .ini{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:clamp(2rem,5vw,3.2rem); color:var(--red); opacity:.5;}
+.cand-body{padding:.8rem .9rem 1rem; display:flex; flex-direction:column; gap:.15rem;}
+.cand-name{font-weight:900; font-size:.98rem; line-height:1.25;}
+.cand-state{font-size:.74rem; font-weight:800; color:var(--grey); text-transform:uppercase; letter-spacing:.04em;}
+.cand-check{position:absolute; top:.7rem; right:.7rem; width:34px; height:34px; border-radius:50%; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; transform:scale(0); transition:transform .3s cubic-bezier(.22,1,.36,1); z-index:2;}
+.cand.selected{border-color:var(--red); box-shadow:0 0 0 2px var(--red), 0 22px 40px -18px rgba(187,0,44,.55);}
+.cand.selected .cand-check{transform:scale(1);}
+.cand.selected .cand-state{color:var(--red);}
+.cand.taken{cursor:not-allowed; background:var(--paper-dim);}
+.cand.taken .cand-photo img{filter:grayscale(1); opacity:.45;}
+.cand.taken .cand-name{color:var(--grey);}
+.cand.taken .cand-photo::after{content:""; position:absolute; inset:0; background:rgba(24,18,15,.25);}
+.vhint{margin-top:1.2rem; font-size:.88rem; color:var(--grey); line-height:1.6;}
+
+/* ---------- Navigasi bawah ---------- */
+.vnav{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:2.2rem; padding-top:1.6rem; border-top:1px solid var(--line); flex-wrap:wrap;}
+.btn:disabled{opacity:.4; cursor:not-allowed; pointer-events:none;}
+.vnav .vnav-msg{font-size:.88rem; color:var(--grey); font-weight:700; flex:1; text-align:center;}
+
+/* ---------- Konfirmasi ---------- */
+.review-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem;}
+.vsend-error{margin-top:1.2rem; padding:1rem 1.2rem; border-radius:var(--radius-sm); border:1px solid var(--red); color:var(--red); font-weight:700; font-size:.92rem; line-height:1.5;}
+.spin{display:inline-block; width:16px; height:16px; border-radius:50%; border:2px solid #ffffff60; border-top-color:#fff; animation:vspin .7s linear infinite;}
+@keyframes vspin{to{transform:rotate(360deg);}}
+
+/* ---------- Sukses ---------- */
+.vote-done{text-align:center; max-width:760px; margin:0 auto; animation:vfade .6s cubic-bezier(.22,1,.36,1);}
+.done-badge{width:88px; height:88px; border-radius:50%; background:var(--red); color:#fff; font-size:2.4rem; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 1.4rem;}
+.vote-done .jp{color:var(--red); font-weight:700; display:block; margin-bottom:.4rem;}
+.vote-done h3{font-size:clamp(1.9rem,4.6vw,2.8rem);}
+.vote-done > p{color:var(--grey); line-height:1.7; margin:1rem auto 2.2rem; max-width:50ch;}
+.vote-done .review-grid{text-align:left; margin-bottom:2.2rem;}
+
+/* ---------- Responsif ---------- */
+@media (max-width:900px){
+  .cand-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:640px){
+  .cand-grid{grid-template-columns:repeat(2,1fr); gap:.8rem;}
+  .vote-steps{gap:.35rem;}
+  .vstep{padding:.7rem .2rem;}
+  .vstep-label{font-size:.7rem;}
+  .vstep-count{display:none;}
+  .vstep-num{width:30px; height:30px; font-size:.85rem;}
+  .pairs.single{grid-template-columns:1fr;}
+  .vnav .vnav-msg{order:3; flex-basis:100%;}
+  .vnav .btn{flex:1; justify-content:center;}
+}

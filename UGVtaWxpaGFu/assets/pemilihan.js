@@ -12,14 +12,14 @@
   // Nama WAJIB persis sama dengan opsi di Google Form (titik & huruf besar/kecil berpengaruh).
   // TEMPLATE: taruh foto kandidat di images/kandidat/ dengan nama file di bawah.
   const CANDIDATES = [
-    { id:'arsy',     name:'Arsy Maulana P.',        photo:'images/kandidat/arsy-maulana.jpg' },
+    { id:'arsy',     name:'Arsy Maulana P.',        photo:'images/kandidat/arsy-maulana.png' },
     { id:'rizky',    name:'Muhammad Rizky A.',      photo:'images/kandidat/muhammad-rizky.jpeg' },
-    { id:'galih',    name:'Muhammad Galih A.',      photo:'images/kandidat/muhammad-galih.png' },
-    { id:'rangga',   name:'Rangga Adinata B.',      photo:'images/kandidat/rangga-adinata.png' },
-    { id:'rakha',    name:'Rakha Umar G.',          photo:'images/kandidat/rakha-umar.png' },
-    { id:'fajrina',  name:'Fajrina Siti Nur A. D.', photo:'images/kandidat/fajrina-siti.png' },
-    { id:'rana',     name:'Rana Salsabil F.',       photo:'images/kandidat/rana-salsabil.jpg' },
-    { id:'khalisha', name:'Khalisha Nadya S.',      photo:'images/kandidat/khalisha-nadya.png' },
+    { id:'galih',    name:'Muhammad Galih A.',      photo:'images/kandidat/muhammad-galih.jpeg' },
+    { id:'rangga',   name:'Rangga Adinata B.',      photo:'images/kandidat/rangga-adinata.jpeg' },
+    { id:'rakha',    name:'Rakha Umar G.',          photo:'images/kandidat/rakha-umar.jpeg' },
+    { id:'fajrina',  name:'Fajrina Siti Nur A. D.', photo:'images/kandidat/fajrina-siti.jpeg' },
+    { id:'rana',     name:'Rana Salsabil F.',       photo:'images/kandidat/rana-salsabil.jpeg' },
+    { id:'khalisha', name:'Khalisha Nadya S.',      photo:'images/kandidat/khalisha-nadya.jpeg' },
   ];
 
   const ROLES = [

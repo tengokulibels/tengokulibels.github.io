@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Project 04:15 AM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/admin.css">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+</head>
+<body>
+<div class="gate" id="gate">
+  <form class="gbox" id="gform">
+    <h2>Admin 04:15 AM</h2><p>Masukkan kode akses admin</p>
+    <input type="password" id="gpass" placeholder="Kode akses" autocomplete="current-password" required>
+    <button class="btn">Masuk</button><div class="err" id="gerr"></div>
+  </form>
+</div>
+
+<header>
+  <div class="bar" style="justify-content: space-between;">
+    <div class="logo"><img src="images/0415.png" alt="" onerror="this.remove()"><span class="upd" id="upd"></span></div>
+    <button class="btn sm" id="refresh" type="button">⟳ Muat Ulang</button>
+  </div>
+  <nav class="tabs">
+    <button class="tab on" data-t="scan">📷 Scan</button>
+    <button class="tab" data-t="orders">📋 Pesanan</button>
+    <button class="tab" data-t="rekap">📊 Rekap</button>
+  </nav>
+</header>
+
+<main>
+  <div class="stats" id="stats"></div>
+
+  <section id="p-scan" class="pane on">
+    <div class="card">
+      <h3>Scan QR Struk</h3>
+      <div class="cam" id="cam"><video id="vid" playsinline muted></video><div class="frame"></div><div class="camph" id="camph">Kamera belum aktif</div></div>
+      <canvas id="cv" hidden></canvas>
+      <div class="row">
+        <button class="btn" id="camBtn" type="button">Buka Kamera</button>
+        <label class="btn o">Scan dari gambar<input type="file" id="imgIn" accept="image/*" hidden></label>
+      </div>
+      <details class="man"><summary>Input manual (tempel isi QR)</summary>
+        <textarea id="manual" rows="2" placeholder="Nama: Budi | Produk: Haori Tengoku | Jumlah: 1 | Total: Rp170.000"></textarea>
+        <button class="btn o" id="manBtn" type="button">Cari</button>
+      </details>
+      <div class="err" id="scanErr"></div>
+    </div>
+    <div id="result"></div>
+  </section>
+
+  <section id="p-orders" class="pane">
+    <div class="card">
+      <div class="filters">
+        <input id="fq" placeholder="Cari nama / kelas / HP…">
+        <select id="fp"></select>
+        <select id="ft"><option value="">Semua pembeli</option><option value="lib">Libels</option><option value="non">Non-Libels</option></select>
+        <select id="fs"><option value="">Semua status</option><option value="0">Belum diambil</option><option value="1">Sudah diambil</option></select>
+        <button class="btn o sm" id="csv" type="button">⬇ CSV</button>
+      </div>
+      <div class="tw"><table id="tbl"></table></div>
+    </div>
+  </section>
+
+  <section id="p-rekap" class="pane">
+    <div class="card"><h3>Rekap per Produk</h3><div class="tw"><table id="rk"></table></div></div>
+  </section>
+</main>
+<script src="assets/admin.js"></script>
+</body>
+</html>

@@ -86,30 +86,55 @@ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
 /* ---------- scan ---------- */
 let stream=null,scanning=false,lastQ=null;
 const vid=$('vid'),cv=$('cv'),ctx=cv.getContext('2d',{willReadFrequently:true});
+let det=null;
+// Baca QR dari canvas: pakai BarcodeDetector bawaan browser bila ada, lalu jsQR sebagai cadangan
+async function decodeCanvas(deep){
+  if('BarcodeDetector' in window){
+    try{det=det||new BarcodeDetector({formats:['qr_code']});const r=await det.detect(cv);if(r.length&&r[0].rawValue)return r[0].rawValue}catch(e){}
+  }
+  if(typeof jsQR==='function'){
+    const d=ctx.getImageData(0,0,cv.width,cv.height),r=jsQR(d.data,d.width,d.height,{inversionAttempts:deep?'attemptBoth':'dontInvert'});
+    return r&&r.data?r.data:null;
+  }
+  return undefined; // tidak ada pembaca QR sama sekali
+}
 async function startCam(){
   $('scanErr').textContent='';
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){$('scanErr').textContent='Browser tidak mendukung kamera / halaman belum https.';return}
   try{
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}});
-    vid.srcObject=stream;await vid.play();$('cam').classList.add('on');$('camBtn').textContent='Tutup Kamera';scanning=true;tick();
-  }catch(e){$('scanErr').textContent='Kamera tidak bisa dibuka. Izinkan akses kamera (harus lewat https), atau pakai "Scan dari gambar".'}
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});
+    vid.srcObject=stream;await vid.play();
+  }catch(e){$('scanErr').textContent='Kamera tidak bisa dibuka ('+(e.name||'error')+'). Izinkan akses kamera di browser, lalu coba lagi.';return}
+  $('cam').classList.add('on');$('camBtn').textContent='Tutup Kamera';scanning=true;tick();
 }
 function stopCam(){scanning=false;if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;vid.srcObject=null;$('cam').classList.remove('on');$('camBtn').textContent='Buka Kamera'}
 $('camBtn').onclick=()=>stream?stopCam():startCam();
-function tick(){
+async function tick(){
   if(!scanning)return;
   if(vid.readyState>=2&&vid.videoWidth){
-    const sc=Math.min(1,640/vid.videoWidth);cv.width=vid.videoWidth*sc;cv.height=vid.videoHeight*sc;
+    const sc=Math.min(1,800/vid.videoWidth);cv.width=Math.round(vid.videoWidth*sc);cv.height=Math.round(vid.videoHeight*sc);
     ctx.drawImage(vid,0,0,cv.width,cv.height);
-    const d=ctx.getImageData(0,0,cv.width,cv.height),r=jsQR(d.data,d.width,d.height,{inversionAttempts:'dontInvert'});
-    if(r&&r.data){stopCam();if(navigator.vibrate)navigator.vibrate(80);handle(r.data);return}
+    const r=await decodeCanvas(false);
+    if(r===undefined){stopCam();$('scanErr').textContent='Pustaka pembaca QR gagal dimuat. Cek koneksi internet lalu muat ulang halaman.';return}
+    if(r){stopCam();if(navigator.vibrate)navigator.vibrate(80);handle(r);return}
   }
-  setTimeout(()=>requestAnimationFrame(tick),120);
+  setTimeout(()=>requestAnimationFrame(tick),150);
 }
 $('imgIn').onchange=e=>{
-  const f=e.target.files[0];if(!f)return;const img=new Image();
-  img.onload=()=>{const sc=Math.min(1,1200/Math.max(img.width,img.height));cv.width=img.width*sc;cv.height=img.height*sc;ctx.drawImage(img,0,0,cv.width,cv.height);
-    const d=ctx.getImageData(0,0,cv.width,cv.height),r=jsQR(d.data,d.width,d.height,{inversionAttempts:'attemptBoth'});
-    r&&r.data?handle(r.data):$('scanErr').textContent='QR tidak terbaca dari gambar ini.';e.target.value=''};
+  const f=e.target.files[0];if(!f)return;const img=new Image();$('scanErr').textContent='Membaca gambar…';
+  img.onload=async()=>{
+    let res=null;
+    for(const max of [1200,800,500,1800]){
+      const sc=Math.min(1,max/Math.max(img.width,img.height));cv.width=Math.round(img.width*sc);cv.height=Math.round(img.height*sc);
+      ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);ctx.drawImage(img,0,0,cv.width,cv.height);
+      res=await decodeCanvas(true);if(res===undefined)break;if(res)break;
+    }
+    if(res===undefined)$('scanErr').textContent='Pustaka pembaca QR gagal dimuat. Cek koneksi internet lalu muat ulang halaman.';
+    else if(res){$('scanErr').textContent='';handle(res)}
+    else $('scanErr').textContent='QR tidak terbaca dari gambar ini. Pastikan seluruh QR terlihat jelas dan tidak terpotong.';
+    e.target.value='';
+  };
+  img.onerror=()=>{$('scanErr').textContent='Gambar tidak bisa dibuka.'};
   img.src=URL.createObjectURL(f);
 };
 $('manBtn').onclick=()=>handle($('manual').value);

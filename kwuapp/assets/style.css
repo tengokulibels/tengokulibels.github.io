@@ -109,3 +109,11 @@ footer p{color:#f5f1eaa3;line-height:1.6;max-width:38ch;margin:0}
 .sd.show{display:block}.sd i{font-style:normal;display:inline-block;animation:bn 1s infinite}
 @keyframes bn{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
 @media(min-width:721px){.sd,.sd.show{display:none}}
+
+/* pilihan ukuran baju */
+.szl{font-size:13px;font-weight:700;margin:2px 0 6px}
+.szs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.szs label{cursor:pointer}.szs input{display:none}
+.szs span{display:block;border:1.5px solid #ccc;border-radius:8px;padding:8px 4px;text-align:center;font-weight:800;color:#555}
+.szs small{display:block;font-weight:600;font-size:11px;color:var(--m)}
+.szs input:checked+span{border-color:var(--c);background:var(--cl);color:var(--cd)}

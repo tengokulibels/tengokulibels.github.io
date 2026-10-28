@@ -87,7 +87,7 @@
       <div class="view call-view" id="callView">
         <div class="call-head">
           <span class="call-status" id="callStatus">Tap untuk mulai ngobrol</span>
-          <button class="chip-btn" id="toChat" type="button">Chat</button>
+          <div class="head-actions"><button class="chip-btn" id="callSettings" type="button" aria-label="Pengaturan"><i class="fa-solid fa-gear"></i></button><button class="chip-btn" id="toChat" type="button"><i class="fa-solid fa-message"></i> Chat</button></div>
         </div>
         <div class="call-stage">
           <div class="avatar big jp" id="bigAvatar">あ</div>
@@ -96,7 +96,7 @@
         </div>
         <div class="call-controls">
           <button class="ctrl start" id="startBtn" type="button" aria-label="Mulai telepon"><i class="fa-solid fa-phone"></i></button>
-          <button class="ctrl hide" id="repeatBtn" type="button" aria-label="Ulangi"><i class="fa-solid fa-rotate-right"></i></button>
+          <button class="ctrl hide" id="repeatBtn" type="button" aria-label="Ulangi ucapan Airi" title="Ulangi ucapan Airi"><i class="fa-solid fa-rotate-right"></i></button>
           <button class="ctrl mic-big hide" id="micBtn" type="button" aria-label="Tekan lalu bicara"><i class="fa-solid fa-microphone"></i></button>
           <button class="ctrl end hide" id="endBtn" type="button" aria-label="Akhiri telepon"><i class="fa-solid fa-phone-slash"></i></button>
         </div>
@@ -107,7 +107,7 @@
         <div class="call-top">
           <div class="avatar jp">あ</div>
           <div class="call-title"><b>Airi</b><small id="statusEl">Online</small></div>
-          <button class="chip-btn" id="levelChip" type="button" title="Nilai tingkat kesulitan">Lv 2</button>
+          <button class="chip-btn" id="levelChip" type="button" title="Pengaturan"><i class="fa-solid fa-gear"></i> <span id="levelTxt">N5</span></button>
           <button class="chip-btn" id="toCall" type="button"><i class="fa-solid fa-phone"></i> Call</button>
         </div>
         <div class="stream" id="stream" aria-live="polite"></div>
@@ -117,7 +117,7 @@
         </div>
       </div>
     </div>
-    <p class="call-hint" id="micHint">Izinkan akses mikrofon saat diminta browser. Ini cuma latihan, santai aja kalau salah ngomong.</p>
+    <p class="call-hint" id="micHint">Izinkan akses mikrofon saat diminta browser. Arahkan kursor (atau tap) kata bergaris titik-titik untuk lihat arti & tata bahasanya. Santai aja kalau salah ngomong.</p>
   </div>
 </section>
 
@@ -134,29 +134,21 @@
   </div>
 </div>
 
-<!-- ===== POP-UP: info partikel ===== -->
-<div class="modal" id="particleModal" role="dialog" aria-modal="true" aria-labelledby="particleTitle">
-  <div class="modal-box">
-    <span class="jp">助詞</span>
-    <h3 id="particleTitle">Partikel <span id="particleWord"></span></h3>
-    <p id="particleFungsi"></p>
-    <p class="contoh" id="particleContoh"></p>
-    <button class="modal-skip" id="particleClose" type="button">Tutup</button>
-  </div>
-</div>
-
-<!-- ===== POP-UP: nilai tingkat kesulitan ===== -->
-<div class="modal" id="rateModal" role="dialog" aria-modal="true" aria-labelledby="rateTitle">
-  <div class="modal-box">
-    <span class="jp">難しさ</span>
-    <h3 id="rateTitle">Obrolan tadi terasa bagaimana?</h3>
-    <p>Dipakai buat nyesuaikan tingkat percakapan berikutnya.</p>
-    <div class="rate-opts">
-      <button class="btn btn-ghost" type="button" data-rate="1">Terlalu ringan</button>
-      <button class="btn btn-primary" type="button" data-rate="0">Pas</button>
-      <button class="btn btn-ghost" type="button" data-rate="-1">Terlalu susah</button>
+<!-- ===== POP-UP: pengaturan ===== -->
+<div class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+  <div class="modal-box settings">
+    <span class="jp">設定</span>
+    <h3 id="setTitle">Pengaturan obrolan</h3>
+    <p class="set-lbl">Tingkat bahasa (JLPT)</p>
+    <div class="seg" id="lvSeg" role="radiogroup" aria-label="Tingkat JLPT">
+      <button type="button" data-lv="N5">N5</button><button type="button" data-lv="N4">N4</button><button type="button" data-lv="N3">N3</button><button type="button" data-lv="N2">N2</button><button type="button" data-lv="N1">N1</button>
     </div>
-    <button class="modal-skip" id="rateSkip" type="button">Nanti saja</button>
+    <p class="set-hint" id="lvHint"></p>
+    <label class="switch-row">
+      <span><b>Suara di mode Chat</b><small>Mode telepon selalu bersuara</small></span>
+      <input type="checkbox" id="chatVoice"><i class="sw"></i>
+    </label>
+    <button class="btn btn-primary" id="setClose" type="button">Selesai</button>
   </div>
 </div>
 

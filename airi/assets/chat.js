@@ -67,7 +67,7 @@ function saveSet(){ try{ localStorage.setItem('airi-set', JSON.stringify(SET)); 
 let topic = '';   // ringkasan topik berjalan (dikirim balik oleh LLM)
 
 function systemPrompt(pendingEnd){
-  return `Kamu adalah "Hoshizora Airi" (星空あいり), cewek SMA Jepang anggota klub TENGOKU (SMAN 15 Surabaya). Kepribadian: ceria, spontan, agak ceroboh, tsundere ringan, hangat. Lawan bicara: teman Indonesia yang sedang belajar bahasa Jepang.
+  return `Kamu adalah "Hoshizora Airi" (星空あいり), cewek SMA Jepang anggota klub TENGOKU (SMAN 15 Surabaya). Kepribadian: ceria, tulus, blak-blakan, mudah semangat/kesal/malu (emosi ekspresif), tsundere ringan, hangat. Lawan bicara: teman Indonesia yang sedang belajar bahasa Jepang.
 CARA NGOBROL (penting):
 - Ngobrol seperti manusia, BUKAN guru/kuis. Tanggapi isi ucapan user dulu (reaksi, komentar, cerita kecil tentang dirimu), baru tanya balik kalau pas. Jangan setiap balasan ditutup pertanyaan.
 - Topik bebas & mengalir (sekolah, makanan, game, anime, musik, HP, curhat, rencana, dll). Ikuti topik yang sedang berjalan; pindah topik hanya kalau obrolan sudah habis atau user mau. Baca riwayat & ingat hal yang sudah dibahas (nama, rencana, kesukaan user).
@@ -83,9 +83,9 @@ BALAS HANYA JSON VALID (tanpa markdown):
 {"reply":{"jp":"今日は暑いね！","emo":"happy","words":[{"w":"今日","f":"きょう","id":"hari ini"},{"w":"は","f":"","id":""},{"w":"暑い","f":"あつい","id":"panas"},{"w":"ね","f":"","id":""},{"w":"！","f":"","id":""}],"note":null,"end":false},
  "user":{"words":[],"fix":null},"topic":"cuaca panas"}
 ATURAN FIELD:
-- "emo": normal|happy|sad|surprised|teasing|shy (nada suara).
+- "emo": salah satu dari normal|happy|excited|sad|angry|surprised|shy|teasing|confused (sesuai perasaan Airi saat membalas; dipakai utk foto profil & nada suara).
 - "words": pecah SELURUH kalimat berurutan, TERMASUK tanda baca (、。！？「」…〜 dst) sebagai token sendiri dengan id "". Gabungan semua "w" harus sama persis dengan kalimat aslinya.
-- "f": bacaan hiragana HANYA jika "w" mengandung kanji. "id": arti Indonesia singkat; partikel/akhiran gramatikal (は,が,を,に,で,と,も,か,ね,よ,の,から,けど,です,だ,ます dst) dan tanda baca isi "".
+- "f": bacaan hiragana yang BENAR sesuai konteks (今日=きょう, 何=なに/なん, 日=ひ/にち), HANYA jika "w" mengandung kanji, jangan romaji. "id": arti Indonesia singkat; partikel/akhiran gramatikal (は,が,を,に,で,と,も,か,ね,よ,の,から,けど,です,だ,ます dst) dan tanda baca isi "".
 - Opsional per token: "lv" & "g" (hanya materi di luar level), atau "g" untuk pola tata bahasa penting.
 - "user": pecahan ucapan user (skema sama). "fix": koreksi tata bahasa singkat dlm Indonesia, else null.
 - "note": hanya untuk ungkapan unik/gaul: {"phrase":"...","kapan":"...","pola":"...","info":"..."} ringkas, Indonesia. Selain itu null.
@@ -95,7 +95,7 @@ ATURAN FIELD:
 
 /* ---------- state ---------- */
 const $ = id => document.getElementById(id);
-const phone=$('phone'), callView=$('callView'), chatView=$('chatView'), callStatus=$('callStatus'),
+const topAvatar=$('topAvatar'), phone=$('phone'), callView=$('callView'), chatView=$('chatView'), callStatus=$('callStatus'),
       bigAvatar=$('bigAvatar'), subtitle=$('subtitle'),
       startBtn=$('startBtn'), repeatBtn=$('repeatBtn'), micBtn=$('micBtn'), endBtn=$('endBtn'),
       stream=$('stream'), input=$('input'), sendBtn=$('sendBtn'),
@@ -151,21 +151,44 @@ async function askAiri(userText, pendingEnd){
   throw last || new Error('No response');
 }
 
+/* ---------- emosi: foto profil & nada suara ---------- */
+const EMO = { // [rate, pitch, volume] — gaya cewek SMA yang berapi-api tapi tulus
+  normal:[1.0,1.05,1], happy:[1.06,1.15,1], excited:[1.14,1.22,1], sad:[.88,.92,.85], angry:[1.1,.98,1],
+  surprised:[1.08,1.28,1], shy:[.9,1.1,.85], teasing:[1.02,1.15,1], confused:[.93,1.05,.95]
+};
+const EMOS = Object.keys(EMO);
+const AVATAR_DIR = 'assets/airi/', AVATAR_EXT = 'png';   // assets/airi/normal.png, happy.png, dst
+const avCache = {};
+function loadAvatar(emo){
+  return avCache[emo] ??= new Promise(res => {
+    const i = new Image();
+    i.onload = () => res(i.src);
+    i.onerror = () => emo === 'normal' ? res(null) : loadAvatar('normal').then(res);
+    i.src = `${AVATAR_DIR}${emo}.${AVATAR_EXT}`;
+  });
+}
+function setAvatar(e, emo){
+  emo = EMOS.includes(emo) ? emo : 'normal';
+  e.dataset.emo = emo;
+  loadAvatar(emo).then(src => {
+    if (e.dataset.emo !== emo) return;
+    if (src){ e.innerHTML = `<img src="${src}" alt="">`; e.classList.add('has-img'); }
+    else { e.textContent = 'あ'; e.classList.remove('has-img'); }
+  });
+}
+
 /* ---------- suara ---------- */
 const SYNTH = 'speechSynthesis' in window ? speechSynthesis : null;
 const player = new Audio();
 const SILENT = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
 const audioCache = new Map();
 let speakId = 0, jaVoice = null, voiceIsNatural = false;
-const EMO = { // [rate, pitch]
-  normal:[.97,1.1], happy:[1.05,1.25], sad:[.88,.9], surprised:[1.1,1.35], teasing:[1.0,1.18], shy:[.9,1.15]
-};
 function voiceScore(v){
   const n = v.name; let s = 0;
   if (/Natural|Online/i.test(n)) s += 100;
   if (/Google/i.test(n)) s += 60;
   if (/Siri|Enhanced|Premium/i.test(n)) s += 50;
-  if (/Nanami|Aoi|Mayu|Shiori|Kyoko|O-Ren/i.test(n)) s += 20;
+  if (/Nanami|Aoi|Mayu|Shiori|Haruka|Kyoko|O-Ren/i.test(n)) s += 20;
   if (/Ichiro|Keita|Takumi|Otoya|Hattori|Ken\b/i.test(n)) s -= 60;
   return s;
 }
@@ -188,7 +211,7 @@ function stopSpeaking(){
   setSpeaking(false);
 }
 async function requestVoice(endpoint, text, emo, ms){
-  const res = await fetchWithTimeout(endpoint, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify({ text, emo }) }, ms);
+  const res = await fetchWithTimeout(endpoint, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify({ text, emo, style:'energetic-schoolgirl' }) }, ms);
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return URL.createObjectURL(await res.blob());
 }
@@ -202,20 +225,34 @@ async function fetchVoice(text, emo){
   }
   return null;
 }
+// Kalimat pendek dibacakan SATU utterance (tidak terputus); teks panjang dipotong di batas kalimat (~45 huruf).
+function chunkText(text){
+  const parts = text.match(/[^。！？!?…]+[。！？!?…]*/g) || [text];
+  const out = []; let cur = '';
+  for (const p of parts){ if (cur && (cur + p).length > 45){ out.push(cur); cur = p; } else cur += p; }
+  if (cur) out.push(cur);
+  return out;
+}
+function prosody(emo, chunk){
+  let [r, p, v] = EMO[emo]; const t = chunk.trim();
+  if (/[？?]$/.test(t)) p += .06;
+  if (/[！!]$/.test(t)){ r += .04; p += .05; }
+  if (/[…〜]$/.test(t)) r -= .06;
+  return [r, p, v];
+}
 function browserSpeak(text, emo, id, done){
   if (!SYNTH){ done(); return; }
-  const [rate, pitch] = EMO[emo] || EMO.normal;
-  const parts = text.match(/[^。！？!?…]+[。！？!?…]*/g) || [text];
-  let i = 0;
+  if (!jaVoice) pickVoice();
+  const parts = chunkText(text); let i = 0;
   setSpeaking(true);
   const next = () => {
     if (id !== speakId) return;
     if (i >= parts.length){ done(); return; }
-    const u = new SpeechSynthesisUtterance(parts[i++]);
-    u.lang = 'ja-JP'; u.rate = rate; u.pitch = pitch;
+    const chunk = parts[i++], [rate, pitch, vol] = prosody(emo, chunk);
+    const u = new SpeechSynthesisUtterance(chunk);
+    u.lang = 'ja-JP'; u.rate = rate; u.pitch = pitch; u.volume = vol;
     if (jaVoice) u.voice = jaVoice;
-    u.onend = () => setTimeout(next, 120);   // jeda antar kalimat biar natural
-    u.onerror = () => next();
+    u.onend = next; u.onerror = next;
     SYNTH.speak(u);
   };
   setTimeout(next, 60);
@@ -225,7 +262,7 @@ function speak(text, emo, onEnd){
   const id = ++speakId;
   emo = EMO[emo] ? emo : 'normal';
   const done = () => { if (id !== speakId) return; setSpeaking(false); onEnd && onEnd(); };
-  if (PREFER_BROWSER_VOICE && voiceIsNatural){ browserSpeak(text, emo, id, done); return; }
+  if (PREFER_BROWSER_VOICE && voiceIsNatural && !VOICE_MODEL_URL){ browserSpeak(text, emo, id, done); return; }
   setSpeaking(true);
   fetchVoice(text, emo).then(url => {
     if (id !== speakId) return;
@@ -254,6 +291,47 @@ function tipFor(w){
   if (!p && !w.id && !w.g) return null;
   return { w:t, f:w.f || '', id:w.id || '', g:p ? p.f : (w.g || ''), c:p ? p.c : '', lv:w.lv || '' };
 }
+/* Furigana: koreksi lokal -> kuromoji (kamus, sadar konteks) -> bacaan dari AI (divalidasi) */
+const KANJI = /[\u4e00-\u9fff々]/;
+const READ_FIX = {今日:'きょう',明日:'あした',昨日:'きのう',今朝:'けさ',今年:'ことし',大人:'おとな',一人:'ひとり',二人:'ふたり',友達:'ともだち',上手:'じょうず',下手:'へた',時計:'とけい',果物:'くだもの',眼鏡:'めがね',部屋:'へや',毎日:'まいにち',誰:'だれ',私:'わたし'};
+let tokenizer = null, kJp = '', kToks = [];
+const hira = s => String(s).replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+const okRead = r => /^[\u3040-\u309fー]+$/.test(r || '');
+const kRead = k => hira(k.reading && k.reading !== '*' ? k.reading : k.surface_form);
+function kuroRead(jp, i, j){
+  if (!tokenizer) return null;
+  if (jp !== kJp){ kJp = jp; kToks = tokenizer.tokenize(jp); }
+  let out = '', cur = i;
+  for (const k of kToks){
+    const s = k.word_position - 1, e = s + k.surface_form.length;
+    if (e <= i) continue;
+    if (s >= j) break;
+    if (s < i || e > j || s !== cur) return null;
+    out += kRead(k); cur = e;
+  }
+  return cur === j && okRead(out) ? out : null;
+}
+function kuroAlone(t){
+  if (!tokenizer) return null;
+  const r = tokenizer.tokenize(t).map(kRead).join('');
+  return okRead(r) ? r : null;
+}
+function readingFor(jp, i, t, llmF){
+  if (!KANJI.test(t)) return '';
+  if (READ_FIX[t]) return READ_FIX[t];
+  const k = kuroRead(jp, i, i + t.length) || kuroAlone(t);
+  if (k) return k;
+  const f = hira(llmF || ''); return okRead(f) ? f : '';
+}
+function loadKuromoji(){
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js';
+  s.onload = () => kuromoji.builder({ dicPath:'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/' }).build((err, t) => {
+    if (err){ console.warn('kuromoji gagal, pakai furigana dari AI:', err); return; }
+    tokenizer = t; kJp = ''; if (messages.length) renderStream();
+  });
+  document.head.appendChild(s);
+}
 // Cocokkan token ke kalimat asli supaya semua tanda baca tetap tampil.
 function textHTML(jp, words){
   const ws = cleanWords(words); let pos = 0, out = '';
@@ -261,7 +339,7 @@ function textHTML(jp, words){
     const t = String(w.w), i = jp.indexOf(t, pos);
     if (i < 0) return;
     out += esc(jp.slice(pos, i)); pos = i + t.length;
-    const info = tipFor(w), inner = rubyHTML(t, w.f);
+    const f = readingFor(jp, i, t, w.f), info = tipFor({ ...w, f }), inner = rubyHTML(t, f);
     out += info ? `<span class="t" tabindex="0" data-tip="${esc(JSON.stringify(info))}">${inner}</span>` : inner;
   });
   return out + esc(jp.slice(pos));
@@ -275,7 +353,7 @@ function noteNode(n){
 }
 function bubbleFor(msg){
   const row = el('div', 'row ' + (msg.role === 'user' ? 'user' : 'ai'));
-  if (msg.role === 'ai') row.appendChild(el('div', 'avatar jp aux', 'あ'));
+  if (msg.role === 'ai'){ const av = el('div', 'avatar aux'); setAvatar(av, msg.emo); row.appendChild(av); }
   const bubble = el('div', 'bubble');
   if (msg.mode === 'call') bubble.appendChild(el('span', 'mode-tag aux', '<i class="fa-solid fa-phone"></i> via telepon'));
   bubble.appendChild(el('div', 'plain', textHTML(msg.jp, msg.words)));
@@ -301,7 +379,7 @@ function renderStream(){
 }
 function showTyping(){
   const row = el('div', 'row ai aux');
-  row.appendChild(el('div', 'avatar jp', 'あ'));
+  { const av = el('div', 'avatar'); setAvatar(av, 'normal'); row.appendChild(av); }
   row.appendChild(el('div', 'bubble', '<div class="typing"><s></s><s></s><s></s></div>'));
   stream.appendChild(row); stream.scrollTop = stream.scrollHeight;
 }
@@ -370,8 +448,10 @@ async function send(text, mode, hidden){
       um.words = cleanWords(parsed.user?.words);
       um.fix = parsed.user?.fix || null;
     }
+    r.emo = EMOS.includes(r.emo) ? r.emo : 'normal';
     messages.push({ role:'ai', mode, jp:r.jp, words:cleanWords(r.words), emo:r.emo, note:r.note || null });
-    renderStream();
+    setAvatar(bigAvatar, r.emo); setAvatar(topAvatar, r.emo);
+    renderStream(); saveSession();
     if (mode === 'call'){
       subtitle.innerHTML = textHTML(r.jp, r.words);
       subtitle.classList.add('show');
@@ -439,7 +519,56 @@ $('continueNo').addEventListener('click', () => {
 continueModal.addEventListener('click', e => { if (e.target === continueModal) continueModal.classList.remove('show'); });
 
 /* ---------- switch call <-> chat ---------- */
-toChat.addEventListener('click', () => { stopSpeaking(); callView.classList.add('hide'); chatView.classList.remove('hide'); renderStream(); });
+function showChat(){ stopSpeaking(); callView.classList.add('hide'); chatView.classList.remove('hide'); renderStream(); }
+toChat.addEventListener('click', showChat);
+
+/* ---------- riwayat obrolan (disimpan di browser) ---------- */
+const HIST_KEY = 'airi-hist', HIST_MAX = 30, histModal = $('histModal'), histList = $('histList');
+let sessions = [], curId = null;
+try { sessions = JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); } catch(e){}
+function persist(){
+  for (;;){
+    try { localStorage.setItem(HIST_KEY, JSON.stringify(sessions)); return; }
+    catch(e){ if (sessions.length <= 1) return; sessions.pop(); }   // penuh: buang yang terlama
+  }
+}
+function saveSession(){
+  if (!messages.length) return;
+  if (!curId) curId = 's' + Date.now();
+  let s = sessions.find(x => x.id === curId);
+  if (!s){ s = { id:curId }; sessions.push(s); }
+  const fu = messages.find(m => m.role === 'user');
+  Object.assign(s, { ts:Date.now(), title:(topic || fu?.jp || 'Obrolan').slice(0, 40), messages, convo, topic });
+  sessions.sort((a, b) => b.ts - a.ts); sessions = sessions.slice(0, HIST_MAX);
+  persist();
+}
+function lastEmo(){ return [...messages].reverse().find(m => m.role === 'ai')?.emo || 'normal'; }
+function newSession(){
+  endCall(); messages = []; convo = []; topic = ''; curId = null;
+  setAvatar(bigAvatar, 'normal'); setAvatar(topAvatar, 'normal'); renderStream();
+}
+function openSession(id){
+  const s = sessions.find(x => x.id === id); if (!s) return;
+  endCall(); messages = s.messages || []; convo = s.convo || []; topic = s.topic || ''; curId = id;
+  setAvatar(bigAvatar, lastEmo()); setAvatar(topAvatar, lastEmo());
+  showChat();
+}
+function renderHist(){
+  histList.innerHTML = sessions.length ? sessions.map(s =>
+    `<div class="hist-item"><button type="button" class="hist-open" data-id="${esc(s.id)}"><b>${esc(s.title)}</b><small>${new Date(s.ts).toLocaleString('id-ID', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' })} · ${(s.messages || []).length} pesan</small></button><button type="button" class="hist-del" data-del="${esc(s.id)}" aria-label="Hapus"><i class="fa-solid fa-trash"></i></button></div>`
+  ).join('') : '<p class="hist-empty">Belum ada riwayat. Obrolan tersimpan otomatis.</p>';
+}
+function openHist(){ renderHist(); histModal.classList.add('show'); }
+histList.addEventListener('click', e => {
+  const o = e.target.closest('[data-id]'), d = e.target.closest('[data-del]');
+  if (o){ histModal.classList.remove('show'); openSession(o.dataset.id); }
+  else if (d){ sessions = sessions.filter(s => s.id !== d.dataset.del); if (d.dataset.del === curId) curId = null; persist(); renderHist(); }
+});
+$('histBtn').addEventListener('click', openHist);
+$('callHistory').addEventListener('click', openHist);
+$('histClose').addEventListener('click', () => histModal.classList.remove('show'));
+$('histNew').addEventListener('click', () => { histModal.classList.remove('show'); newSession(); });
+histModal.addEventListener('click', e => { if (e.target === histModal) histModal.classList.remove('show'); });
 toCall.addEventListener('click', () => { stopSpeaking(); chatView.classList.add('hide'); callView.classList.remove('hide'); showCallControls(callState); });
 
 /* ---------- pengaturan ---------- */
@@ -486,3 +615,5 @@ if (SR){
 /* ---------- init ---------- */
 refreshSettings();
 showCallControls('idle');
+setAvatar(bigAvatar, 'normal'); setAvatar(topAvatar, 'normal');
+(window.requestIdleCallback || setTimeout)(loadKuromoji, 1500);

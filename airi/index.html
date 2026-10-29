@@ -87,7 +87,7 @@
       <div class="view call-view" id="callView">
         <div class="call-head">
           <span class="call-status" id="callStatus">Tap untuk mulai ngobrol</span>
-          <div class="head-actions"><button class="chip-btn" id="callSettings" type="button" aria-label="Pengaturan"><i class="fa-solid fa-gear"></i></button><button class="chip-btn" id="toChat" type="button"><i class="fa-solid fa-message"></i> Chat</button></div>
+          <div class="head-actions"><button class="chip-btn" id="callHistory" type="button" aria-label="Riwayat"><i class="fa-solid fa-clock-rotate-left"></i></button><button class="chip-btn" id="callSettings" type="button" aria-label="Pengaturan"><i class="fa-solid fa-gear"></i></button><button class="chip-btn" id="toChat" type="button"><i class="fa-solid fa-message"></i> Chat</button></div>
         </div>
         <div class="call-stage">
           <div class="avatar big jp" id="bigAvatar">あ</div>
@@ -105,8 +105,9 @@
       <!-- ===== CHAT VIEW ===== -->
       <div class="view chat-view hide" id="chatView">
         <div class="call-top">
-          <div class="avatar jp">あ</div>
+          <div class="avatar jp" id="topAvatar">あ</div>
           <div class="call-title"><b>Airi</b><small id="statusEl">Online</small></div>
+          <button class="chip-btn" id="histBtn" type="button" aria-label="Riwayat"><i class="fa-solid fa-clock-rotate-left"></i></button>
           <button class="chip-btn" id="levelChip" type="button" title="Pengaturan"><i class="fa-solid fa-gear"></i> <span id="levelTxt">N5</span></button>
           <button class="chip-btn" id="toCall" type="button"><i class="fa-solid fa-phone"></i> Call</button>
         </div>
@@ -149,6 +150,17 @@
       <input type="checkbox" id="chatVoice"><i class="sw"></i>
     </label>
     <button class="btn btn-primary" id="setClose" type="button">Selesai</button>
+  </div>
+</div>
+
+<!-- ===== POP-UP: riwayat ===== -->
+<div class="modal" id="histModal" role="dialog" aria-modal="true" aria-labelledby="histTitle">
+  <div class="modal-box">
+    <span class="jp">履歴</span>
+    <h3 id="histTitle">Riwayat obrolan</h3>
+    <div class="hist-list" id="histList"></div>
+    <div class="rate-opts"><button class="btn btn-primary" id="histNew" type="button">Obrolan baru</button></div>
+    <button class="modal-skip" id="histClose" type="button">Tutup</button>
   </div>
 </div>
 

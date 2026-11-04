@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Materi Kelas Advance — TENGOKU</title>
+<meta name="description" content="Materi pembelajaran bahasa Jepang Kelas Advance (level N5–N4) — Tengoku">
+
+<script src="https://kit.fontawesome.com/d0e5cd4063.js" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/materi-advance.css">
+
+<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- ============ NAV — dibersihkan: cuma logo + tombol sidebar ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-row">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="assets/logo-putih.png" alt="TENGOKU">
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ SIDEBAR — satu-satunya navigasi, dipakai di semua ukuran layar ============ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<aside class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="mobile-nav-label">NAVIGASI</span>
+    <button class="nav-close" id="navCloseBtn" aria-label="Tutup menu">✕</button>
+  </div>
+  <nav class="mobile-links">
+    <a href="https://tengokulibels.github.io" class="active">Beranda</a>
+    <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+    <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+    <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+    <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+    <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+    <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+    <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="brand">
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU">
+    </div>
+    <p>Website Materi Klub/Ekstrakurikuler Jepang "TENGOKU" SMAN 15 Surabaya.</p>
+    <p class="disclaimer">*Website ini di kelola oleh kepengurusan Klub/Ekstrakurikuler Jepang "TENGOKU" dan tidak ada campur tangan oleh pihak sekolah.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/tengoku_libels" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@tengoku_libels" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@tengoku_libels" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ HERO — WAJIB gambar/visual di awal tiap halaman ============ -->
+<!-- TEMPLATE: ganti src hero-bg dengan foto asli. Jika kosong/gagal dimuat,
+     gradient merah tetap tampil rapi berkat onerror di bawah. -->
+<section class="hero">
+  <img class="hero-bg" src="images/333.png" alt="" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="hero-kanji jp">天国</div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow-jp jp">「アドバンスクラス」教材</p>
+    <h1>Materi<br>Kelas Advance</h1>
+    <p>Sembilan pokok materi bahasa Jepang level N5–N4, lengkap dengan tabel, furigana, contoh, dan latihan.</p>
+  </div>
+</section>
+
+<!-- ============ INTRO & PETA MATERI ============ -->
+<section class="adv" id="peta">
+  <div class="bg-word pos-right jp">日本語</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">KELAS ADVANCE · PETA MATERI</p>
+      <h2>Sembilan Pokok Materi</h2>
+      <p>Sembilan topik utama dibahas satu per satu, lengkap dengan tabel, contoh kalimat, dan latihan. Level acuan: JLPT N5–N4, cocok untuk belajar rutin maupun persiapan lomba.</p>
+    </div>
+    <div class="adv-tools">
+      <button class="btn btn-ghost" id="furiToggle" type="button" aria-pressed="true">Furigana: ON</button>
+      <span class="adv-hint">Klik "Jawaban" pada latihan untuk membuka kunci.</span>
+    </div>
+    <div class="tbl-wrap">
+      <table class="adv-table kd">
+        <thead><tr><th>No</th><th>Kompetensi Dasar</th><th>Materi Pokok</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Membaca dan mengidentifikasi huruf Kana dan Kanji dasar</td><td><a href="#moji">Moji (Kana &amp; Kanji)</a></td><td>Mengenali pembacaan Kanji dasar (N5–N4) dan ejaan Katakana kata serapan</td></tr>
+          <tr><td>2</td><td>Memahami makna kata dan istilah kebudayaan sehari-hari</td><td><a href="#goi">Goi (Vocabulary)</a></td><td>Menentukan sinonim, antonim, dan penggunaan kata kerja/sifat yang tepat</td></tr>
+          <tr><td>3</td><td>Menganalisis fungsi partikel dalam struktur kalimat Jepang</td><td><a href="#joshi">Joshi (Partikel)</a></td><td>Mengidentifikasi penggunaan partikel wa, ga, o, ni, de, e, to, kara, made</td></tr>
+          <tr><td>4</td><td>Menganalisis konjugasi kata kerja dan kata sifat</td><td><a href="#bunpou">Bunpou (Konjugasi)</a></td><td>Mengubah kata kerja ke bentuk Te, Nai, Ta, Masu, dan kata sifat i/na</td></tr>
+          <tr><td>5</td><td>Menganalisis kalimat ekspresi keinginan, izin, dan larangan</td><td><a href="#ekspresi">Ekspresi Fungsi Bahasa</a></td><td>Menentukan ungkapan ~tai, ~te mo ii, ~te wa ikenai, dan ~deshou</td></tr>
+          <tr><td>6</td><td>Memahami isi dan informasi rinci dari teks pendek/dialog</td><td><a href="#dokkai">Dokkai (Reading)</a></td><td>Menentukan ide utama dan jawaban pertanyaan berdasarkan teks bacaan</td></tr>
+          <tr><td>7</td><td>Menganalisis ungkapan sopan dan situasi komunikasi</td><td><a href="#aisatsu">Aisatsu &amp; Kaiwa</a></td><td>Menentukan respon ucapan salam, permohonan maaf, dan ungkapan terima kasih</td></tr>
+          <tr><td>8</td><td>Memahami kalimat majemuk dan hubungan sebab-akibat</td><td><a href="#konjungsi">Konjungsi &amp; Keterangan</a></td><td>Menggunakan kata sambung kara, node, kedo, dan kata keterangan waktu</td></tr>
+          <tr><td>9</td><td>Mengidentifikasi ragam bahasa halus dan formal dasar</td><td><a href="#teineigo">Teineigo (Ragam Sopan)</a></td><td>Membedakan ragam bahasa biasa (Futsukei) dan sopan (Teineigo)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 1. MOJI ============ -->
+<section class="adv" id="moji">
+  <div class="bg-word pos-left jp">文字</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 1 · 文字 MOJI</p>
+      <h2>Kana &amp; Kanji Dasar</h2>
+      <p>Indikator: mengenali pembacaan Kanji dasar (N5–N4) dan ejaan Katakana kata serapan.</p>
+    </div>
+
+    <h3 class="sub">Kanji N5</h3>
+    <p class="note-p"><b>On'yomi</b> (katakana) = bacaan Cina, biasanya dalam kata majemuk. <b>Kun'yomi</b> (hiragana) = bacaan asli Jepang, biasanya berdiri sendiri; huruf dalam kurung adalah okurigana.</p>
+    <div class="tbl-wrap">
+      <table class="adv-table">
+        <thead><tr><th>Kanji</th><th>On</th><th>Kun</th><th>Arti</th><th>Contoh</th></tr></thead>
+        <tbody>
+          <tr><td class="big jp">日</td><td>ニチ・ジツ</td><td>ひ・か</td><td>hari, matahari</td><td class="jp">{日曜日|にちようび}</td></tr>
+          <tr><td class="big jp">月</td><td>ゲツ・ガツ</td><td>つき</td><td>bulan</td><td class="jp">{月曜日|げつようび}</td></tr>
+          <tr><td class="big jp">火</td><td>カ</td><td>ひ</td><td>api</td><td class="jp">{火曜日|かようび}</td></tr>
+          <tr><td class="big jp">水</td><td>スイ</td><td>みず</td><td>air</td><td class="jp">{水|みず}を{飲|の}む</td></tr>
+          <tr><td class="big jp">木</td><td>モク</td><td>き</td><td>pohon, kayu</td><td class="jp">{木曜日|もくようび}</td></tr>
+          <tr><td class="big jp">金</td><td>キン</td><td>かね</td><td>emas, uang</td><td class="jp">{金曜日|きんようび}</td></tr>
+          <tr><td class="big jp">土</td><td>ド</td><td>つち</td><td>tanah</td><td class="jp">{土曜日|どようび}</td></tr>
+          <tr><td class="big jp">山</td><td>サン</td><td>やま</td><td>gunung</td><td class="jp">{富士山|ふじさん}</td></tr>
+          <tr><td class="big jp">川</td><td>セン</td><td>かわ</td><td>sungai</td><td class="jp">{川|かわ}</td></tr>
+          <tr><td class="big jp">人</td><td>ジン・ニン</td><td>ひと</td><td>orang</td><td class="jp">{日本人|にほんじん}</td></tr>
+          <tr><td class="big jp">大</td><td>ダイ・タイ</td><td>おお(きい)</td><td>besar</td><td class="jp">{大学|だいがく}</td></tr>
+          <tr><td class="big jp">小</td><td>ショウ</td><td>ちい(さい)・こ</td><td>kecil</td><td class="jp">{小学校|しょうがっこう}</td></tr>
+          <tr><td class="big jp">学</td><td>ガク</td><td>まな(ぶ)</td><td>belajar</td><td class="jp">{学生|がくせい}</td></tr>
+          <tr><td class="big jp">校</td><td>コウ</td><td>—</td><td>sekolah</td><td class="jp">{学校|がっこう}</td></tr>
+          <tr><td class="big jp">先</td><td>セン</td><td>さき</td><td>lebih dulu</td><td class="jp">{先生|せんせい}</td></tr>
+          <tr><td class="big jp">生</td><td>セイ・ショウ</td><td>い(きる)・う(まれる)</td><td>hidup, lahir</td><td class="jp">{生|う}まれる</td></tr>
+          <tr><td class="big jp">本</td><td>ホン</td><td>もと</td><td>buku, asal</td><td class="jp">{日本|にほん}</td></tr>
+          <tr><td class="big jp">食</td><td>ショク</td><td>た(べる)</td><td>makan</td><td class="jp">{食|た}べる</td></tr>
+          <tr><td class="big jp">飲</td><td>イン</td><td>の(む)</td><td>minum</td><td class="jp">{飲|の}む</td></tr>
+          <tr><td class="big jp">見</td><td>ケン</td><td>み(る)</td><td>melihat</td><td class="jp">{見|み}る</td></tr>
+          <tr><td class="big jp">行</td><td>コウ・ギョウ</td><td>い(く)</td><td>pergi</td><td class="jp">{行|い}く</td></tr>
+          <tr><td class="big jp">来</td><td>ライ</td><td>く(る)</td><td>datang</td><td class="jp">{来週|らいしゅう}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Kanji N4</h3>
+    <div class="tbl-wrap">
+      <table class="adv-table">
+        <thead><tr><th>Kanji</th><th>On</th><th>Kun</th><th>Arti</th><th>Contoh</th></tr></thead>
+        <tbody>
+          <tr><td class="big jp">教</td><td>キョウ</td><td>おし(える)</td><td>mengajar</td><td class="jp">{教室|きょうしつ}</td></tr>
+          <tr><td class="big jp">習</td><td>シュウ</td><td>なら(う)</td><td>mempelajari</td><td class="jp">{練習|れんしゅう}</td></tr>
+          <tr><td class="big jp">室</td><td>シツ</td><td>—</td><td>ruangan</td><td class="jp">{会議室|かいぎしつ}</td></tr>
+          <tr><td class="big jp">町</td><td>チョウ</td><td>まち</td><td>kota kecil</td><td class="jp">{町|まち}</td></tr>
+          <tr><td class="big jp">家</td><td>カ・ケ</td><td>いえ・うち</td><td>rumah</td><td class="jp">{家族|かぞく}</td></tr>
+          <tr><td class="big jp">屋</td><td>オク</td><td>や</td><td>toko, atap</td><td class="jp">{本屋|ほんや}</td></tr>
+          <tr><td class="big jp">売</td><td>バイ</td><td>う(る)</td><td>menjual</td><td class="jp">{売|う}る</td></tr>
+          <tr><td class="big jp">買</td><td>バイ</td><td>か(う)</td><td>membeli</td><td class="jp">{買|か}い{物|もの}</td></tr>
+          <tr><td class="big jp">持</td><td>ジ</td><td>も(つ)</td><td>membawa, memiliki</td><td class="jp">{持|も}つ</td></tr>
+          <tr><td class="big jp">思</td><td>シ</td><td>おも(う)</td><td>berpikir</td><td class="jp">{思|おも}う</td></tr>
+          <tr><td class="big jp">使</td><td>シ</td><td>つか(う)</td><td>menggunakan</td><td class="jp">{使|つか}う</td></tr>
+          <tr><td class="big jp">作</td><td>サク・サ</td><td>つく(る)</td><td>membuat</td><td class="jp">{作|つく}る</td></tr>
+          <tr><td class="big jp">味</td><td>ミ</td><td>あじ</td><td>rasa</td><td class="jp">{味|あじ}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip"><b>Tips.</b> Kanji yang berdiri sendiri + okurigana umumnya dibaca <b>kun'yomi</b> ({食|た}べる), sedangkan gabungan dua kanji umumnya <b>on'yomi</b> ({学校|がっこう}). Waspadai pengecualian seperti {今日|きょう}, {大人|おとな}, {上手|じょうず}.</div>
+
+    <h3 class="sub">Katakana Kata Serapan (Gairaigo)</h3>
+    <div class="tbl-wrap">
+      <table class="adv-table">
+        <thead><tr><th>Aturan ejaan</th><th>Contoh</th><th>Arti</th></tr></thead>
+        <tbody>
+          <tr><td>Vokal panjang ditulis <b>ー</b></td><td class="jp">コーヒー ・ ノート ・ スーパー</td><td>kopi, buku catatan, supermarket</td></tr>
+          <tr><td>Konsonan rangkap <b>ッ</b> (jeda)</td><td class="jp">サッカー ・ ベッド ・ コップ</td><td>sepak bola, tempat tidur, gelas</td></tr>
+          <tr><td>Huruf kecil <b>ャ ュ ョ</b></td><td class="jp">シャツ ・ ジュース ・ チョコレート</td><td>kemeja, jus, cokelat</td></tr>
+          <tr><td>Bunyi asing <b>ティ ディ ファ フォ ウィ ウェ</b></td><td class="jp">パーティー ・ ファイル ・ フォーク ・ ウェブ</td><td>pesta, berkas, garpu, web</td></tr>
+          <tr><td>Panjang-pendek mengubah arti</td><td class="jp">ビル ≠ ビール</td><td>gedung ≠ bir</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout warn"><b>Mirip tapi beda:</b> <span class="jp">シ</span> vs <span class="jp">ツ</span> (goresan miring vs tegak), <span class="jp">ソ</span> vs <span class="jp">ン</span>, <span class="jp">ク</span> vs <span class="jp">タ</span>, <span class="jp">ウ</span> vs <span class="jp">ワ</span>. Teliti arah goresannya.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 2. GOI ============ -->
+<section class="adv" id="goi">
+  <div class="bg-word pos-right jp">語彙</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 2 · 語彙 GOI</p>
+      <h2>Kosakata: Sinonim, Antonim &amp; Kata yang Tepat</h2>
+      <p>Indikator: menentukan sinonim, antonim, serta penggunaan kata kerja/sifat yang tepat.</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <h3 class="sub">Antonim (対義語)</h3>
+        <div class="tbl-wrap"><table class="adv-table">
+          <thead><tr><th>Kata</th><th>Lawan</th><th>Arti</th></tr></thead>
+          <tbody class="jp">
+            <tr><td>{大|おお}きい</td><td>{小|ちい}さい</td><td>besar ↔ kecil</td></tr>
+            <tr><td>{高|たか}い</td><td>{低|ひく}い / {安|やす}い</td><td>tinggi ↔ rendah / mahal ↔ murah</td></tr>
+            <tr><td>{新|あたら}しい</td><td>{古|ふる}い</td><td>baru ↔ lama</td></tr>
+            <tr><td>{長|なが}い</td><td>{短|みじか}い</td><td>panjang ↔ pendek</td></tr>
+            <tr><td>{多|おお}い</td><td>{少|すく}ない</td><td>banyak ↔ sedikit</td></tr>
+            <tr><td>{暑|あつ}い</td><td>{寒|さむ}い</td><td>panas ↔ dingin (cuaca)</td></tr>
+            <tr><td>{熱|あつ}い</td><td>{冷|つめ}たい</td><td>panas ↔ dingin (benda)</td></tr>
+            <tr><td>{開|あ}ける</td><td>{閉|し}める</td><td>membuka ↔ menutup</td></tr>
+            <tr><td>{入|はい}る</td><td>{出|で}る</td><td>masuk ↔ keluar</td></tr>
+            <tr><td>{買|か}う</td><td>{売|う}る</td><td>membeli ↔ menjual</td></tr>
+            <tr><td>{教|おし}える</td><td>{習|なら}う</td><td>mengajar ↔ belajar</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h3 class="sub">Sinonim (類義語)</h3>
+        <div class="tbl-wrap"><table class="adv-table">
+          <thead><tr><th>Kata</th><th>Mirip dengan</th><th>Catatan</th></tr></thead>
+          <tbody class="jp">
+            <tr><td>すこし</td><td>ちょっと</td><td>sedikit</td></tr>
+            <tr><td>とても</td><td>すごく</td><td>sangat (lebih santai)</td></tr>
+            <tr><td>たくさん</td><td>いっぱい</td><td>banyak</td></tr>
+            <tr><td>{買|か}い{物|もの}</td><td>ショッピング</td><td>belanja</td></tr>
+            <tr><td>きれい</td><td>{美|うつく}しい</td><td>indah (美しい lebih formal)</td></tr>
+            <tr><td>{簡単|かんたん}</td><td>やさしい</td><td>mudah</td></tr>
+            <tr><td>{先生|せんせい}</td><td>{教師|きょうし}</td><td>guru</td></tr>
+            <tr><td>おいしい</td><td>うまい</td><td>enak (うまい kasual)</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <h3 class="sub">Kata Kerja yang Tepat (Kolokasi)</h3>
+    <p class="note-p">Satu arti dalam bahasa Indonesia bisa memakai kata kerja berbeda di Jepang, tergantung bendanya.</p>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Kata kerja</th><th>Dipakai untuk</th><th>Contoh</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>{着|き}る</td><td>pakaian badan atas</td><td>シャツを{着|き}る</td></tr>
+        <tr><td>はく</td><td>celana, rok, sepatu, kaus kaki</td><td>くつをはく</td></tr>
+        <tr><td>かぶる</td><td>topi (kepala)</td><td>{帽子|ぼうし}をかぶる</td></tr>
+        <tr><td>かける</td><td>kacamata</td><td>めがねをかける</td></tr>
+        <tr><td>{乗|の}る</td><td>kendaraan</td><td>{電車|でんしゃ}に{乗|の}る</td></tr>
+        <tr><td>{撮|と}る</td><td>foto</td><td>{写真|しゃしん}を{撮|と}る</td></tr>
+        <tr><td>みがく</td><td>gigi</td><td>{歯|は}をみがく</td></tr>
+        <tr><td>あびる</td><td>shower</td><td>シャワーをあびる</td></tr>
+        <tr><td>ひく</td><td>flu / alat musik petik</td><td>{風邪|かぜ}をひく</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 3. JOSHI ============ -->
+<section class="adv" id="joshi">
+  <div class="bg-word pos-left jp">助詞</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 3 · 助詞 JOSHI</p>
+      <h2>Partikel</h2>
+      <p>Indikator: mengidentifikasi penggunaan partikel wa, ga, o, ni, de, e, to, kara, made.</p>
+    </div>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Partikel</th><th>Fungsi</th><th>Contoh</th></tr></thead>
+      <tbody>
+        <tr><td class="big jp">は <small>(wa)</small></td><td>penanda topik</td><td class="jp">{私|わたし}は{学生|がくせい}です。<em>Saya pelajar.</em></td></tr>
+        <tr><td class="big jp">が</td><td>subjek baru/ditekankan; objek dengan あります・{好|す}き・できる・わかる</td><td class="jp">{猫|ねこ}がいます。 / {日本語|にほんご}がわかります。<em>Ada kucing. / Saya paham bahasa Jepang.</em></td></tr>
+        <tr><td class="big jp">を <small>(o)</small></td><td>objek langsung</td><td class="jp">パンを{食|た}べます。<em>Makan roti.</em></td></tr>
+        <tr><td class="big jp">に</td><td>waktu pasti, tujuan, lokasi keberadaan, penerima</td><td class="jp">７{時|じ}に{起|お}きます。 / {友|とも}だちにあげます。<em>Bangun jam 7. / Memberi pada teman.</em></td></tr>
+        <tr><td class="big jp">で</td><td>tempat kegiatan, alat/cara, bahan</td><td class="jp">{学校|がっこう}で{勉強|べんきょう}します。 / バスで{行|い}きます。<em>Belajar di sekolah. / Pergi naik bus.</em></td></tr>
+        <tr><td class="big jp">へ <small>(e)</small></td><td>arah tujuan (dengan kata kerja gerak)</td><td class="jp">{日本|にほん}へ{行|い}きます。<em>Pergi ke Jepang.</em></td></tr>
+        <tr><td class="big jp">と</td><td>"dan" (benda) / "bersama"</td><td class="jp">{友|とも}だちと{映画|えいが}を{見|み}ます。<em>Menonton film bersama teman.</em></td></tr>
+        <tr><td class="big jp">から</td><td>titik awal (waktu/tempat), asal</td><td class="jp">９{時|じ}から{始|はじ}まります。<em>Mulai dari jam 9.</em></td></tr>
+        <tr><td class="big jp">まで</td><td>batas akhir (waktu/tempat)</td><td class="jp">５{時|じ}まで{働|はたら}きます。<em>Bekerja sampai jam 5.</em></td></tr>
+      </tbody>
+    </table></div>
+    <div class="two-col">
+      <div class="callout tip"><b>に vs で.</b> <span class="jp">{教室|きょうしつ}にいます</span> (keberadaan → に) tetapi <span class="jp">{教室|きょうしつ}で{食|た}べます</span> (tindakan → で).</div>
+      <div class="callout tip"><b>に vs へ.</b> Untuk arah tujuan dengan <span class="jp">{行|い}く・{来|く}る・{帰|かえ}る</span>, に dan へ sama-sama benar. Dibaca <b>e</b>, bukan <b>he</b>.</div>
+      <div class="callout tip"><b>は vs が.</b> は = "kalau soal X…" (informasi lama), が = "X-lah yang…" (informasi baru). <span class="jp">{誰|だれ}が{来|き}ましたか。</span></div>
+      <div class="callout warn"><b>Ejaan.</b> は dibaca <b>wa</b>, を dibaca <b>o</b>, dan hanya dipakai sebagai partikel.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 4. BUNPOU ============ -->
+<section class="adv" id="bunpou">
+  <div class="bg-word pos-right jp">文法</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 4 · 文法 BUNPOU</p>
+      <h2>Konjugasi Kata Kerja &amp; Kata Sifat</h2>
+      <p>Indikator: mengubah kata kerja ke bentuk Masu, Te, Nai, Ta, serta kata sifat i dan na.</p>
+    </div>
+
+    <h3 class="sub">Tiga Golongan Kata Kerja</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Golongan</th><th>Ciri</th><th>Contoh</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>Gol. I (五段 <i>godan</i>)</td><td>berakhir -u selain pola gol. II</td><td>{書|か}く・{読|よ}む・{話|はな}す・{買|か}う</td></tr>
+        <tr><td>Gol. II (一段 <i>ichidan</i>)</td><td>berakhir -iru / -eru (hapus る)</td><td>{食|た}べる・{見|み}る・{起|お}きる</td></tr>
+        <tr><td>Gol. III (不規則)</td><td>tak beraturan</td><td>する・{来|く}る</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn"><b>Jebakan:</b> beberapa kata berakhiran -iru/-eru justru Gol. I: <span class="jp">{帰|かえ}る・{入|はい}る・{走|はし}る・{切|き}る・{知|し}る</span>.</div>
+
+    <h3 class="sub">Aturan Bentuk Te / Ta</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Akhiran kamus</th><th>Bentuk Te</th><th>Bentuk Ta</th><th>Contoh</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>う ・ つ ・ る</td><td>って</td><td>った</td><td>{買|か}う→{買|か}って / {待|ま}つ→{待|ま}って / {帰|かえ}る→{帰|かえ}って</td></tr>
+        <tr><td>む ・ ぶ ・ ぬ</td><td>んで</td><td>んだ</td><td>{読|よ}む→{読|よ}んで / {遊|あそ}ぶ→{遊|あそ}んで</td></tr>
+        <tr><td>く</td><td>いて</td><td>いた</td><td>{書|か}く→{書|か}いて <b>(pengecualian: {行|い}く→{行|い}って)</b></td></tr>
+        <tr><td>ぐ</td><td>いで</td><td>いだ</td><td>{泳|およ}ぐ→{泳|およ}いで</td></tr>
+        <tr><td>す</td><td>して</td><td>した</td><td>{話|はな}す→{話|はな}して</td></tr>
+        <tr><td>Gol. II: hapus る</td><td>+て</td><td>+た</td><td>{食|た}べる→{食|た}べて</td></tr>
+        <tr><td>Gol. III</td><td>して / {来|き}て</td><td>した / {来|き}た</td><td>する・{来|く}る</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="sub">Tabel Konjugasi Kata Kerja</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Kamus</th><th>Masu</th><th>Te</th><th>Nai</th><th>Ta</th><th>Arti</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>{書|か}く</td><td>{書|か}きます</td><td>{書|か}いて</td><td>{書|か}かない</td><td>{書|か}いた</td><td>menulis</td></tr>
+        <tr><td>{行|い}く</td><td>{行|い}きます</td><td>{行|い}って</td><td>{行|い}かない</td><td>{行|い}った</td><td>pergi</td></tr>
+        <tr><td>{泳|およ}ぐ</td><td>{泳|およ}ぎます</td><td>{泳|およ}いで</td><td>{泳|およ}がない</td><td>{泳|およ}いだ</td><td>berenang</td></tr>
+        <tr><td>{話|はな}す</td><td>{話|はな}します</td><td>{話|はな}して</td><td>{話|はな}さない</td><td>{話|はな}した</td><td>berbicara</td></tr>
+        <tr><td>{待|ま}つ</td><td>{待|ま}ちます</td><td>{待|ま}って</td><td>{待|ま}たない</td><td>{待|ま}った</td><td>menunggu</td></tr>
+        <tr><td>{読|よ}む</td><td>{読|よ}みます</td><td>{読|よ}んで</td><td>{読|よ}まない</td><td>{読|よ}んだ</td><td>membaca</td></tr>
+        <tr><td>{遊|あそ}ぶ</td><td>{遊|あそ}びます</td><td>{遊|あそ}んで</td><td>{遊|あそ}ばない</td><td>{遊|あそ}んだ</td><td>bermain</td></tr>
+        <tr><td>{買|か}う</td><td>{買|か}います</td><td>{買|か}って</td><td>{買|か}わない</td><td>{買|か}った</td><td>membeli</td></tr>
+        <tr><td>{帰|かえ}る</td><td>{帰|かえ}ります</td><td>{帰|かえ}って</td><td>{帰|かえ}らない</td><td>{帰|かえ}った</td><td>pulang</td></tr>
+        <tr><td>{食|た}べる</td><td>{食|た}べます</td><td>{食|た}べて</td><td>{食|た}べない</td><td>{食|た}べた</td><td>makan</td></tr>
+        <tr><td>{起|お}きる</td><td>{起|お}きます</td><td>{起|お}きて</td><td>{起|お}きない</td><td>{起|お}きた</td><td>bangun</td></tr>
+        <tr><td>する</td><td>します</td><td>して</td><td>しない</td><td>した</td><td>melakukan</td></tr>
+        <tr><td>{来|く}る</td><td>{来|き}ます</td><td>{来|き}て</td><td>{来|こ}ない</td><td>{来|き}た</td><td>datang</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><b>Bentuk Nai:</b> Gol. I ubah vokal akhir ke <b>-a</b> + ない (<span class="jp">{買|か}う→{買|か}<b>わ</b>ない</span>, u jadi <b>wa</b>). Gol. II hapus る + ない.</div>
+
+    <h3 class="sub">Kata Sifat-i &amp; Kata Sifat-na</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Bentuk</th><th>Sifat-i (<span class="jp">{高|たか}い</span>)</th><th>Sifat-na (<span class="jp">{静|しず}か</span>)</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>Sekarang (+)</td><td>{高|たか}い(です)</td><td>{静|しず}か(だ / です)</td></tr>
+        <tr><td>Sekarang (−)</td><td>{高|たか}<b>くない</b>(です)</td><td>{静|しず}か<b>じゃない</b> / ではありません</td></tr>
+        <tr><td>Lampau (+)</td><td>{高|たか}<b>かった</b>(です)</td><td>{静|しず}か<b>だった</b> / でした</td></tr>
+        <tr><td>Lampau (−)</td><td>{高|たか}<b>くなかった</b></td><td>{静|しず}か<b>じゃなかった</b></td></tr>
+        <tr><td>Penghubung (Te)</td><td>{高|たか}<b>くて</b></td><td>{静|しず}か<b>で</b></td></tr>
+        <tr><td>Menerangkan benda</td><td>{高|たか}い{山|やま}</td><td>{静|しず}か<b>な</b>{町|まち}</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn"><b>Pengecualian:</b> <span class="jp">いい</span> (bagus) → <span class="jp"><b>よ</b>くない・<b>よ</b>かった・<b>よ</b>くて</span>. Sifat-na berakhiran "i" seperti <span class="jp">きれい・{有名|ゆうめい}</span> tetap sifat-na (<span class="jp">きれいじゃない</span>).</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 5. EKSPRESI ============ -->
+<section class="adv" id="ekspresi">
+  <div class="bg-word pos-left jp">表現</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 5 · 表現 EKSPRESI FUNGSI BAHASA</p>
+      <h2>Keinginan, Izin, Larangan &amp; Dugaan</h2>
+      <p>Indikator: menentukan ungkapan ~tai, ~te mo ii, ~te wa ikenai, dan ~deshou.</p>
+    </div>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Pola</th><th>Rumus</th><th>Contoh</th></tr></thead>
+      <tbody>
+        <tr><td><b class="jp">~たい</b><br>ingin melakukan</td><td class="jp">Verba bentuk masu (tanpa ます) + たい</td><td class="jp">{日本|にほん}へ{行|い}きたいです。<em>Saya ingin pergi ke Jepang.</em><br>{肉|にく}は{食|た}べたくないです。<em>Saya tidak ingin makan daging.</em></td></tr>
+        <tr><td><b class="jp">~てもいい</b><br>boleh</td><td class="jp">Verba bentuk Te + もいいです</td><td class="jp">ここで{写真|しゃしん}を{撮|と}ってもいいですか。<em>Bolehkah memotret di sini?</em><br>はい、いいですよ。 / すみません、ちょっと…。</td></tr>
+        <tr><td><b class="jp">~てはいけない</b><br>dilarang</td><td class="jp">Verba bentuk Te + はいけません</td><td class="jp">ここで{食|た}べてはいけません。<em>Dilarang makan di sini.</em></td></tr>
+        <tr><td><b class="jp">~ないでください</b><br>tolong jangan</td><td class="jp">Verba bentuk Nai + でください</td><td class="jp">{走|はし}らないでください。<em>Tolong jangan berlari.</em></td></tr>
+        <tr><td><b class="jp">~でしょう</b><br>mungkin / kan?</td><td class="jp">Bentuk biasa + でしょう</td><td class="jp">{明日|あした}は{雨|あめ}でしょう。<em>Besok mungkin hujan.</em><br>{試験|しけん}は{難|むずか}しいでしょう？<em>Ujiannya sulit, kan? (↗ naik nada = konfirmasi)</em></td></tr>
+      </tbody>
+    </table></div>
+    <div class="two-col">
+      <div class="callout tip"><b>~たい</b> berlaku seperti sifat-i: <span class="jp">{食|た}べたい → {食|た}べたくない → {食|た}べたかった</span>. Objek boleh <span class="jp">を</span> atau <span class="jp">が</span>: <span class="jp">{水|みず}が{飲|の}みたい</span>.</div>
+      <div class="callout warn"><b>Penting:</b> ~たい hanya untuk keinginan orang pertama/pertanyaan ke lawan bicara. Untuk orang ketiga pakai <span class="jp">~たがっている</span>.</div>
+      <div class="callout tip"><b>Izin ↔ larangan:</b> pertanyaan <span class="jp">~てもいいですか</span> dijawab <span class="jp">はい、いいです</span> (boleh) atau <span class="jp">いいえ、いけません</span> (tidak boleh).</div>
+      <div class="callout tip"><b>Meminta:</b> <span class="jp">~てください</span> = tolong lakukan. <span class="jp">{窓|まど}を{開|あ}けてください。</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 6. DOKKAI ============ -->
+<section class="adv" id="dokkai">
+  <div class="bg-word pos-right jp">読解</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 6 · 読解 DOKKAI</p>
+      <h2>Membaca Teks Pendek &amp; Dialog</h2>
+      <p>Indikator: menentukan ide utama dan menjawab pertanyaan berdasarkan teks bacaan.</p>
+    </div>
+    <div class="callout tip">
+      <b>Strategi 4 langkah</b>
+      <ol class="steps">
+        <li>Baca <b>pertanyaan lebih dulu</b>, agar tahu apa yang dicari (siapa, kapan, di mana, mengapa).</li>
+        <li>Baca teks, tandai <b>kata tanya</b> terkait: <span class="jp">いつ・どこ・{何|なに}・だれ・どうして</span>.</li>
+        <li>Perhatikan <b>kata penghubung</b> (<span class="jp">でも・だから・それから</span>): jawaban sering ada setelahnya.</li>
+        <li>Cocokkan dengan teks, bukan dengan tebakan. Jangan terkecoh pilihan yang mirip tapi bukan yang ditanyakan.</li>
+      </ol>
+    </div>
+
+    <div class="two-col">
+      <article class="read-card">
+        <p class="tag">TEKS 1 · BACAAN PENDEK</p>
+        <p class="jp read">{私|わたし}は{毎朝|まいあさ}６{時|じ}に{起|お}きます。{朝|あさ}ごはんを{食|た}べてから、{電車|でんしゃ}で{学校|がっこう}へ{行|い}きます。{学校|がっこう}は８{時|じ}に{始|はじ}まります。{昼|ひる}は{友|とも}だちと{食堂|しょくどう}でごはんを{食|た}べます。{放課後|ほうかご}は{日本語|にほんご}クラブに{行|い}きます。</p>
+        <ol class="qa jp">
+          <li>{何時|なんじ}に{起|お}きますか。</li>
+          <li>どうやって{学校|がっこう}へ{行|い}きますか。</li>
+          <li>{放課後|ほうかご}、{何|なに}をしますか。</li>
+        </ol>
+        <details><summary>Jawaban &amp; terjemahan</summary>
+          <p><b>1)</b> <span class="jp">６{時|じ}</span> (jam 6) · <b>2)</b> <span class="jp">{電車|でんしゃ}</span> (naik kereta) · <b>3)</b> pergi ke klub bahasa Jepang.</p>
+          <p class="tr">Setiap pagi saya bangun jam 6. Setelah sarapan, saya ke sekolah naik kereta. Sekolah mulai jam 8. Siang makan bersama teman di kantin. Sepulang sekolah saya pergi ke klub bahasa Jepang.</p>
+        </details>
+      </article>
+      <article class="read-card">
+        <p class="tag">TEKS 2 · DIALOG</p>
+        <p class="jp read">A：{明日|あした}、いっしょに{映画|えいが}を{見|み}ませんか。<br>B：すみません、{明日|あした}はアルバイトがあります。<br>A：そうですか。じゃあ、あさってはどうですか。<br>B：あさってなら{大丈夫|だいじょうぶ}です。</p>
+        <ol class="qa jp">
+          <li>Bさんはどうして{明日|あした}{行|い}けませんか。</li>
+          <li>二人はいつ{映画|えいが}を{見|み}ますか。</li>
+        </ol>
+        <details><summary>Jawaban &amp; terjemahan</summary>
+          <p><b>1)</b> Karena ada kerja paruh waktu (<span class="jp">アルバイト</span>). · <b>2)</b> <span class="jp">あさって</span> (lusa).</p>
+          <p class="tr">A: Besok nonton film bareng, yuk? B: Maaf, besok saya ada kerja sambilan. A: Begitu ya. Kalau lusa? B: Kalau lusa bisa.</p>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 7. AISATSU ============ -->
+<section class="adv" id="aisatsu">
+  <div class="bg-word pos-left jp">挨拶</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 7 · 挨拶 AISATSU &amp; 会話 KAIWA</p>
+      <h2>Salam, Maaf &amp; Terima Kasih</h2>
+      <p>Indikator: menentukan respon ucapan salam, permohonan maaf, dan ungkapan terima kasih.</p>
+    </div>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Situasi</th><th>Ucapan</th><th>Respon yang tepat</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>Pagi / siang / malam</td><td>おはようございます / こんにちは / こんばんは</td><td>Ucapan yang sama dibalas sama</td></tr>
+        <tr><td>Berkenalan</td><td>はじめまして。〜です。</td><td>こちらこそ、どうぞよろしくお{願|ねが}いします。</td></tr>
+        <tr><td>Terima kasih</td><td>ありがとうございます</td><td>どういたしまして</td></tr>
+        <tr><td>Minta maaf</td><td>すみません / ごめんなさい</td><td>いいえ、{大丈夫|だいじょうぶ}です / いいですよ</td></tr>
+        <tr><td>Berangkat</td><td>いってきます</td><td>いってらっしゃい</td></tr>
+        <tr><td>Pulang ke rumah</td><td>ただいま</td><td>おかえりなさい</td></tr>
+        <tr><td>Sebelum / sesudah makan</td><td>いただきます / ごちそうさまでした</td><td>(sesudah makan) おそまつさまでした</td></tr>
+        <tr><td>Bertamu</td><td>ごめんください / おじゃまします</td><td>いらっしゃい。どうぞ{上|あ}がってください</td></tr>
+        <tr><td>Pamit lebih dulu (kerja)</td><td>おさきに{失礼|しつれい}します</td><td>おつかれさまでした</td></tr>
+        <tr><td>Sakit / sedih</td><td>お{大事|だいじ}に</td><td>ありがとうございます</td></tr>
+        <tr><td>Selamat</td><td>おめでとうございます</td><td>ありがとうございます</td></tr>
+        <tr><td>Perpisahan</td><td>さようなら / また{明日|あした}</td><td>さようなら / また{明日|あした}</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><b>Perbedaan すみません.</b> Bisa berarti <b>maaf</b>, <b>permisi</b> (memanggil pelayan), atau <b>terima kasih yang merasa merepotkan</b> (<span class="jp">すみません、ありがとうございます</span>). <span class="jp">ごめんなさい</span> khusus untuk meminta maaf, lebih akrab.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 8. KONJUNGSI ============ -->
+<section class="adv" id="konjungsi">
+  <div class="bg-word pos-right jp">接続</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 8 · 接続詞 KONJUNGSI &amp; KETERANGAN</p>
+      <h2>Kata Sambung &amp; Keterangan Waktu</h2>
+      <p>Indikator: menggunakan kata sambung kara, node, kedo, serta kata keterangan waktu.</p>
+    </div>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Kata sambung</th><th>Makna</th><th>Pola &amp; contoh</th></tr></thead>
+      <tbody class="jp">
+        <tr><td><b>から</b></td><td>karena (alasan, subjektif)</td><td>Kalimat biasa + から。<br>{雨|あめ}だから、{行|い}きません。</td></tr>
+        <tr><td><b>ので</b></td><td>karena (objektif, lebih sopan)</td><td>Kalimat biasa + ので (な-adj/benda: <b>なので</b>)。<br>{用事|ようじ}があるので、{帰|かえ}ります。 / {暇|ひま}なので、{行|い}きます。</td></tr>
+        <tr><td><b>けど / が</b></td><td>tetapi (kontras)</td><td>{高|たか}いけど、{買|か}います。(が lebih formal)</td></tr>
+        <tr><td>でも / しかし</td><td>tetapi (awal kalimat)</td><td>でも、{行|い}きたいです。</td></tr>
+        <tr><td>だから / それで</td><td>karena itu</td><td>{病気|びょうき}でした。だから、{休|やす}みました。</td></tr>
+        <tr><td>そして / それから</td><td>dan, kemudian</td><td>{朝|あさ}{起|お}きて、それから{顔|かお}を{洗|あら}います。</td></tr>
+        <tr><td>〜てから / 〜まえに / 〜あとで</td><td>setelah / sebelum / sesudah</td><td>{食|た}べてから{寝|ね}ます。 / {寝|ね}る{前|まえ}に{歯|は}をみがきます。</td></tr>
+        <tr><td>〜とき / 〜ながら</td><td>ketika / sambil</td><td>{暇|ひま}なとき、{本|ほん}を{読|よ}みます。 / {音楽|おんがく}を{聞|き}きながら{勉強|べんきょう}します。</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn"><b>から vs ので.</b> Setelah <b>から</b> boleh perintah/ajakan (<span class="jp">{寒|さむ}いから、{入|はい}ってください</span>). Setelah <b>ので</b> kurang wajar. Susunannya: <b>[alasan] から/ので、[akibat]</b>; kalau dibalik, <span class="jp">〜です。<b>から</b>、〜</span> menjadi "karena..." di akhir kalimat.</div>
+
+    <h3 class="sub">Kata Keterangan Waktu &amp; Frekuensi</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Kata</th><th>Arti</th><th>Contoh</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>いつも</td><td>selalu (±100%)</td><td>いつもバスで{行|い}きます。</td></tr>
+        <tr><td>よく</td><td>sering</td><td>よく{映画|えいが}を{見|み}ます。</td></tr>
+        <tr><td>ときどき</td><td>kadang-kadang</td><td>ときどき{走|はし}ります。</td></tr>
+        <tr><td>たまに</td><td>jarang-jarang</td><td>たまに{外食|がいしょく}します。</td></tr>
+        <tr><td>あまり 〜ない</td><td>tidak begitu</td><td>あまり{食|た}べません。</td></tr>
+        <tr><td>ぜんぜん 〜ない</td><td>sama sekali tidak</td><td>ぜんぜんわかりません。</td></tr>
+        <tr><td>もう 〜ました / まだ 〜ていません</td><td>sudah / belum</td><td>もう{食|た}べました。 / まだ{食|た}べていません。</td></tr>
+        <tr><td>すぐ・もうすぐ・さっき</td><td>segera / sebentar lagi / tadi</td><td>すぐ{行|い}きます。 / さっき{来|き}ました。</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ 9. TEINEIGO ============ -->
+<section class="adv" id="teineigo">
+  <div class="bg-word pos-left jp">敬語</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">MATERI 9 · 丁寧語 TEINEIGO</p>
+      <h2>Ragam Biasa (Futsukei) vs Sopan (Teineigo)</h2>
+      <p>Indikator: membedakan penggunaan ragam bahasa biasa dan sopan.</p>
+    </div>
+    <p class="note-p"><b>Futsukei (普通形)</b> dipakai pada teman sebaya, keluarga, dan di dalam kalimat majemuk. <b>Teineigo (丁寧語)</b> dengan <span class="jp">です・ます</span> dipakai kepada guru, orang yang baru dikenal, dan situasi formal.</p>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Jenis</th><th>Futsukei (biasa)</th><th>Teineigo (sopan)</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>Kerja (+)</td><td>{食|た}べる</td><td>{食|た}べます</td></tr>
+        <tr><td>Kerja (−)</td><td>{食|た}べない</td><td>{食|た}べません</td></tr>
+        <tr><td>Kerja lampau (+)</td><td>{食|た}べた</td><td>{食|た}べました</td></tr>
+        <tr><td>Kerja lampau (−)</td><td>{食|た}べなかった</td><td>{食|た}べませんでした</td></tr>
+        <tr><td>Benda (+)</td><td>{学生|がくせい}だ</td><td>{学生|がくせい}です</td></tr>
+        <tr><td>Benda (−)</td><td>{学生|がくせい}じゃない</td><td>{学生|がくせい}ではありません</td></tr>
+        <tr><td>Sifat-i</td><td>{高|たか}い / {高|たか}くない</td><td>{高|たか}いです / {高|たか}くないです</td></tr>
+        <tr><td>Sifat-na</td><td>{静|しず}かだ / {静|しず}かじゃない</td><td>{静|しず}かです / {静|しず}かではありません</td></tr>
+        <tr><td>Ada / Berada</td><td>ある・いる</td><td>あります・います</td></tr>
+      </tbody>
+    </table></div>
+    <h3 class="sub">Padanan Kata Sehari-hari</h3>
+    <div class="tbl-wrap"><table class="adv-table">
+      <thead><tr><th>Biasa / akrab</th><th>Sopan</th><th>Arti</th></tr></thead>
+      <tbody class="jp">
+        <tr><td>うん / ううん</td><td>はい / いいえ</td><td>ya / tidak</td></tr>
+        <tr><td>ごめん</td><td>すみません / {申|もう}し{訳|わけ}ありません</td><td>maaf</td></tr>
+        <tr><td>ありがとう</td><td>ありがとうございます</td><td>terima kasih</td></tr>
+        <tr><td>{誰|だれ} / どう</td><td>どなた / いかが</td><td>siapa / bagaimana</td></tr>
+        <tr><td>{行|い}こう！</td><td>{行|い}きましょう。</td><td>ayo pergi</td></tr>
+        <tr><td>{見|み}て</td><td>{見|み}てください</td><td>lihat / tolong lihat</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout tip"><b>Aturan praktis.</b> Satu kalimat/percakapan menggunakan satu ragam secara konsisten. Dalam kalimat majemuk, bagian dalam memakai bentuk biasa dan <b>penutup</b> yang menentukan kesopanan: <span class="jp">{雨|あめ}が{降|ふ}ったので、{行|い}きませんでした。</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============ LATIHAN ============ -->
+<section class="adv" id="latihan">
+  <div class="bg-word pos-right jp">練習</div>
+  <div class="wrap rel">
+    <div class="section-head">
+      <p class="tag">LATIHAN CEPAT</p>
+      <h2>Uji Pemahamanmu</h2>
+      <p>Satu soal mewakili tiap materi. Coba jawab dulu sebelum membuka kunci.</p>
+    </div>
+    <div class="quiz-list">
+      <details><summary class="jp">1. {毎日|まいにち}バス（　）{学校|がっこう}へ{行|い}きます。 <small>(Partikel)</small></summary><p>Jawaban: <b class="jp">で</b> (alat/cara transportasi).</p></details>
+      <details><summary>2. Lawan kata <span class="jp">{売|う}る</span> adalah… <small>(Goi)</small></summary><p>Jawaban: <b class="jp">{買|か}う</b> (membeli).</p></details>
+      <details><summary>3. Bentuk Te dari <span class="jp">{読|よ}む</span>, bentuk Nai dari <span class="jp">{買|か}う</span>, dan bentuk Ta dari <span class="jp">{書|か}く</span>? <small>(Bunpou)</small></summary><p>Jawaban: <b class="jp">{読|よ}んで ・ {買|か}わない ・ {書|か}いた</b>.</p></details>
+      <details><summary class="jp">4. ここで{写真|しゃしん}を{撮|と}っても（　）ですか。 <small>(Ekspresi)</small></summary><p>Jawaban: <b class="jp">いい</b> (meminta izin: ~てもいいですか).</p></details>
+      <details><summary>5. Bacaan: <span class="jp">{日本語|にほんご}クラブに{行|い}きます</span> terjadi kapan pada Teks 1? <small>(Dokkai)</small></summary><p>Jawaban: <b>sepulang sekolah</b> (<span class="jp">{放課後|ほうかご}</span>).</p></details>
+      <details><summary>6. Respon yang tepat untuk <span class="jp">ありがとうございます</span>? <small>(Aisatsu)</small></summary><p>Jawaban: <b class="jp">どういたしまして</b>.</p></details>
+      <details><summary class="jp">7. {雨|あめ}が{降|ふ}っています（　）、うちにいます。 <small>(Konjungsi)</small></summary><p>Jawaban: <b class="jp">から / ので</b> (alasan).</p></details>
+      <details><summary>8. Bentuk sopan lampau negatif dari <span class="jp">{行|い}かなかった</span>? <small>(Teineigo)</small></summary><p>Jawaban: <b class="jp">{行|い}きませんでした</b>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER — sama di semua halaman ============ -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="brand-logo on-dark" src="assets/logo-putih.png" alt="TENGOKU" style="margin-bottom:1rem;">
+      <p>Website Materi Klub/Ekstrakurikuler Bahasa Jepang SMAN 15 Surabaya. Dikelola sepenuhnya oleh kepengurusan klub, tanpa campur tangan pihak sekolah.</p>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">HALAMAN</div>
+      <a href="https://tengokulibels.github.io">Beranda</a>
+      <a href="https://tengokulibels.github.io/tentang">Tentang</a>
+      <a href="https://tengokulibels.github.io/reguler">Kelas Reguler</a>
+      <a href="https://tengokulibels.github.io/advance">Kelas Advance</a>
+      <a href="https://tengokulibels.github.io/kurikulum">Kurikulum</a>
+      <a href="https://tengokulibels.github.io/hajime">e-Learning</a>
+      <a href="https://tengokulibels.github.io/kanji">Kamus Kanji</a>
+      <a href="https://tengokulibels.github.io/cbt">Tengoku-CBT</a>
+    </div>
+    <div class="footer-col">
+      <div class="lbl">SOSIAL MEDIA</div>
+      <a href="https://www.instagram.com/tengoku_libels"><i class="fa fa-instagram"></i> @tengoku_libels</a>
+      <a href="https://www.tiktok.com/@tengoku_libels"><i class="fa-brands fa-tiktok"></i> @tengoku_libels</a>
+      <a href="https://www.youtube.com/@tengoku_libels"><i class="fa-brands fa-square-youtube"></i> @tengoku_libels</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2025 - 2026 Tengoku</span>
+    <span>Kabinet Mirai</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/materi-advance.js"></script>
+</body>
+</html>
